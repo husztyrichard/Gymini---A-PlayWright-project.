@@ -185,21 +185,6 @@ input:focus, select:focus, textarea:focus { border-color: #a3ff12; box-shadow: 0
 .testCard p { color: #cbd5e1; font-size: 14px; line-height: 1.6; margin: 0 0 16px; }
 .testActions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
 .testActions .primaryButton, .testActions .secondaryButton { font-size: 13px; padding: 12px 18px; }
-.testNote { color: #64748b; font-size: 13px; font-style: italic; margin: 0; }
-.testResults { margin-top: 8px; }
-.testSummary { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
-.testStat { font-weight: 800; font-size: 14px; color: #f8fafc; }
-.testStat.pass { color: #4ade80; }
-.testStat.fail { color: #f87171; }
-.testStat.muted { color: #64748b; font-weight: 400; font-size: 12px; }
-.testAssertionList { max-height: 300px; overflow-y: auto; border: 1px solid rgba(148,163,184,.12); border-radius: 14px; padding: 8px; }
-.testAssertion { display: flex; align-items: baseline; gap: 8px; padding: 6px 10px; border-radius: 8px; font-size: 13px; color: #cbd5e1; }
-.testAssertion.pass { background: rgba(74,222,128,.05); }
-.testAssertion.fail { background: rgba(248,113,113,.08); }
-.testIcon { font-weight: 900; flex-shrink: 0; }
-.testAssertion.pass .testIcon { color: #4ade80; }
-.testAssertion.fail .testIcon { color: #f87171; }
-.testError { color: #f87171; font-size: 12px; margin-left: auto; }
 
 @media (max-width: 900px) {
   .heroGrid, .plannerGrid, .testGrid { grid-template-columns: 1fr; }

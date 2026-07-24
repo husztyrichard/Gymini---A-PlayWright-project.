@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
 
@@ -139,9 +139,6 @@ function App() {
   const [selectedExercise, setSelectedExercise] = useState(null);
   const [exercisesLoading, setExercisesLoading] = useState(true);
   const [showExample, setShowExample] = useState(false);
-  const [apiTestResults, setApiTestResults] = useState(null);
-  const [apiTestRunning, setApiTestRunning] = useState(false);
-  const [apiTestError, setApiTestError] = useState('');
 
   useEffect(() => {
     fetch(EXERCISES_API)
@@ -200,32 +197,6 @@ function App() {
     if (!exercises.length) return null;
     return buildRealPlan(exercises, { ...initialForm, daysPerWeek: '4', goal: 'build-muscle', equipment: 'gym' });
   }, [exercises]);
-
-  async function runApiTests() {
-    setApiTestRunning(true);
-    setApiTestError('');
-    setApiTestResults(null);
-    try {
-      const res = await fetch('http://localhost:4000/api/run-api-tests', { method: 'POST' });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message || 'Tests failed');
-      setApiTestResults(data.results);
-    } catch (err) {
-      setApiTestError(err.message || 'Could not run tests. Is the backend running?');
-    } finally {
-      setApiTestRunning(false);
-    }
-  }
-
-  async function loadTestResults() {
-    try {
-      const res = await fetch('http://localhost:4000/api/test-results');
-      const data = await res.json();
-      if (data.api) setApiTestResults(data.api);
-    } catch (err) { /* ignore */ }
-  }
-
-  useEffect(() => { loadTestResults(); }, []);
 
   return (
     <main>
@@ -405,34 +376,8 @@ function App() {
             </div>
             <p>8 requests, 32 assertions covering health check, plan generation, validation and edge cases.</p>
             <div className="testActions">
-              <button className="primaryButton" onClick={runApiTests} disabled={apiTestRunning}>
-                {apiTestRunning ? 'Running...' : 'Run API Tests'}
-              </button>
               <a href="http://localhost:4000/reports/api-report.html" target="_blank" rel="noreferrer" className="secondaryButton">View HTML Report</a>
             </div>
-            {apiTestError && <p className="error">{apiTestError}</p>}
-            {apiTestResults && (
-              <div className="testResults">
-                <div className="testSummary">
-                  <span className={`testStat ${apiTestResults.failed === 0 ? 'pass' : 'fail'}`}>
-                    {apiTestResults.failed === 0 ? 'All Passed' : `${apiTestResults.failed} Failed`}
-                  </span>
-                  <span className="testStat">{apiTestResults.total} assertions</span>
-                  <span className="testStat muted">{new Date(apiTestResults.runAt).toLocaleString()}</span>
-                </div>
-                {apiTestResults.assertions?.length > 0 && (
-                  <div className="testAssertionList">
-                    {apiTestResults.assertions.map((a, i) => (
-                      <div className={`testAssertion ${a.passed ? 'pass' : 'fail'}`} key={i}>
-                        <span className="testIcon">{a.passed ? '\u2713' : '\u2717'}</span>
-                        <span>{a.name}</span>
-                        {a.error && <span className="testError">{a.error}</span>}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
           </div>
 
           <div className="testCard">
@@ -444,7 +389,6 @@ function App() {
             <div className="testActions">
               <a href="http://localhost:4000/reports/playwright-report/index.html" target="_blank" rel="noreferrer" className="secondaryButton">View HTML Report</a>
             </div>
-            <p className="testNote">Playwright tests run from the CLI or CI pipeline. Reports are served here when available.</p>
           </div>
         </div>
       </section>
