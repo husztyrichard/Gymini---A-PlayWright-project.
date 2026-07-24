@@ -1,0 +1,210 @@
+{
+  "info": {
+    "name": "Gymini API Tests",
+    "description": "API tests for the Gymini backend endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:4000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
+              "pm.test('Response has status OK', () => { const data = pm.response.json(); pm.expect(data.status).to.eql('OK'); });",
+              "pm.test('Response has service name', () => { const data = pm.response.json(); pm.expect(data.service).to.eql('Gymini API'); });",
+              "pm.test('Response time is acceptable', () => { pm.expect(pm.response.responseTime).to.be.below(1000); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/api/health", "host": ["{{baseUrl}}"], "path": ["api", "health"] }
+      }
+    },
+    {
+      "name": "Generate Plan - Valid Request",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
+              "pm.test('Response has mode field', () => { const data = pm.response.json(); pm.expect(data).to.have.property('mode'); });",
+              "pm.test('Mode is mock-ai', () => { const data = pm.response.json(); pm.expect(data.mode).to.eql('mock-ai'); });",
+              "pm.test('Response has headline', () => { const data = pm.response.json(); pm.expect(data).to.have.property('headline'); });",
+              "pm.test('Response has weeklyPlan array', () => { const data = pm.response.json(); pm.expect(data.weeklyPlan).to.be.an('array'); });",
+              "pm.test('Plan has correct number of days', () => { const data = pm.response.json(); pm.expect(data.weeklyPlan).to.have.length(4); });",
+              "pm.test('Each day has exercises', () => { const data = pm.response.json(); data.weeklyPlan.forEach(day => { pm.expect(day.exercises).to.be.an('array'); pm.expect(day.exercises.length).to.be.above(0); }); });",
+              "pm.test('Response has progression advice', () => { const data = pm.response.json(); pm.expect(data).to.have.property('progression'); });",
+              "pm.test('Response has safety note', () => { const data = pm.response.json(); pm.expect(data).to.have.property('safety'); });",
+              "pm.test('Response time is acceptable', () => { pm.expect(pm.response.responseTime).to.be.below(2000); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": { "raw": "{{baseUrl}}/api/generate-plan", "host": ["{{baseUrl}}"], "path": ["api", "generate-plan"] },
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Strength Goal",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
+              "pm.test('Plan is for strength goal', () => { const data = pm.response.json(); pm.expect(data.headline).to.include('strength'); });",
+              "pm.test('Exercises use strength rep scheme', () => { const data = pm.response.json(); const firstExercise = data.weeklyPlan[0].exercises[0]; pm.expect(firstExercise.prescription).to.include('4-6'); });",
+              "pm.test('Rest is 2-3 minutes for strength', () => { const data = pm.response.json(); const firstExercise = data.weeklyPlan[0].exercises[0]; pm.expect(firstExercise.rest).to.include('2-3 minutes'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": { "raw": "{{baseUrl}}/api/generate-plan", "host": ["{{baseUrl}}"], "path": ["api", "generate-plan"] },
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"25\",\"gender\":\"male\",\"height\":\"180\",\"weight\":\"85\",\"goal\":\"strength\",\"experience\":\"advanced\",\"daysPerWeek\":\"4\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Fat Loss Goal",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
+              "pm.test('Plan is for fat-loss', () => { const data = pm.response.json(); pm.expect(data.headline).to.include('fat loss'); });",
+              "pm.test('Exercises use higher rep scheme', () => { const data = pm.response.json(); const firstExercise = data.weeklyPlan[0].exercises[0]; pm.expect(firstExercise.prescription).to.include('10-15'); });",
+              "pm.test('Finisher is cardio for fat loss', () => { const data = pm.response.json(); pm.expect(data.weeklyPlan[0].finisher).to.include('incline walk'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": { "raw": "{{baseUrl}}/api/generate-plan", "host": ["{{baseUrl}}"], "path": ["api", "generate-plan"] },
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"35\",\"gender\":\"female\",\"height\":\"165\",\"weight\":\"70\",\"goal\":\"fat-loss\",\"experience\":\"beginner\",\"daysPerWeek\":\"3\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Bodyweight Equipment",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
+              "pm.test('Exercises are bodyweight focused', () => { const data = pm.response.json(); data.weeklyPlan.forEach(day => { day.exercises.forEach(ex => { pm.expect(['Push-ups', 'Goblet squats', 'Dumbbell rows', 'Romanian deadlifts', 'Plank', 'Walking lunges']).to.include(ex.name); }); }); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": { "raw": "{{baseUrl}}/api/generate-plan", "host": ["{{baseUrl}}"], "path": ["api", "generate-plan"] },
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"28\",\"gender\":\"male\",\"height\":\"175\",\"weight\":\"75\",\"goal\":\"build-muscle\",\"experience\":\"beginner\",\"daysPerWeek\":\"3\",\"equipment\":\"bodyweight\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Missing Required Fields",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
+              "pm.test('Response has error message', () => { const data = pm.response.json(); pm.expect(data).to.have.property('message'); pm.expect(data.message).to.include('Missing'); });",
+              "pm.test('Response lists missing fields', () => { const data = pm.response.json(); pm.expect(data).to.have.property('missing'); pm.expect(data.missing).to.be.an('array'); pm.expect(data.missing.length).to.be.above(0); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": { "raw": "{{baseUrl}}/api/generate-plan", "host": ["{{baseUrl}}"], "path": ["api", "generate-plan"] },
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Empty Body",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
+              "pm.test('Response has missing fields list', () => { const data = pm.response.json(); pm.expect(data.missing).to.include.members(['age', 'height', 'weight', 'goal', 'experience', 'daysPerWeek', 'equipment']); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": { "raw": "{{baseUrl}}/api/generate-plan", "host": ["{{baseUrl}}"], "path": ["api", "generate-plan"] },
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Different Day Counts",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
+              "pm.test('Plan has 2 days', () => { const data = pm.response.json(); pm.expect(data.weeklyPlan).to.have.length(2); });",
+              "pm.test('Split is full body for 2 days', () => { const data = pm.response.json(); pm.expect(data.weeklyPlan[0].focus).to.include('Full Body'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": { "raw": "{{baseUrl}}/api/generate-plan", "host": ["{{baseUrl}}"], "path": ["api", "generate-plan"] },
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"82\",\"goal\":\"general-fitness\",\"experience\":\"beginner\",\"daysPerWeek\":\"2\",\"equipment\":\"gym\"}"
+        }
+      }
+    }
+  ]
+}

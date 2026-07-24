@@ -1,1 +1,1 @@
-{"type":"module","scripts":{"dev":"node server.js","start":"node server.js"},"dependencies":{"cors":"^2.8.5","express":"^4.19.2"},"devDependencies":{}}
+{"type":"module","scripts":{"dev":"node server.js","start":"node server.js","test":"newman run postman_collection.json --reporters cli"},"dependencies":{"cors":"^2.8.5","express":"^4.19.2"},"devDependencies":{"newman":"^6.2.2"}}
