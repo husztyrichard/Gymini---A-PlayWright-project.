@@ -1,11 +1,23 @@
 import express from 'express';
 import cors from 'cors';
+import { execSync } from 'child_process';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const REPORTS_DIR = join(__dirname, '..', 'reports');
+const RESULTS_FILE = join(REPORTS_DIR, 'last-results.json');
+
+if (!existsSync(REPORTS_DIR)) mkdirSync(REPORTS_DIR, { recursive: true });
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-app.use(cors({ origin: ['http://localhost:5173', 'http://127.0.0.1:5173'] }));
+app.use(cors({ origin: true }));
 app.use(express.json());
+app.use('/reports', express.static(REPORTS_DIR));
 
 const splitByDays = {
   2: ['Full Body Strength', 'Full Body Conditioning'],
@@ -62,6 +74,47 @@ app.post('/api/generate-plan', (req, res) => {
   }
 
   res.json(buildWorkoutPlan(req.body));
+});
+
+app.post('/api/run-api-tests', (req, res) => {
+  try {
+    const output = execSync('npx newman run postman_collection.json --reporters cli,htmlextra,json --reporter-htmlextra-export ../reports/api-report.html --reporter-json-export ../reports/api-results.json', {
+      cwd: join(__dirname),
+      timeout: 30000,
+      encoding: 'utf-8'
+    });
+
+    let results = { passed: 0, failed: 0, total: 0, assertions: [], runAt: new Date().toISOString() };
+    const jsonPath = join(REPORTS_DIR, 'api-results.json');
+    if (existsSync(jsonPath)) {
+      const raw = JSON.parse(readFileSync(jsonPath, 'utf-8'));
+      const run = raw.run || {};
+      const stats = run.stats || {};
+      results.passed = (stats.assertions?.cursor || 0) - (stats.assertions?.failed || 0);
+      results.failed = stats.assertions?.failed || 0;
+      results.total = stats.assertions?.cursor || 0;
+      results.assertions = (run.executions || []).flatMap((ex) =>
+        (ex.assertions || []).map((a) => ({
+          name: a.assertion || '',
+          passed: !a.error,
+          error: a.error?.message || null
+        }))
+      );
+    }
+
+    writeFileSync(RESULTS_FILE, JSON.stringify({ api: results }, null, 2));
+    res.json({ success: true, results });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+app.get('/api/test-results', (req, res) => {
+  if (existsSync(RESULTS_FILE)) {
+    res.json(JSON.parse(readFileSync(RESULTS_FILE, 'utf-8')));
+  } else {
+    res.json({});
+  }
 });
 
 app.listen(PORT, () => {

@@ -15,7 +15,8 @@ a { color: inherit; text-decoration: none; }
 .brand { display: flex; flex-direction: column; gap: 2px; }
 .brand span { font-size: 30px; font-weight: 900; letter-spacing: -0.05em; color: #a3ff12; text-shadow: 0 0 24px rgba(163,255,18,.35); }
 .brand small { color: #94a3b8; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-.navCta { border: 1px solid rgba(163,255,18,.35); padding: 10px 16px; border-radius: 999px; color: #dcfce7; background: rgba(163,255,18,.08); }
+.navCta { border: 1px solid rgba(163,255,18,.35); padding: 10px 16px; border-radius: 999px; color: #dcfce7; background: rgba(163,255,18,.08); font-size: 14px; }
+.navLinks { display: flex; gap: 10px; }
 
 .heroGrid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 54px; align-items: center; padding-top: 80px; }
 .eyebrow { margin: 0 0 12px; text-transform: uppercase; letter-spacing: .16em; font-size: 12px; font-weight: 900; color: #a3ff12; }
@@ -169,8 +170,39 @@ input:focus, select:focus, textarea:focus { border-color: #a3ff12; box-shadow: 0
 .modalInstructions ol { color: #cbd5e1; padding-left: 20px; }
 .modalInstructions li { margin-bottom: 10px; line-height: 1.6; font-size: 14px; }
 
+.testDashboard { padding: 80px 0 110px; }
+.testGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.testCard {
+  border: 1px solid rgba(148,163,184,.16);
+  border-radius: 28px;
+  background: rgba(15,23,42,.72);
+  backdrop-filter: blur(18px);
+  padding: 28px;
+  box-shadow: 0 24px 80px rgba(0,0,0,.25);
+}
+.testCardHeader { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.testCardHeader h3 { margin: 0; color: #f8fafc; }
+.testCard p { color: #cbd5e1; font-size: 14px; line-height: 1.6; margin: 0 0 16px; }
+.testActions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.testActions .primaryButton, .testActions .secondaryButton { font-size: 13px; padding: 12px 18px; }
+.testNote { color: #64748b; font-size: 13px; font-style: italic; margin: 0; }
+.testResults { margin-top: 8px; }
+.testSummary { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
+.testStat { font-weight: 800; font-size: 14px; color: #f8fafc; }
+.testStat.pass { color: #4ade80; }
+.testStat.fail { color: #f87171; }
+.testStat.muted { color: #64748b; font-weight: 400; font-size: 12px; }
+.testAssertionList { max-height: 300px; overflow-y: auto; border: 1px solid rgba(148,163,184,.12); border-radius: 14px; padding: 8px; }
+.testAssertion { display: flex; align-items: baseline; gap: 8px; padding: 6px 10px; border-radius: 8px; font-size: 13px; color: #cbd5e1; }
+.testAssertion.pass { background: rgba(74,222,128,.05); }
+.testAssertion.fail { background: rgba(248,113,113,.08); }
+.testIcon { font-weight: 900; flex-shrink: 0; }
+.testAssertion.pass .testIcon { color: #4ade80; }
+.testAssertion.fail .testIcon { color: #f87171; }
+.testError { color: #f87171; font-size: 12px; margin-left: auto; }
+
 @media (max-width: 900px) {
-  .heroGrid, .plannerGrid { grid-template-columns: 1fr; }
+  .heroGrid, .plannerGrid, .testGrid { grid-template-columns: 1fr; }
   .heroGrid { padding-top: 38px; }
   .phoneCard { min-height: 380px; }
   .phoneCard h2 { margin-top: 120px; }
