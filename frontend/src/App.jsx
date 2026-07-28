@@ -376,7 +376,7 @@ function App() {
             </div>
             <p>8 requests, 32 assertions covering health check, plan generation, validation and edge cases.</p>
             <div className="testActions">
-              <a href="http://localhost:4000/reports/api-report.html" target="_blank" rel="noreferrer" className="secondaryButton">View HTML Report</a>
+              <a href="/reports/api-report.html" target="_blank" rel="noreferrer" className="secondaryButton">View HTML Report</a>
             </div>
           </div>
 
@@ -387,7 +387,7 @@ function App() {
             </div>
             <p>32 tests covering landing page, form, exercise library, search, filters, modals and plan generation.</p>
             <div className="testActions">
-              <a href="http://localhost:4000/reports/playwright-report/index.html" target="_blank" rel="noreferrer" className="secondaryButton">View HTML Report</a>
+              <a href="/reports/playwright-report/index.html" target="_blank" rel="noreferrer" className="secondaryButton">View HTML Report</a>
             </div>
           </div>
         </div>

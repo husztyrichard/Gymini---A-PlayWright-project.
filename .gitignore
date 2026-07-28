@@ -2,5 +2,6 @@ node_modules/
 dist/
 validation.log
 reports/
+!frontend/public/reports/
 frontend/test-results/
 frontend/playwright-report/
