@@ -365,7 +365,7 @@ function App() {
         <div className="sectionHeader">
           <p className="eyebrow">Quality Assurance</p>
           <h2>Test Dashboard</h2>
-          <p>Run automated tests and view reports directly from the site.</p>
+          <p>View reports of the automated tests directly from the site.</p>
         </div>
 
         <div className="testGrid">
