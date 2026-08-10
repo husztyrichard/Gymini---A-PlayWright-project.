@@ -1,52 +1,23 @@
-# Gymini
+Gymini 💪
 
-Gymini is an English AI workout planner MVP. Users enter body data, goals, experience and available equipment, then receive a structured weekly workout plan.
+An AI-powered workout planner built with React and Node.js. Users enter their fitness profile, goals and available equipment, then receive a personalized weekly workout plan.
 
-## Current version
+Features
 
-This version uses **mock AI mode**. It does not require OpenAI or Gemini API keys yet. The backend returns realistic generated plan data from local JavaScript logic.
+- Personalized workout plan generation
+- Goal and experience-based training plans
+- Equipment and training-day selection
+- Sets, reps, rest times and progression
+- Responsive gym-inspired UI
+- Mock AI workout generation
+- Automated UI and API tests available for download
 
-## Tech stack
+Tech Stack
 
-- React + Vite frontend
-- Node.js + Express backend
+- React + Vite
+- Node.js + Express
 - JavaScript
-- Dark gym / AI landing page design
+- Playwright
+- Live Demo
 
-## Run locally
-
-Open a terminal in this folder:
-
-```bash
-npm run install:all
-npm run dev
-```
-
-Then open:
-
-```text
-http://127.0.0.1:5173
-```
-
-Backend health check:
-
-```text
-http://localhost:4000/api/health
-```
-
-## MVP features
-
-- English landing page
-- Gymini branding
-- Workout planner form
-- Age, gender, height, weight, body fat, goal, experience, training days, session length, equipment and limitations
-- Mock AI workout plan result
-- Weekly split, exercises, sets/reps, rest, finisher, progression and safety notes
-
-## Next steps
-
-1. Add Playwright UI tests.
-2. Add API tests for `/api/generate-plan`.
-3. Add Gemini or OpenAI API integration behind the same endpoint.
-4. Add PDF export or email capture for monetization.
-5. Deploy frontend to Vercel and backend to Render.
+https://gymini-playwright.vercel.app/
