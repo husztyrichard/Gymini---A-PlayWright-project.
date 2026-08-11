@@ -26,4 +26,14 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'reports/playwright-report/**',
+                allowEmptyArchive: true
+
+            archiveArtifacts artifacts: 'frontend/test-results/**',
+                allowEmptyArchive: true
+        }
+    }
 }
