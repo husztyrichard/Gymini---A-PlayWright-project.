@@ -434,10 +434,10 @@ function App() {
               <span className="statusLabel">API status</span>
               <div style={{textAlign: 'right'}}>
                 <strong className={testResults?.api?.failed ? 'statusFail' : 'statusPass'}>
-                  {testResults?.api ? (testResults.api.failed ? 'Fail' : 'Pass') : (testError ? 'Unavailable' : 'Unknown')}
+                  {testResults?.api ? (testResults.api.failed ? 'Fail' : 'Available') : (testError ? 'Unavailable' : 'Unknown')}
                 </strong>
                 {testError && <div style={{color: '#fca5a5', fontSize: 12}}>{testError}</div>}
-              </div>
+              </div>g
             </div>
             <div className="statusBlock">
               <span className="statusLabel">UI tests</span>

@@ -150,9 +150,11 @@
         <p class="eyebrow">UI - Playwright</p>
         <h2>Frontend UI test cases</h2>
         <p>
-          32 tests split across four areas: landing page, plan form, plan
-          generation, and the exercise library. Includes negative and
-          interaction cases, not just happy paths.
+          36 tests split across five areas: landing page, plan form, plan
+          generation, exercise library, and automated accessibility scans.
+          Every test runs headless against Chromium desktop, Firefox desktop,
+          and a Pixel 5 mobile viewport. Includes negative and interaction
+          cases, not just happy paths.
         </p>
       </div>
 
@@ -483,6 +485,53 @@
               <td>Proves the filter changes the data shown, not just the UI state.</td>
               <td><ol><li>Count cards before filtering.</li><li>Select "biceps" in the muscle filter.</li><li>Count cards again.</li></ol></td>
               <td>Result count decreases but stays above zero.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="tcGroup">Accessibility (axe-core)</h3>
+      <div class="tcTableWrap">
+        <table class="tcTable">
+          <thead>
+            <tr><th>ID</th><th>Test Case</th><th>Priority</th><th>What</th><th>Why</th><th>How</th><th>Expected</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tcId">UI-A-01</td>
+              <td class="tcTitle">Home page passes an automated accessibility scan<span class="src">Source: frontend/tests/accessibility.spec.js - has no unexpected accessibility violations - home</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Run axe-core over the main "/" page and assert no unexpected WCAG violations.</td>
+              <td>The homepage is the first page users and assistive technology encounter - blocking a11y defects break the experience.</td>
+              <td><ol><li>Open "/".</li><li>Wait for the exercise library to load.</li><li>Run AxeBuilder.analyze().</li><li>Compare violation rule IDs against the tracked baseline.</li></ol></td>
+              <td>No new violations beyond the tracked baseline (select-name on the exercise filter selects).</td>
+            </tr>
+            <tr>
+              <td class="tcId">UI-A-02</td>
+              <td class="tcTitle">About page passes an automated accessibility scan<span class="src">Source: frontend/tests/accessibility.spec.js - has no unexpected accessibility violations - about</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Run axe-core over /about.html and assert no violations.</td>
+              <td>Public page with resume links must stay reachable and screen-reader friendly.</td>
+              <td><ol><li>Open "/about.html".</li><li>Run AxeBuilder.analyze().</li><li>Assert the violation list is empty.</li></ol></td>
+              <td>Zero violations.</td>
+            </tr>
+            <tr>
+              <td class="tcId">UI-A-03</td>
+              <td class="tcTitle">Test cases page passes an automated accessibility scan<span class="src">Source: frontend/tests/accessibility.spec.js - has no unexpected accessibility violations - test-cases</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Run axe-core over /test-cases.html and assert no unexpected violations.</td>
+              <td>The data tables must remain navigable by assistive technology.</td>
+              <td><ol><li>Open "/test-cases.html".</li><li>Run AxeBuilder.analyze().</li><li>Compare violation rule IDs against the tracked baseline.</li></ol></td>
+              <td>No new violations beyond the tracked baseline (region - sections outside labelled landmarks).</td>
+            </tr>
+            <tr>
+              <td class="tcId">UI-A-04</td>
+              <td class="tcTitle">Reports page passes an automated accessibility scan<span class="src">Source: frontend/tests/accessibility.spec.js - has no unexpected accessibility violations - reports</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Run axe-core over /reports.html and assert no violations.</td>
+              <td>Report links must be reachable for all users.</td>
+              <td><ol><li>Open "/reports.html".</li><li>Run AxeBuilder.analyze().</li><li>Assert the violation list is empty.</li></ol></td>
+              <td>Zero violations.</td>
             </tr>
           </tbody>
         </table>
