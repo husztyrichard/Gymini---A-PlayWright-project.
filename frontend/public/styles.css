@@ -9,7 +9,7 @@ html { scroll-behavior: smooth; }
 body { margin: 0; min-width: 320px; background: radial-gradient(circle at top left, rgba(163,255,18,.14), transparent 32%), radial-gradient(circle at 78% 8%, rgba(124,58,237,.18), transparent 28%), #06070b; }
 a { color: inherit; text-decoration: none; }
 
-.hero, .planner { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+.hero, .planner, .testDashboard, .exercisesSection { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
 .hero { min-height: 100vh; padding: 28px 0 80px; }
 .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; }
 .brand { display: flex; flex-direction: column; gap: 2px; }
@@ -223,23 +223,23 @@ input:focus, select:focus, textarea:focus { border-color: #a3ff12; box-shadow: 0
 }
 
 .tcSection { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 40px 0 96px; }
-.tcTableWrap { overflow-x: auto; border: 1px solid rgba(148,163,184,.16); border-radius: 24px; background: rgba(15,23,42,.72); box-shadow: 0 20px 60px rgba(0,0,0,.2); }
-.tcTable { border-collapse: collapse; width: 100%; min-width: 1240px; }
-.tcTable th { text-align: left; color: #a3ff12; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; padding: 14px 16px; border-bottom: 1px solid rgba(148,163,184,.2); background: rgba(15,23,42,.98); white-space: nowrap; }
-.tcTable td { padding: 14px 16px; border-bottom: 1px solid rgba(148,163,184,.1); vertical-align: top; color: #cbd5e1; font-size: 13px; line-height: 1.6; }
+.tcTableWrap { overflow: hidden; border: 1px solid rgba(148,163,184,.16); border-radius: 24px; background: rgba(15,23,42,.72); box-shadow: 0 20px 60px rgba(0,0,0,.2); }
+.tcTable { table-layout: fixed; border-collapse: collapse; width: 100%; }
+.tcTable th { text-align: left; color: #a3ff12; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; padding: 12px 12px; border-bottom: 1px solid rgba(148,163,184,.2); background: rgba(15,23,42,.98); white-space: nowrap; }
+.tcTable td { padding: 12px 12px; border-bottom: 1px solid rgba(148,163,184,.1); vertical-align: top; color: #cbd5e1; font-size: 12px; line-height: 1.6; }
 .tcTable tbody tr:nth-child(even) td { background: rgba(148,163,184,.05); }
 .tcTable tbody tr:hover td { background: rgba(163,255,18,.05); }
 .tcTable tr:last-child td { border-bottom: 0; }
-.tcTable th:nth-child(1) { width: 72px; }
-.tcTable th:nth-child(2) { width: 240px; }
-.tcTable th:nth-child(3) { width: 90px; }
-.tcTable th:nth-child(4) { width: 190px; }
-.tcTable th:nth-child(5) { width: 200px; }
-.tcTable th:nth-child(6) { width: 260px; }
+.tcTable th:nth-child(1) { width: 60px; }
+.tcTable th:nth-child(2) { width: 200px; }
+.tcTable th:nth-child(3) { width: 80px; }
+.tcTable th:nth-child(4) { width: 160px; }
+.tcTable th:nth-child(5) { width: 180px; }
+.tcTable th:nth-child(6) { width: 290px; }
 .tcTable th:nth-child(7) { width: 210px; }
 .tcTable td.tcId { color: #a3ff12; font-weight: 900; font-size: 12px; white-space: nowrap; }
-.tcTable td.tcTitle { color: #f8fafc; font-weight: 800; font-size: 14px; }
-.tcTable td.tcTitle .src { display: block; color: #64748b; font-size: 11px; font-weight: 400; margin-top: 4px; line-height: 1.4; }
+.tcTable td.tcTitle { color: #f8fafc; font-weight: 800; font-size: 13px; }
+.tcTable td.tcTitle .src { display: block; color: #64748b; font-size: 10px; font-weight: 400; margin-top: 4px; line-height: 1.4; }
 .tcTable .prio { margin-left: 0; display: inline-block; }
 .tcTable ol { margin: 0; padding-left: 16px; }
 .tcTable li { margin-bottom: 2px; }
