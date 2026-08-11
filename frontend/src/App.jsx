@@ -100,8 +100,8 @@ function buildRealPlan(allExercises, profile) {
   const split = SPLIT_TEMPLATES[days] || SPLIT_TEMPLATES[3];
   const goal = profile.goal || 'build-muscle';
   const exercisesPerDay = goal === 'strength' ? 4 : 5;
-  const reps = goal === 'strength' ? '4 sets x 4-6 reps' : goal === 'fat-loss' ? '3 sets x 12-15 reps' : '3-4 sets x 8-12 reps';
-  const rest = goal === 'strength' ? '2-3 min' : goal === 'fat-loss' ? '45-60 sec' : '60-90 sec';
+  const reps = goal === 'strength' ? '4 sets x 4-6 reps' : goal === 'fat-loss' ? '3 sets x 10-15 reps' : '3-4 sets x 8-12 reps';
+  const rest = goal === 'strength' ? '2-3 minutes' : goal === 'fat-loss' ? '45-60 seconds' : '60-90 seconds';
 
   return {
     headline: `${days}-day ${goal.replace('-', ' ')} plan for ${profile.experience || 'beginner'} level`,
@@ -219,20 +219,34 @@ function App() {
     setForm((current) => ({ ...current, [name]: value }));
   }
 
-  function generatePlan(event) {
+  async function generatePlan(event) {
     event.preventDefault();
     setError('');
     setLoading(true);
 
-    setTimeout(() => {
-      const result = buildRealPlan(exercises, form);
-      if (!result) {
-        setError('Exercise data not loaded yet. Please wait a moment and try again.');
-      } else {
-        setPlan(result);
+    let planResult = null;
+    try {
+      const response = await fetch('/api/generate-plan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      });
+      if (response.ok) {
+        planResult = await response.json();
       }
-      setLoading(false);
-    }, 300);
+    } catch {
+      // Backend unavailable (e.g. static hosting) — fall back to local generation.
+    }
+
+    if (!planResult) {
+      planResult = buildRealPlan(exercises, form);
+      if (!planResult) {
+        setError('Exercise data not loaded yet. Please wait a moment and try again.');
+      }
+    }
+
+    if (planResult) setPlan(planResult);
+    setLoading(false);
   }
 
   async function runApiTests() {
@@ -319,6 +333,7 @@ function App() {
             <div className="heroActions">
               <a href="#test-dashboard" className="primaryButton">View test dashboard</a>
               <a href="#planner" className="secondaryButton">Start planning</a>
+              <button type="button" className="secondaryButton" onClick={() => setShowExample(true)}>See example</button>
             </div>
             <div className="proofRow">
               <span>800+ exercises</span>
@@ -327,18 +342,24 @@ function App() {
             </div>
           </div>
 
-          {showExample && examplePlan && (
+          {showExample && (
             <div className="phoneCard">
               <div className="pulse"></div>
               <h2>Today&apos;s focus</h2>
-              <p>{examplePlan.weeklyPlan[0]?.focus}</p>
-              <ul>
-                {examplePlan.weeklyPlan[0]?.exercises.slice(0, 4).map((ex) => (
-                  <li key={ex.name}>
-                    <button type="button" className="linkButton" onClick={() => { const found = findExerciseByName(ex.name); if (found) setSelectedExercise(found); }}>{ex.name}</button>
-                  </li>
-                ))}
-              </ul>
+              {examplePlan ? (
+                <>
+                  <p>{examplePlan.weeklyPlan[0]?.focus}</p>
+                  <ul>
+                    {examplePlan.weeklyPlan[0]?.exercises.slice(0, 4).map((ex) => (
+                      <li key={ex.name}>
+                        <button type="button" className="linkButton" onClick={() => { const found = findExerciseByName(ex.name); if (found) setSelectedExercise(found); }}>{ex.name}</button>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <p style={{ color: '#94a3b8', fontSize: 16, fontWeight: 600 }}>Loading example…</p>
+              )}
             </div>
           )}
         </div>

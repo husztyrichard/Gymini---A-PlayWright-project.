@@ -33,43 +33,95 @@ app.get('/resumes/hu', (req, res) => {
   if (existsSync(p)) return res.sendFile(p);
   res.status(404).send('Resume not found');
 });
-const splitByDays = {
-  2: ['Full Body Strength', 'Full Body Conditioning'],
-  3: ['Upper Body', 'Lower Body', 'Full Body Conditioning'],
-  4: ['Upper Strength', 'Lower Strength', 'Upper Hypertrophy', 'Lower Hypertrophy'],
-  5: ['Push', 'Pull', 'Legs', 'Upper Accessories', 'Conditioning + Core'],
-  6: ['Push', 'Pull', 'Legs', 'Push Volume', 'Pull Volume', 'Legs + Core']
+const SPLIT_TEMPLATES = {
+  2: ['Full Body', 'Full Body'],
+  3: ['Upper Body', 'Lower Body', 'Full Body'],
+  4: ['Chest & Triceps', 'Back & Biceps', 'Legs', 'Shoulders & Core'],
+  5: ['Chest', 'Back', 'Legs', 'Shoulders', 'Arms & Core'],
+  6: ['Chest & Triceps', 'Back & Biceps', 'Legs', 'Chest & Shoulders', 'Back & Arms', 'Legs & Core']
 };
 
-function getExercises(equipment, goal) {
-  const home = equipment === 'bodyweight' || equipment === 'dumbbells';
-  if (home) {
-    return ['Push-ups', 'Goblet squats', 'Dumbbell rows', 'Romanian deadlifts', 'Plank', 'Walking lunges'];
+const MUSCLE_SPLIT_MAP = {
+  'Full Body': ['chest', 'back', 'quadriceps', 'hamstrings', 'shoulders'],
+  'Upper Body': ['chest', 'shoulders', 'biceps', 'triceps', 'lats', 'middle back'],
+  'Lower Body': ['quadriceps', 'hamstrings', 'glutes', 'calves'],
+  'Chest & Triceps': ['chest', 'triceps'],
+  'Back & Biceps': ['lats', 'middle back', 'biceps'],
+  'Legs': ['quadriceps', 'hamstrings', 'glutes', 'calves'],
+  'Shoulders & Core': ['shoulders', 'abdominals'],
+  'Chest': ['chest', 'triceps'],
+  'Back': ['lats', 'middle back', 'biceps'],
+  'Shoulders': ['shoulders', 'traps'],
+  'Arms & Core': ['biceps', 'triceps', 'abdominals'],
+  'Chest & Shoulders': ['chest', 'shoulders'],
+  'Back & Arms': ['lats', 'middle back', 'biceps', 'triceps'],
+  'Legs & Core': ['quadriceps', 'hamstrings', 'glutes', 'abdominals']
+};
+
+const EXERCISE_POOL = {
+  chest: ['Barbell Bench Press - Medium Grip', 'Incline Dumbbell Press', 'Cable Crossover', 'Machine Bench Press', 'Pushups', 'Dumbbell Bench Press'],
+  shoulders: ['Barbell Shoulder Press', 'Seated Dumbbell Press', 'Side Lateral Raise', 'Face Pull', 'Arnold Dumbbell Press', 'Reverse Flyes'],
+  triceps: ['Triceps Pushdown', 'Triceps Pushdown - Rope Attachment', 'Close-Grip Barbell Bench Press', 'Lying Dumbbell Tricep Extension', 'Cable Rope Overhead Triceps Extension', 'Dips - Triceps Version'],
+  biceps: ['Barbell Curl', 'Dumbbell Bicep Curl', 'Hammer Curls', 'Preacher Curl', 'Concentration Curls', 'Incline Dumbbell Curl'],
+  lats: ['Wide-Grip Lat Pulldown', 'Straight-Arm Pulldown', 'Pullups', 'Chin-Up', 'Close-Grip Front Lat Pulldown', 'Underhand Cable Pulldowns'],
+  'middle back': ['Bent Over Barbell Row', 'Seated Cable Rows', 'One-Arm Dumbbell Row', 'T-Bar Row with Handle', 'Dumbbell Incline Row', 'Leverage High Row'],
+  'lower back': ['Barbell Deadlift', 'Stiff-Legged Barbell Deadlift', 'Good Morning', 'Rack Pulls', 'Deficit Deadlift'],
+  quadriceps: ['Barbell Squat', 'Leg Press', 'Front Squat (Clean Grip)', 'Leg Extensions', 'Dumbbell Lunges', 'Goblet Squat'],
+  hamstrings: ['Romanian Deadlift', 'Lying Leg Curls', 'Seated Leg Curl', 'Stiff-Legged Dumbbell Deadlift', 'Standing Leg Curl'],
+  glutes: ['Barbell Hip Thrust', 'Barbell Glute Bridge', 'Pull Through', 'Single Leg Glute Bridge', 'Glute Kickback'],
+  calves: ['Standing Calf Raises', 'Seated Calf Raise', 'Calf Press On The Leg Press Machine', 'Standing Dumbbell Calf Raise'],
+  abdominals: ['Plank', 'Cable Crunch', 'Hanging Leg Raise', 'Russian Twist', 'Side Bridge'],
+  traps: ['Barbell Shrug', 'Dumbbell Shrug', 'Cable Shrugs', 'Upright Barbell Row', 'Standing Dumbbell Upright Row']
+};
+
+const BODYWEIGHT_EXERCISES = ['Push-ups', 'Goblet squats', 'Dumbbell rows', 'Romanian deadlifts', 'Plank', 'Walking lunges'];
+
+function pickExercises(muscles, equipment, count) {
+  if (equipment === 'bodyweight') return BODYWEIGHT_EXERCISES.slice(0, count);
+
+  const picked = [];
+  const used = new Set();
+  let exhausted = false;
+  while (picked.length < count && !exhausted) {
+    exhausted = true;
+    for (const muscle of muscles) {
+      if (picked.length >= count) break;
+      for (const name of EXERCISE_POOL[muscle] || []) {
+        if (!used.has(name)) {
+          picked.push(name);
+          used.add(name);
+          exhausted = false;
+          break;
+        }
+      }
+    }
   }
-  if (goal === 'strength') {
-    return ['Barbell squat', 'Bench press', 'Deadlift', 'Overhead press', 'Pull-ups', 'Farmer carry'];
-  }
-  return ['Incline dumbbell press', 'Lat pulldown', 'Leg press', 'Romanian deadlift', 'Cable row', 'Hanging knee raise'];
+  return picked;
 }
 
 function buildWorkoutPlan(profile) {
   const days = Math.min(Math.max(Number(profile.daysPerWeek) || 3, 2), 6);
-  const split = splitByDays[days] || splitByDays[3];
-  const exercises = getExercises(profile.equipment, profile.goal);
-  const reps = profile.goal === 'strength' ? '4 sets x 4-6 reps' : profile.goal === 'fat-loss' ? '3 sets x 10-15 reps' : '3-4 sets x 8-12 reps';
-  const rest = profile.goal === 'strength' ? '2-3 minutes' : '60-90 seconds';
+  const goal = profile.goal || 'build-muscle';
+  const split = SPLIT_TEMPLATES[days] || SPLIT_TEMPLATES[3];
+  const exercisesPerDay = goal === 'strength' ? 4 : 5;
+  const reps = goal === 'strength' ? '4 sets x 4-6 reps' : goal === 'fat-loss' ? '3 sets x 10-15 reps' : '3-4 sets x 8-12 reps';
+  const rest = goal === 'strength' ? '2-3 minutes' : goal === 'fat-loss' ? '45-60 seconds' : '60-90 seconds';
 
   return {
     mode: 'mock-ai',
-    headline: `${days}-day ${profile.goal?.replace('-', ' ') || 'fitness'} plan for ${profile.experience || 'beginner'} level`,
-    summary: `Gymini created a practical weekly plan based on your goal, available equipment and training frequency. This is a mock AI response ready to be replaced with Gemini or OpenAI later.`,
-    weeklyPlan: split.map((day, index) => ({
-      day: `Day ${index + 1}`,
-      focus: day,
-      warmup: '5-8 minutes light cardio + dynamic mobility',
-      exercises: exercises.slice(0, 5).map((name) => ({ name, prescription: reps, rest })),
-      finisher: profile.goal === 'fat-loss' ? '10 minutes incline walk or bike intervals' : 'Optional 8 minutes core work'
-    })),
+    headline: `${days}-day ${goal.replace('-', ' ')} plan for ${profile.experience || 'beginner'} level`,
+    summary: `Personalized weekly plan based on your goal, available equipment and training frequency.`,
+    weeklyPlan: split.map((day, index) => {
+      const muscles = MUSCLE_SPLIT_MAP[day] || MUSCLE_SPLIT_MAP['Full Body'];
+      const exercises = pickExercises(muscles, profile.equipment, exercisesPerDay);
+      return {
+        day: `Day ${index + 1}`,
+        focus: day,
+        warmup: '5-8 minutes light cardio + dynamic mobility',
+        exercises: exercises.map((name) => ({ name, prescription: reps, rest })),
+        finisher: goal === 'fat-loss' ? '10 minutes incline walk or bike intervals' : 'Optional 8 minutes core work'
+      };
+    }),
     progression: 'If all sets feel controlled for two sessions, increase weight by 2.5-5% or add 1-2 reps per set.',
     safety: 'This is general fitness guidance, not medical advice. Stop if you feel pain and consult a professional for injuries.'
   };

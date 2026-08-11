@@ -9,7 +9,7 @@ test.describe('Landing Page', () => {
 
   test('displays hero section with headline', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('h1')).toContainText('Build your AI workout plan in seconds');
+    await expect(page.locator('h1')).toContainText('Example test automation project built to demonstrate QA skills');
   });
 
   test('phone card is hidden by default', async ({ page }) => {
@@ -32,7 +32,7 @@ test.describe('Landing Page', () => {
 
   test('start planning button links to planner', async ({ page }) => {
     await page.goto('/');
-    const btn = page.locator('.primaryButton', { hasText: 'Start planning' });
+    const btn = page.locator('.secondaryButton', { hasText: 'Start planning' });
     await expect(btn).toHaveAttribute('href', '#planner');
   });
 
