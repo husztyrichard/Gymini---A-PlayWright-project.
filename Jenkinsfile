@@ -25,6 +25,13 @@ pipeline {
                 }
             }
         }
+
+        stage('Check Playwright Report') {
+            steps {
+                bat 'dir reports\\playwright-report'
+                bat 'dir reports\\playwright-report\\index.html'
+            }
+        }
     }
 
     post {
