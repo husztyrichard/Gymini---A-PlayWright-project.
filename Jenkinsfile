@@ -2,9 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Test') {
+        stage('Install dependencies') {
             steps {
-                echo 'Jenkins + GitHub működik!'
+                bat 'npm ci'
+            }
+        }
+
+        stage('Install Playwright') {
+            steps {
+                bat 'npx playwright install'
+            }
+        }
+
+        stage('Run Playwright tests') {
+            steps {
+                bat 'npx playwright test'
             }
         }
     }
