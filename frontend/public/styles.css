@@ -24,7 +24,21 @@ h1 { font-size: clamp(46px, 7vw, 86px); line-height: .92; margin: 0; letter-spac
 h2 { font-size: clamp(30px, 4vw, 48px); margin: 0; letter-spacing: -0.04em; }
 h3 { font-size: 26px; margin: 0 0 12px; }
 .subtext, .sectionHeader p, .resultCard p { color: #cbd5e1; font-size: 18px; line-height: 1.7; }
-.heroActions, .proofRow { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-top: 28px; }
+.heroActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-top: 28px;
+}
+
+.proofRow {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 28px;
+}
 .primaryButton, .secondaryButton { border: 0; cursor: pointer; border-radius: 16px; padding: 15px 20px; font-weight: 900; font-size: 15px; }
 .primaryButton { background: linear-gradient(135deg, #a3ff12, #38bdf8); color: #06110a; box-shadow: 0 16px 45px rgba(163,255,18,.18); }
 .secondaryButton { border: 1px solid rgba(148,163,184,.25); color: #e2e8f0; background: rgba(15,23,42,.75); }
