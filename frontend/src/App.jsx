@@ -333,6 +333,7 @@ function App() {
           <div className="navLinks">
             <a href="#exercises" className="navCta">Exercises</a>
             <a href="#test-dashboard" className="navCta">Tests</a>
+            <a href="/test-cases.html" className="navCta">Test cases</a>
             <a href="/about.html" className="navCta">About me</a>
           </div>
         </nav>

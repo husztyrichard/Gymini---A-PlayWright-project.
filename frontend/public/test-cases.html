@@ -1,0 +1,627 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Cases | Gymini QA Project</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <main class="hero">
+      <nav class="nav">
+        <div class="brand">
+          <span>Gymini</span>
+          <small>QA Project</small>
+        </div>
+
+        <div class="navLinks">
+          <a href="/" class="navCta">Home</a>
+          <a href="/test-cases.html" class="navCta">Test Cases</a>
+          <a href="/about.html" class="navCta">About Me</a>
+        </div>
+      </nav>
+
+      <div class="heroGrid">
+        <div class="heroCopy">
+          <p class="eyebrow">Test Cases</p>
+
+          <h1>Test Cases &amp; Test Design</h1>
+
+          <p class="subtext">
+            Every case below maps 1:1 to an automated test that actually runs:
+            the Newman API collection (8 requests, 32 assertions) and the
+            Playwright UI suite (32 tests). For each case you can see
+            <strong>what</strong> is verified, <strong>why</strong> it matters,
+            and <strong>how</strong> it is tested.
+          </p>
+
+          <div class="tcLegend">
+            <span class="prio high">High</span> critical path / validation
+            <span class="prio medium">Medium</span> functional correctness
+            <span class="prio low">Low</span> polish / informational
+          </div>
+
+          <div class="heroActions">
+            <a href="#api-cases" class="primaryButton">API test cases</a>
+            <a href="#ui-cases" class="secondaryButton">UI test cases</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <section class="tcSection" id="api-cases">
+      <div class="sectionHeader">
+        <p class="eyebrow">API - Newman</p>
+        <h2>Backend API test cases</h2>
+        <p>
+          8 requests executed against <code>/api/health</code> and
+          <code>/api/generate-plan</code>, covering happy paths, goal-specific
+          logic, and negative input validation. 32 assertions in total.
+        </p>
+      </div>
+
+      <div class="tcGrid">
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">API-01</span>
+            <span class="tcTitle">Health check endpoint is reachable</span>
+            <span class="prio high">High</span>
+          </div>
+          <div class="tcSource">Source: backend/postman_collection.json - Health Check</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the backend reports a healthy status.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Liveness gate - every other API case depends on the service being up. Catches startup failures instantly.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Start the backend on port 4000.</li><li>Send GET /api/health.</li><li>Inspect status code, JSON body and response time.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>200 OK; body contains status "OK" and service "Gymini API"; response time below 1000 ms.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">API-02</span>
+            <span class="tcTitle">Generate plan with a valid request</span>
+            <span class="prio high">High</span>
+          </div>
+          <div class="tcSource">Source: backend/postman_collection.json - Generate Plan - Valid Request</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the core endpoint returns a complete, well-formed plan for valid input.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Happy path of the main business feature - a regression here breaks the whole product.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>POST /api/generate-plan with age 30, male, 178 cm, 82 kg, build-muscle, intermediate, 4 days, 60 min, gym.</li><li>Validate the response structure and payload fields.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>200; mode "mock-ai"; headline present; weeklyPlan is an array of 4 days; every day has at least one exercise; progression and safety fields present; under 2000 ms.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">API-03</span>
+            <span class="tcTitle">Strength goal drives rep scheme and rest</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: backend/postman_collection.json - Generate Plan - Strength Goal</div>
+          <div class="tcRow"><strong>What</strong><p>Verify goal=strength produces low-rep prescriptions and longer rest.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>The domain logic must translate user goals into the correct training parameters.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>POST /api/generate-plan with goal=strength, advanced, 4 days.</li><li>Assert headline, first exercise prescription and rest text.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>200; headline includes "strength"; prescription includes "4-6"; rest includes "2-3 minutes".</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">API-04</span>
+            <span class="tcTitle">Fat-loss goal drives rep scheme and finisher</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: backend/postman_collection.json - Generate Plan - Fat Loss Goal</div>
+          <div class="tcRow"><strong>What</strong><p>Verify goal=fat-loss produces higher-rep work and a cardio finisher.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Ensures the goal-specific logic differs correctly from strength and muscle-building paths.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>POST /api/generate-plan with goal=fat-loss, beginner, 3 days.</li><li>Assert headline, rep scheme and finisher.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>200; headline includes "fat loss"; prescription includes "10-15"; finisher includes "incline walk".</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">API-05</span>
+            <span class="tcTitle">Bodyweight equipment only</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: backend/postman_collection.json - Generate Plan - Bodyweight Equipment</div>
+          <div class="tcRow"><strong>What</strong><p>Verify equipment=bodyweight never returns exercises that need gym equipment.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Guards against recommending equipment the user does not have - a core correctness rule.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>POST /api/generate-plan with equipment=bodyweight, build-muscle, 3 days.</li><li>Collect every exercise name across all days and compare to the bodyweight-safe list.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>200; every exercise is one of Push-ups, Goblet squats, Dumbbell rows, Romanian deadlifts, Plank, Walking lunges.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">API-06</span>
+            <span class="tcTitle">Missing required fields rejected</span>
+            <span class="prio high">High</span>
+          </div>
+          <div class="tcSource">Source: backend/postman_collection.json - Generate Plan - Missing Required Fields</div>
+          <div class="tcRow"><strong>What</strong><p>Verify a partial payload is rejected with a clear, structured error.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Input validation - malformed requests must not crash the API or produce a broken plan.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>POST /api/generate-plan with only {"age":"30"}.</li><li>Assert status, message text and the missing-fields array.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>400; message includes "Missing"; response lists a non-empty "missing" array.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">API-07</span>
+            <span class="tcTitle">Empty body lists all required fields</span>
+            <span class="prio high">High</span>
+          </div>
+          <div class="tcSource">Source: backend/postman_collection.json - Generate Plan - Empty Body</div>
+          <div class="tcRow"><strong>What</strong><p>Verify an empty payload names every required field.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Defensive coding - the API must tell the caller exactly what is missing, not just fail.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>POST /api/generate-plan with {}.</li><li>Assert the complete list of required fields.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>400; missing contains age, height, weight, goal, experience, daysPerWeek, equipment.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">API-08</span>
+            <span class="tcTitle">Day count changes plan length and split</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: backend/postman_collection.json - Generate Plan - Different Day Counts</div>
+          <div class="tcRow"><strong>What</strong><p>Verify daysPerWeek=2 returns a 2-day full body plan.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Plan length must respect user preference while still producing a sensible split.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>POST /api/generate-plan with daysPerWeek=2, general-fitness, beginner.</li><li>Assert day count and first-day split name.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>200; weeklyPlan has 2 days; first day focus includes "Full Body".</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="tcSection" id="ui-cases">
+      <div class="sectionHeader">
+        <p class="eyebrow">UI - Playwright</p>
+        <h2>Frontend UI test cases</h2>
+        <p>
+          32 tests split across four areas: landing page, plan form, plan
+          generation, and the exercise library. Includes negative and
+          interaction cases, not just happy paths.
+        </p>
+      </div>
+
+      <h3 class="tcGroup">Landing page</h3>
+      <div class="tcGrid">
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-L-01</span>
+            <span class="tcTitle">Branding loads on the page</span>
+            <span class="prio high">High</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/landing.spec.js - loads and displays branding</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the brand identity renders on load.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Smoke check - catches a broken build or root route early.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open "/".</li><li>Check the brand span and subtitle.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Brand shows "Gymini" and "QA Portfolio".</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-L-02</span>
+            <span class="tcTitle">Hero headline is displayed</span>
+            <span class="prio high">High</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/landing.spec.js - displays hero section with headline</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the main heading text renders.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>The hero is the first impression and the core marketing message.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open "/".</li><li>Read the h1 text.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>h1 contains "Example test automation project built to demonstrate QA skills".</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-L-03</span>
+            <span class="tcTitle">Example card is hidden by default</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/landing.spec.js - phone card is hidden by default</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the example plan card is not shown on first load.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Progressive disclosure - content should appear only after a user action.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open "/".</li><li>Assert the phone card is not visible.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>The example card is not visible.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-L-04</span>
+            <span class="tcTitle">"See example" reveals the card</span>
+            <span class="prio high">High</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/landing.spec.js - phone card appears when clicking See example</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the example card appears when triggered.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Key interactive control on the landing page.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open "/".</li><li>Click "See example".</li><li>Assert the phone card becomes visible.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>The example card is visible after the click.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-L-05</span>
+            <span class="tcTitle">Nav "Exercises" link points to the section</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/landing.spec.js - nav exercises button links to exercises section</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the Exercises nav link targets the exercises section.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Navigation integrity - anchors must match section ids.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open "/".</li><li>Inspect the Exercises nav link.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Link is visible and has href="#exercises".</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-L-06</span>
+            <span class="tcTitle">"Start planning" links to the planner</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/landing.spec.js - start planning button links to planner</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the primary CTA targets the planner section.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Core conversion path from landing to the planner.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open "/".</li><li>Inspect the "Start planning" button.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Button has href="#planner".</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-L-07</span>
+            <span class="tcTitle">Proof row shows key value points</span>
+            <span class="prio low">Low</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/landing.spec.js - proof row shows correct tags</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the proof points render.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Informational trust signals ("800+ exercises", "No login needed").</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open "/".</li><li>Read the proof row contents.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Row contains "800+ exercises" and "No login needed".</p></div>
+        </article>
+      </div>
+
+      <h3 class="tcGroup">Create your plan form</h3>
+      <div class="tcGrid">
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-F-01</span>
+            <span class="tcTitle">All form fields are displayed</span>
+            <span class="prio high">High</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/form.spec.js - displays all form fields</div>
+          <div class="tcRow"><strong>What</strong><p>Verify every input and select renders.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>The planner is unusable if any required field is missing.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open "/", click "Start planning".</li><li>Assert each field is visible.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>age, gender, height, weight, goal, experience, daysPerWeek and equipment are all visible.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-F-02</span>
+            <span class="tcTitle">Removed field does not reappear</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/form.spec.js - injuries/limitations field is removed</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the legacy "injuries/limitations" textarea is gone.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Regression guard - removed features must not silently come back.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open "/", click "Start planning".</li><li>Search for a textarea named "limitations".</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>No such field exists on the page.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-F-03</span>
+            <span class="tcTitle">Form has correct default values</span>
+            <span class="prio high">High</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/form.spec.js - form has default values</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the form is prefilled with sensible defaults.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Defaults define the out-of-the-box experience and feed the default plan.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open "/", click "Start planning".</li><li>Read each field value.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>age=30, gender=male, height=178, weight=82, goal=build-muscle, experience=intermediate, daysPerWeek=4.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-F-04</span>
+            <span class="tcTitle">Generate button is present and enabled</span>
+            <span class="prio high">High</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/form.spec.js - generate button exists and is clickable</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the submit action is usable.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>The primary action must always be available.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open "/", click "Start planning".</li><li>Locate "Generate my workout plan" and check state.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Button is visible and enabled.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-F-05</span>
+            <span class="tcTitle">No stray action buttons in the form</span>
+            <span class="prio low">Low</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/form.spec.js - exercises button scrolls to exercises section</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the form card contains only the intended submit button.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Guards against leftover controls from removed features cluttering the flow.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open "/", click "Start planning".</li><li>Enumerate buttons inside the form card.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Only the "Generate my workout plan" button is present.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-F-06</span>
+            <span class="tcTitle">Fields can be edited</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/form.spec.js - can fill in form fields</div>
+          <div class="tcRow"><strong>What</strong><p>Verify inputs accept user changes.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Editability is required for the tool to be useful to different users.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open the form.</li><li>Set age=25, goal=fat-loss, daysPerWeek=5.</li><li>Read back the values.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Values reflect the user selections.</p></div>
+        </article>
+      </div>
+
+      <h3 class="tcGroup">Plan generation</h3>
+      <div class="tcGrid">
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-P-01</span>
+            <span class="tcTitle">Default data generates a 4-day plan</span>
+            <span class="prio high">High</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/plan.spec.js - generates a plan with default data</div>
+          <div class="tcRow"><strong>What</strong><p>Verify generating with defaults produces 4 day cards.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Core output of the entire feature - if this fails, nothing else matters.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open the form with default values.</li><li>Click "Generate my workout plan".</li><li>Count the day cards.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Exactly 4 day cards appear.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-P-02</span>
+            <span class="tcTitle">Correct split name on day 1</span>
+            <span class="prio high">High</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/plan.spec.js - plan shows correct split name</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the default split labels each day correctly.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>The split is the user-facing structure of the whole plan.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Generate a plan with defaults.</li><li>Read the first day card.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Day 1 shows "Day 1" and "Chest & Triceps".</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-P-03</span>
+            <span class="tcTitle">Plan exercises open the details modal</span>
+            <span class="prio high">High</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/plan.spec.js - plan exercises are clickable and open modal</div>
+          <div class="tcRow"><strong>What</strong><p>Verify exercise links inside a plan open the exercise details.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Cross-navigation between plan and exercise reference is a key workflow.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Generate a plan.</li><li>Click the first exercise link in a day card.</li><li>Assert the modal appears with a title.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Modal is visible and its heading is not empty.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-P-04</span>
+            <span class="tcTitle">Progression and safety advice render</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/plan.spec.js - plan shows progression and safety advice</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the plan includes advice blocks.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Safety and progression guidance are part of the promised value.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Generate a plan.</li><li>Read the advice sections.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>An advice block contains "Progression"; the muted block contains "Safety".</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-P-05</span>
+            <span class="tcTitle">Days per week changes plan length</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/plan.spec.js - different days per week changes plan length</div>
+          <div class="tcRow"><strong>What</strong><p>Verify selecting 2 days yields a 2-day plan.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>User preference must drive the output shape.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Set daysPerWeek=2.</li><li>Click "Generate my workout plan".</li><li>Count day cards.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Exactly 2 day cards appear.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-P-06</span>
+            <span class="tcTitle">Goal changes the rep scheme</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/plan.spec.js - different goal changes rep scheme</div>
+          <div class="tcRow"><strong>What</strong><p>Verify strength goal shows a low-rep prescription.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Goal-to-training-parameter mapping must be visible to the user.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Set goal=strength.</li><li>Click "Generate my workout plan".</li><li>Read the result card.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>The result contains "4-6 reps".</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-P-07</span>
+            <span class="tcTitle">Each day shows warmup and finisher</span>
+            <span class="prio low">Low</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/plan.spec.js - each day card shows warmup and finisher</div>
+          <div class="tcRow"><strong>What</strong><p>Verify every day includes warmup and finisher sections.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Completeness of the daily structure.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Generate a plan.</li><li>Read the first day card.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Day card contains "light cardio" and "core work".</p></div>
+        </article>
+      </div>
+
+      <h3 class="tcGroup">Exercise library</h3>
+      <div class="tcGrid">
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-E-01</span>
+            <span class="tcTitle">Exercises section renders</span>
+            <span class="prio high">High</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/exercises.spec.js - exercises section is visible</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the exercises section and heading appear.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>One of the two main feature areas of the site.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open "/", click "Exercises" in the nav.</li><li>Assert the section and its heading.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Section is visible with heading "Browse Exercises".</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-E-02</span>
+            <span class="tcTitle">Search bar accepts input</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/exercises.spec.js - search bar is present and functional</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the search input is present and typeable.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Search is the primary discovery mechanism.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open the exercises section.</li><li>Type "bench" in the search box.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Input shows the typed value.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-E-03</span>
+            <span class="tcTitle">Muscle filter dropdown exists</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/exercises.spec.js - muscle filter dropdown exists</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the muscle filter is present with a default option.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Filtering is a core library capability.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open the exercises section.</li><li>Inspect the first filter dropdown.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Dropdown is visible and includes "All muscles".</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-E-04</span>
+            <span class="tcTitle">Equipment filter dropdown exists</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/exercises.spec.js - equipment filter dropdown exists</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the equipment filter is present with a default option.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Filtering by equipment narrows the library by user context.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open the exercises section.</li><li>Inspect the second filter dropdown.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Dropdown is visible and includes "All equipment".</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-E-05</span>
+            <span class="tcTitle">Exercise cards load within a bounded range</span>
+            <span class="prio high">High</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/exercises.spec.js - exercise cards are loaded</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the library populates with a controlled number of results.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Catches both an empty state (nothing loads) and an unbounded load (too many results).</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open the exercises section.</li><li>Wait for the cards and count them.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>More than 0 and no more than 60 cards.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-E-06</span>
+            <span class="tcTitle">Exercise count is displayed</span>
+            <span class="prio low">Low</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/exercises.spec.js - exercise count is displayed</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the result count label renders.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Informational feedback on the current result set.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open the exercises section.</li><li>Read the count label.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>The label contains "exercises".</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-E-07</span>
+            <span class="tcTitle">Clicking a card opens the details modal</span>
+            <span class="prio high">High</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/exercises.spec.js - clicking exercise card opens modal</div>
+          <div class="tcRow"><strong>What</strong><p>Verify exercise details open on click.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Core interaction for viewing exercise reference data.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open the exercises section.</li><li>Click the first exercise card.</li><li>Assert the modal and its title.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Modal is visible and its heading is not empty.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-E-08</span>
+            <span class="tcTitle">Modal shows images and instructions</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/exercises.spec.js - modal displays images and instructions</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the modal contains the expected media and instruction content.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>The reference content is the reason the modal exists.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open the exercises section and click a card.</li><li>Count images and check the instructions list.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Exactly 2 images and at least one instruction item visible.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-E-09</span>
+            <span class="tcTitle">Modal closes with the X button</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/exercises.spec.js - modal can be closed with X button</div>
+          <div class="tcRow"><strong>What</strong><p>Verify the close button dismisses the modal.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>A modal that cannot be closed is a blocking bug.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open a modal.</li><li>Click the close (X) button.</li><li>Assert the modal disappears.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Modal is no longer visible.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-E-10</span>
+            <span class="tcTitle">Modal closes on backdrop click</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/exercises.spec.js - modal closes on backdrop click</div>
+          <div class="tcRow"><strong>What</strong><p>Verify clicking outside the modal dismisses it.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Standard modal UX; prevents users from being trapped.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Open a modal.</li><li>Click the backdrop away from the content.</li><li>Assert the modal disappears.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Modal is no longer visible.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-E-11</span>
+            <span class="tcTitle">Search narrows the result list</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/exercises.spec.js - search filters exercises by name</div>
+          <div class="tcRow"><strong>What</strong><p>Verify typing in search reduces the shown results.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Proves search actually filters instead of just accepting text.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Count cards before filtering.</li><li>Type "ankle" in the search box.</li><li>Count cards again.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Result count decreases but stays above zero.</p></div>
+        </article>
+
+        <article class="tcCard">
+          <div class="tcHeader">
+            <span class="tcId">UI-E-12</span>
+            <span class="tcTitle">Muscle filter narrows the result list</span>
+            <span class="prio medium">Medium</span>
+          </div>
+          <div class="tcSource">Source: frontend/tests/exercises.spec.js - muscle filter works</div>
+          <div class="tcRow"><strong>What</strong><p>Verify selecting a muscle group filters the results.</p></div>
+          <div class="tcRow"><strong>Why</strong><p>Proves the filter changes the data shown, not just the UI state.</p></div>
+          <div class="tcRow"><strong>How</strong><ol><li>Count cards before filtering.</li><li>Select "biceps" in the muscle filter.</li><li>Count cards again.</li></ol></div>
+          <div class="tcRow"><strong>Expected</strong><p>Result count decreases but stays above zero.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="tcSection">
+      <div class="sectionHeader">
+        <p class="eyebrow">Reports</p>
+        <h2>See the automated runs</h2>
+        <p>
+          These cases are not documentation-only - every one is executed by
+          the automated suites. Open the latest reports to see the results.
+        </p>
+      </div>
+      <div class="heroActions">
+        <a href="/reports/api-report.html" class="primaryButton" target="_blank" rel="noreferrer">Open API Report</a>
+        <a href="/reports/playwright-report/index.html" class="primaryButton" target="_blank" rel="noreferrer">Open UI Report</a>
+      </div>
+    </section>
+  </body>
+</html>

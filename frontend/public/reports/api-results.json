@@ -2,7 +2,7 @@
   "collection": {
     "item": [
       {
-        "id": "257a38e7-a695-4720-a7d1-dcf5f8f7cd14",
+        "id": "6a14558e-96d0-49ea-aba5-2d840614e804",
         "name": "Health Check",
         "request": {
           "url": {
@@ -23,7 +23,7 @@
           {
             "listen": "test",
             "script": {
-              "id": "54dd95c9-7872-4fcd-a83c-ae00589ea0c2",
+              "id": "1aa5141f-b84b-4126-bf2d-c194d7f420f2",
               "type": "text/javascript",
               "exec": [
                 "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
@@ -31,13 +31,13 @@
                 "pm.test('Response has service name', () => { const data = pm.response.json(); pm.expect(data.service).to.eql('Gymini API'); });",
                 "pm.test('Response time is acceptable', () => { pm.expect(pm.response.responseTime).to.be.below(1000); });"
               ],
-              "_lastExecutionId": "0cfd5aad-7149-4475-8370-74a87d902b3e"
+              "_lastExecutionId": "69baf634-2942-432e-aa54-61319ce85b2e"
             }
           }
         ]
       },
       {
-        "id": "044b5e9d-89e1-4679-810a-c36c1254b867",
+        "id": "26af6b03-2352-4589-819a-5dbde437955b",
         "name": "Generate Plan - Valid Request",
         "request": {
           "url": {
@@ -68,7 +68,7 @@
           {
             "listen": "test",
             "script": {
-              "id": "f0001349-8a03-4131-a47d-5de863d9168c",
+              "id": "cd0cff27-2d7e-4019-af9c-9a4e43f88b7f",
               "type": "text/javascript",
               "exec": [
                 "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
@@ -82,13 +82,13 @@
                 "pm.test('Response has safety note', () => { const data = pm.response.json(); pm.expect(data).to.have.property('safety'); });",
                 "pm.test('Response time is acceptable', () => { pm.expect(pm.response.responseTime).to.be.below(2000); });"
               ],
-              "_lastExecutionId": "a201954a-6257-4ffa-90d3-38ae749bd631"
+              "_lastExecutionId": "e60ff905-6515-49c7-9933-20c5f241fc64"
             }
           }
         ]
       },
       {
-        "id": "3e713884-b30b-4053-98d2-83fa825c6301",
+        "id": "19282ed6-6bda-4cae-ae78-f5c44cba3d1f",
         "name": "Generate Plan - Strength Goal",
         "request": {
           "url": {
@@ -119,7 +119,7 @@
           {
             "listen": "test",
             "script": {
-              "id": "277769de-cf6f-4a9a-bc42-d9beefd48eb5",
+              "id": "6bd4c156-4bd9-4e33-9797-671787aa7c64",
               "type": "text/javascript",
               "exec": [
                 "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
@@ -127,13 +127,13 @@
                 "pm.test('Exercises use strength rep scheme', () => { const data = pm.response.json(); const firstExercise = data.weeklyPlan[0].exercises[0]; pm.expect(firstExercise.prescription).to.include('4-6'); });",
                 "pm.test('Rest is 2-3 minutes for strength', () => { const data = pm.response.json(); const firstExercise = data.weeklyPlan[0].exercises[0]; pm.expect(firstExercise.rest).to.include('2-3 minutes'); });"
               ],
-              "_lastExecutionId": "2b3038e3-d0c1-4cca-9d73-3b9609773a95"
+              "_lastExecutionId": "50f09d02-3a97-4053-9ca5-e58a832f8aa2"
             }
           }
         ]
       },
       {
-        "id": "42af4da1-a640-4890-b508-0d87a06b8779",
+        "id": "978a58b3-750d-467b-8646-9962f6e28fe9",
         "name": "Generate Plan - Fat Loss Goal",
         "request": {
           "url": {
@@ -164,7 +164,7 @@
           {
             "listen": "test",
             "script": {
-              "id": "11712538-d729-433b-ad02-f88eb430052f",
+              "id": "2be85882-1d37-4643-930e-fae71385682d",
               "type": "text/javascript",
               "exec": [
                 "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
@@ -172,13 +172,13 @@
                 "pm.test('Exercises use higher rep scheme', () => { const data = pm.response.json(); const firstExercise = data.weeklyPlan[0].exercises[0]; pm.expect(firstExercise.prescription).to.include('10-15'); });",
                 "pm.test('Finisher is cardio for fat loss', () => { const data = pm.response.json(); pm.expect(data.weeklyPlan[0].finisher).to.include('incline walk'); });"
               ],
-              "_lastExecutionId": "5666bc29-08e9-40a9-a067-9c93470dde0b"
+              "_lastExecutionId": "e0217666-97bd-462b-9f9a-0f331521e262"
             }
           }
         ]
       },
       {
-        "id": "f51b359a-c006-4ef0-bc9d-6c5c9fd5ba1f",
+        "id": "363f66e3-fed3-4b45-8bba-7186ab3631c1",
         "name": "Generate Plan - Bodyweight Equipment",
         "request": {
           "url": {
@@ -209,19 +209,19 @@
           {
             "listen": "test",
             "script": {
-              "id": "83795e10-a69e-4142-979a-454113de93ba",
+              "id": "74afc880-2b57-413c-9925-aa57fc312a79",
               "type": "text/javascript",
               "exec": [
                 "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
                 "pm.test('Exercises are bodyweight focused', () => { const data = pm.response.json(); data.weeklyPlan.forEach(day => { day.exercises.forEach(ex => { pm.expect(['Push-ups', 'Goblet squats', 'Dumbbell rows', 'Romanian deadlifts', 'Plank', 'Walking lunges']).to.include(ex.name); }); }); });"
               ],
-              "_lastExecutionId": "d195c54d-5f93-422c-876a-66a3ce489eac"
+              "_lastExecutionId": "eb9aac9d-3807-4969-9b66-9a4a656f3739"
             }
           }
         ]
       },
       {
-        "id": "1a298c35-5e59-492d-ae1d-697c1a581e27",
+        "id": "a66554fb-be70-4b92-85c4-d4303179dd10",
         "name": "Generate Plan - Missing Required Fields",
         "request": {
           "url": {
@@ -252,20 +252,20 @@
           {
             "listen": "test",
             "script": {
-              "id": "8f5831d6-a1c1-40cf-bf1e-d5f227fd6e9c",
+              "id": "565464db-a015-46e0-ae93-b3756743b06a",
               "type": "text/javascript",
               "exec": [
                 "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
                 "pm.test('Response has error message', () => { const data = pm.response.json(); pm.expect(data).to.have.property('message'); pm.expect(data.message).to.include('Missing'); });",
                 "pm.test('Response lists missing fields', () => { const data = pm.response.json(); pm.expect(data).to.have.property('missing'); pm.expect(data.missing).to.be.an('array'); pm.expect(data.missing.length).to.be.above(0); });"
               ],
-              "_lastExecutionId": "d6959b1a-04d4-4c6b-84fc-75b02b307942"
+              "_lastExecutionId": "a4db8379-1a42-40d6-bf61-ef1d7afd6551"
             }
           }
         ]
       },
       {
-        "id": "9994ca9c-9c13-4a10-9b09-f2286a411874",
+        "id": "c3ab9da9-296c-4c02-ac8e-9c232f1aeced",
         "name": "Generate Plan - Empty Body",
         "request": {
           "url": {
@@ -296,19 +296,19 @@
           {
             "listen": "test",
             "script": {
-              "id": "72f4a6a6-ba44-4889-9152-fc26e4184dd0",
+              "id": "89c3945a-5531-4e09-a955-47fce9428604",
               "type": "text/javascript",
               "exec": [
                 "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
                 "pm.test('Response has missing fields list', () => { const data = pm.response.json(); pm.expect(data.missing).to.include.members(['age', 'height', 'weight', 'goal', 'experience', 'daysPerWeek', 'equipment']); });"
               ],
-              "_lastExecutionId": "5ec5aab7-7aaa-45de-83eb-04ebd0e3c522"
+              "_lastExecutionId": "6e8359f2-077a-4f91-a9e4-d19d347368d1"
             }
           }
         ]
       },
       {
-        "id": "6faedde4-bf24-435b-b67a-b885845c1a7a",
+        "id": "754b293b-f3aa-471e-a2e8-d7c7545025ab",
         "name": "Generate Plan - Different Day Counts",
         "request": {
           "url": {
@@ -339,14 +339,14 @@
           {
             "listen": "test",
             "script": {
-              "id": "796ce5d0-c9c1-42cf-af50-cdc49c60cd3a",
+              "id": "db380aa7-368b-416f-8af9-eec9add870a5",
               "type": "text/javascript",
               "exec": [
                 "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
                 "pm.test('Plan has 2 days', () => { const data = pm.response.json(); pm.expect(data.weeklyPlan).to.have.length(2); });",
                 "pm.test('Split is full body for 2 days', () => { const data = pm.response.json(); pm.expect(data.weeklyPlan[0].focus).to.include('Full Body'); });"
               ],
-              "_lastExecutionId": "84e702d3-1501-4646-bea2-4ea12c7ff8b0"
+              "_lastExecutionId": "f2b0b453-516e-420c-af38-46d10b5def0b"
             }
           }
         ]
@@ -361,7 +361,7 @@
       }
     ],
     "info": {
-      "_postman_id": "fc2eb40b-49fa-42a2-bf6c-7db7bf5a82d6",
+      "_postman_id": "2454adfc-3f49-4bfa-8fca-fc027a4c4ead",
       "name": "Gymini API Tests",
       "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
       "description": {
@@ -371,11 +371,11 @@
     }
   },
   "environment": {
-    "id": "ffb4963d-5875-4598-b8de-4b866b5e6a28",
+    "id": "0c0cc989-47d6-4048-98d8-be7ed6b7840e",
     "values": []
   },
   "globals": {
-    "id": "5910df83-a478-43fa-a124-703813f32c17",
+    "id": "bd0a207a-c3a1-44fd-894f-f832fdf2083c",
     "values": []
   },
   "run": {
@@ -427,10 +427,10 @@
       }
     },
     "timings": {
-      "responseAverage": 8.5,
+      "responseAverage": 8.25,
       "responseMin": 2,
-      "responseMax": 39,
-      "responseSd": 12.020815280171304,
+      "responseMax": 27,
+      "responseSd": 8.466847110938051,
       "dnsAverage": 0,
       "dnsMin": 0,
       "dnsMax": 0,
@@ -439,8 +439,8 @@
       "firstByteMin": 0,
       "firstByteMax": 0,
       "firstByteSd": 0,
-      "started": 1786454153701,
-      "completed": 1786454154379
+      "started": 1786455375447,
+      "completed": 1786455376118
     },
     "executions": [
       {
@@ -453,11 +453,11 @@
           "eof": false,
           "bof": true,
           "cr": false,
-          "ref": "e1b552a1-1b13-4b1b-8b1b-ed9918e3f5f4",
-          "httpRequestId": "b7c682de-c9e5-4622-8ac6-ff0368a51729"
+          "ref": "cfb50ae7-eb96-41ff-b4ee-2d0f068d7b4a",
+          "httpRequestId": "86ae3a5d-b379-4c9e-a9ff-dcabb9833c6d"
         },
         "item": {
-          "id": "257a38e7-a695-4720-a7d1-dcf5f8f7cd14",
+          "id": "6a14558e-96d0-49ea-aba5-2d840614e804",
           "name": "Health Check",
           "request": {
             "url": {
@@ -478,7 +478,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "54dd95c9-7872-4fcd-a83c-ae00589ea0c2",
+                "id": "1aa5141f-b84b-4126-bf2d-c194d7f420f2",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
@@ -486,7 +486,7 @@
                   "pm.test('Response has service name', () => { const data = pm.response.json(); pm.expect(data.service).to.eql('Gymini API'); });",
                   "pm.test('Response time is acceptable', () => { pm.expect(pm.response.responseTime).to.be.below(1000); });"
                 ],
-                "_lastExecutionId": "0cfd5aad-7149-4475-8370-74a87d902b3e"
+                "_lastExecutionId": "69baf634-2942-432e-aa54-61319ce85b2e"
               }
             }
           ]
@@ -523,7 +523,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "3caa6409-85ed-4c5d-91f6-8f68906d4a4a",
+              "value": "7c658942-ce41-4fce-b0c4-882145ea6131",
               "system": true
             },
             {
@@ -545,7 +545,7 @@
           "method": "GET"
         },
         "response": {
-          "id": "b297c7d1-dea4-43c3-bd56-f76ff0074f36",
+          "id": "c055b9fd-fbc7-491f-820a-e5bcf5bda831",
           "status": "OK",
           "code": 200,
           "header": [
@@ -571,7 +571,7 @@
             },
             {
               "key": "Date",
-              "value": "Tue, 11 Aug 2026 13:15:53 GMT"
+              "value": "Tue, 11 Aug 2026 13:36:15 GMT"
             },
             {
               "key": "Connection",
@@ -626,10 +626,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 39,
+          "responseTime": 27,
           "responseSize": 38
         },
-        "id": "257a38e7-a695-4720-a7d1-dcf5f8f7cd14",
+        "id": "6a14558e-96d0-49ea-aba5-2d840614e804",
         "assertions": [
           {
             "assertion": "Status code is 200",
@@ -651,15 +651,15 @@
       },
       {
         "cursor": {
-          "ref": "d02db1f0-9b24-4f2a-ad9b-14bd230168ec",
+          "ref": "d5d36ecc-fcf6-4e97-b8fc-231ade81f274",
           "length": 8,
           "cycles": 1,
           "position": 1,
           "iteration": 0,
-          "httpRequestId": "7f8273db-1666-43ab-8c15-183dcc9dab7f"
+          "httpRequestId": "d99c4206-96bd-4d1c-be90-12f6e6037a2e"
         },
         "item": {
-          "id": "044b5e9d-89e1-4679-810a-c36c1254b867",
+          "id": "26af6b03-2352-4589-819a-5dbde437955b",
           "name": "Generate Plan - Valid Request",
           "request": {
             "url": {
@@ -690,7 +690,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "f0001349-8a03-4131-a47d-5de863d9168c",
+                "id": "cd0cff27-2d7e-4019-af9c-9a4e43f88b7f",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
@@ -704,7 +704,7 @@
                   "pm.test('Response has safety note', () => { const data = pm.response.json(); pm.expect(data).to.have.property('safety'); });",
                   "pm.test('Response time is acceptable', () => { pm.expect(pm.response.responseTime).to.be.below(2000); });"
                 ],
-                "_lastExecutionId": "a201954a-6257-4ffa-90d3-38ae749bd631"
+                "_lastExecutionId": "e60ff905-6515-49c7-9933-20c5f241fc64"
               }
             }
           ]
@@ -745,7 +745,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "947031e3-92dc-486d-9ec4-a771bee0a40f",
+              "value": "7adf2f94-492e-4205-b56e-5b3a8a3d40d6",
               "system": true
             },
             {
@@ -776,7 +776,7 @@
           }
         },
         "response": {
-          "id": "d568568e-b9a6-429a-859a-07030d52102b",
+          "id": "10babdfa-6f12-4829-8c05-94e237486407",
           "status": "OK",
           "code": 200,
           "header": [
@@ -802,7 +802,7 @@
             },
             {
               "key": "Date",
-              "value": "Tue, 11 Aug 2026 13:15:53 GMT"
+              "value": "Tue, 11 Aug 2026 13:36:15 GMT"
             },
             {
               "key": "Connection",
@@ -3682,10 +3682,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 13,
+          "responseTime": 17,
           "responseSize": 2863
         },
-        "id": "044b5e9d-89e1-4679-810a-c36c1254b867",
+        "id": "26af6b03-2352-4589-819a-5dbde437955b",
         "assertions": [
           {
             "assertion": "Status code is 200",
@@ -3731,15 +3731,15 @@
       },
       {
         "cursor": {
-          "ref": "a2432183-1983-4997-b1fc-974b67179d35",
+          "ref": "5f8df25e-c7d6-4f7e-86fd-420c2446c0f2",
           "length": 8,
           "cycles": 1,
           "position": 2,
           "iteration": 0,
-          "httpRequestId": "92e85aef-fa25-46f8-b63d-de4f9a844282"
+          "httpRequestId": "90b289db-5bd4-4d69-a850-ed4c8ad44118"
         },
         "item": {
-          "id": "3e713884-b30b-4053-98d2-83fa825c6301",
+          "id": "19282ed6-6bda-4cae-ae78-f5c44cba3d1f",
           "name": "Generate Plan - Strength Goal",
           "request": {
             "url": {
@@ -3770,7 +3770,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "277769de-cf6f-4a9a-bc42-d9beefd48eb5",
+                "id": "6bd4c156-4bd9-4e33-9797-671787aa7c64",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
@@ -3778,7 +3778,7 @@
                   "pm.test('Exercises use strength rep scheme', () => { const data = pm.response.json(); const firstExercise = data.weeklyPlan[0].exercises[0]; pm.expect(firstExercise.prescription).to.include('4-6'); });",
                   "pm.test('Rest is 2-3 minutes for strength', () => { const data = pm.response.json(); const firstExercise = data.weeklyPlan[0].exercises[0]; pm.expect(firstExercise.rest).to.include('2-3 minutes'); });"
                 ],
-                "_lastExecutionId": "2b3038e3-d0c1-4cca-9d73-3b9609773a95"
+                "_lastExecutionId": "50f09d02-3a97-4053-9ca5-e58a832f8aa2"
               }
             }
           ]
@@ -3819,7 +3819,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "c3cefb2c-659c-455e-84da-1662c1985410",
+              "value": "9ae433e5-2418-48c9-bd72-189c66beec3e",
               "system": true
             },
             {
@@ -3850,7 +3850,7 @@
           }
         },
         "response": {
-          "id": "1c0dac64-8250-4df8-bd33-5a29d8bce911",
+          "id": "c19d06f5-31d4-4f58-b5a4-65b4c2b2a3e0",
           "status": "OK",
           "code": 200,
           "header": [
@@ -3876,7 +3876,7 @@
             },
             {
               "key": "Date",
-              "value": "Tue, 11 Aug 2026 13:15:53 GMT"
+              "value": "Tue, 11 Aug 2026 13:36:15 GMT"
             },
             {
               "key": "Connection",
@@ -6317,10 +6317,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 3,
+          "responseTime": 2,
           "responseSize": 2424
         },
-        "id": "3e713884-b30b-4053-98d2-83fa825c6301",
+        "id": "19282ed6-6bda-4cae-ae78-f5c44cba3d1f",
         "assertions": [
           {
             "assertion": "Status code is 200",
@@ -6342,15 +6342,15 @@
       },
       {
         "cursor": {
-          "ref": "1b41cf0d-b5d8-490a-bdb7-397dde47c121",
+          "ref": "c90b6754-7a8d-4765-8eff-497dc01116f2",
           "length": 8,
           "cycles": 1,
           "position": 3,
           "iteration": 0,
-          "httpRequestId": "5cb43c34-f056-4922-be29-849e4b8e9589"
+          "httpRequestId": "ff0ffbf2-ced6-4e6a-ae43-de35d79ac498"
         },
         "item": {
-          "id": "42af4da1-a640-4890-b508-0d87a06b8779",
+          "id": "978a58b3-750d-467b-8646-9962f6e28fe9",
           "name": "Generate Plan - Fat Loss Goal",
           "request": {
             "url": {
@@ -6381,7 +6381,7 @@
             {
               "listen": "test",
               "script": {
-                "id": "11712538-d729-433b-ad02-f88eb430052f",
+                "id": "2be85882-1d37-4643-930e-fae71385682d",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
@@ -6389,7 +6389,7 @@
                   "pm.test('Exercises use higher rep scheme', () => { const data = pm.response.json(); const firstExercise = data.weeklyPlan[0].exercises[0]; pm.expect(firstExercise.prescription).to.include('10-15'); });",
                   "pm.test('Finisher is cardio for fat loss', () => { const data = pm.response.json(); pm.expect(data.weeklyPlan[0].finisher).to.include('incline walk'); });"
                 ],
-                "_lastExecutionId": "5666bc29-08e9-40a9-a067-9c93470dde0b"
+                "_lastExecutionId": "e0217666-97bd-462b-9f9a-0f331521e262"
               }
             }
           ]
@@ -6430,7 +6430,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "42b08481-2c38-4a1a-80c0-639a73860e5b",
+              "value": "675cefbe-af34-4565-9835-a3f789c97a92",
               "system": true
             },
             {
@@ -6461,7 +6461,7 @@
           }
         },
         "response": {
-          "id": "68a26ea0-642b-4a40-a29c-bbf640873749",
+          "id": "854e0855-b144-489c-baff-db02ccaea0af",
           "status": "OK",
           "code": 200,
           "header": [
@@ -6487,7 +6487,7 @@
             },
             {
               "key": "Date",
-              "value": "Tue, 11 Aug 2026 13:15:53 GMT"
+              "value": "Tue, 11 Aug 2026 13:36:15 GMT"
             },
             {
               "key": "Connection",
@@ -8785,7 +8785,7 @@
           "responseTime": 3,
           "responseSize": 2278
         },
-        "id": "42af4da1-a640-4890-b508-0d87a06b8779",
+        "id": "978a58b3-750d-467b-8646-9962f6e28fe9",
         "assertions": [
           {
             "assertion": "Status code is 200",
@@ -8807,15 +8807,15 @@
       },
       {
         "cursor": {
-          "ref": "08bcdde1-4e37-4954-8f21-c3d956825012",
+          "ref": "33f37ec4-30db-4317-bc83-c38fba9b7d89",
           "length": 8,
           "cycles": 1,
           "position": 4,
           "iteration": 0,
-          "httpRequestId": "5b3ab457-17b8-42ec-b433-0f467647b4c0"
+          "httpRequestId": "16796ba3-678d-4c00-bb8a-6def6d9bb7bd"
         },
         "item": {
-          "id": "f51b359a-c006-4ef0-bc9d-6c5c9fd5ba1f",
+          "id": "363f66e3-fed3-4b45-8bba-7186ab3631c1",
           "name": "Generate Plan - Bodyweight Equipment",
           "request": {
             "url": {
@@ -8846,13 +8846,13 @@
             {
               "listen": "test",
               "script": {
-                "id": "83795e10-a69e-4142-979a-454113de93ba",
+                "id": "74afc880-2b57-413c-9925-aa57fc312a79",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
                   "pm.test('Exercises are bodyweight focused', () => { const data = pm.response.json(); data.weeklyPlan.forEach(day => { day.exercises.forEach(ex => { pm.expect(['Push-ups', 'Goblet squats', 'Dumbbell rows', 'Romanian deadlifts', 'Plank', 'Walking lunges']).to.include(ex.name); }); }); });"
                 ],
-                "_lastExecutionId": "d195c54d-5f93-422c-876a-66a3ce489eac"
+                "_lastExecutionId": "eb9aac9d-3807-4969-9b66-9a4a656f3739"
               }
             }
           ]
@@ -8893,7 +8893,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "4d811875-3f04-4301-accf-0af8255c1c31",
+              "value": "b31b7302-e811-4c09-96e5-309f32d667c8",
               "system": true
             },
             {
@@ -8924,7 +8924,7 @@
           }
         },
         "response": {
-          "id": "339632ce-e853-4d7a-a2fb-61bc765634ca",
+          "id": "da2604df-bf31-4912-87b9-4fea9d2bcca7",
           "status": "OK",
           "code": 200,
           "header": [
@@ -8950,7 +8950,7 @@
             },
             {
               "key": "Date",
-              "value": "Tue, 11 Aug 2026 13:15:54 GMT"
+              "value": "Tue, 11 Aug 2026 13:36:15 GMT"
             },
             {
               "key": "Connection",
@@ -11107,10 +11107,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 3,
+          "responseTime": 5,
           "responseSize": 2140
         },
-        "id": "f51b359a-c006-4ef0-bc9d-6c5c9fd5ba1f",
+        "id": "363f66e3-fed3-4b45-8bba-7186ab3631c1",
         "assertions": [
           {
             "assertion": "Status code is 200",
@@ -11124,15 +11124,15 @@
       },
       {
         "cursor": {
-          "ref": "cab46379-497b-4291-a46a-a40f8eee78f9",
+          "ref": "95f55a2a-8d87-41f6-a542-3b1e6883cecd",
           "length": 8,
           "cycles": 1,
           "position": 5,
           "iteration": 0,
-          "httpRequestId": "8becd091-e00e-42a5-ab09-11ff88a5909b"
+          "httpRequestId": "451eda3b-bcfa-42ea-ba7b-49831470e774"
         },
         "item": {
-          "id": "1a298c35-5e59-492d-ae1d-697c1a581e27",
+          "id": "a66554fb-be70-4b92-85c4-d4303179dd10",
           "name": "Generate Plan - Missing Required Fields",
           "request": {
             "url": {
@@ -11163,14 +11163,14 @@
             {
               "listen": "test",
               "script": {
-                "id": "8f5831d6-a1c1-40cf-bf1e-d5f227fd6e9c",
+                "id": "565464db-a015-46e0-ae93-b3756743b06a",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
                   "pm.test('Response has error message', () => { const data = pm.response.json(); pm.expect(data).to.have.property('message'); pm.expect(data.message).to.include('Missing'); });",
                   "pm.test('Response lists missing fields', () => { const data = pm.response.json(); pm.expect(data).to.have.property('missing'); pm.expect(data.missing).to.be.an('array'); pm.expect(data.missing.length).to.be.above(0); });"
                 ],
-                "_lastExecutionId": "d6959b1a-04d4-4c6b-84fc-75b02b307942"
+                "_lastExecutionId": "a4db8379-1a42-40d6-bf61-ef1d7afd6551"
               }
             }
           ]
@@ -11211,7 +11211,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "7f9d8420-21b1-4c7b-b339-87d2b145c256",
+              "value": "8cb8b385-316a-4711-8906-43bc8951a8ff",
               "system": true
             },
             {
@@ -11242,7 +11242,7 @@
           }
         },
         "response": {
-          "id": "ea924207-e946-4be9-bb26-06f48c140daa",
+          "id": "9be00c4b-2177-4bc4-8eb6-e81bef63c9cd",
           "status": "Bad Request",
           "code": 400,
           "header": [
@@ -11268,7 +11268,7 @@
             },
             {
               "key": "Date",
-              "value": "Tue, 11 Aug 2026 13:15:54 GMT"
+              "value": "Tue, 11 Aug 2026 13:36:15 GMT"
             },
             {
               "key": "Connection",
@@ -11398,10 +11398,10 @@
             ]
           },
           "cookie": [],
-          "responseTime": 2,
+          "responseTime": 7,
           "responseSize": 113
         },
-        "id": "1a298c35-5e59-492d-ae1d-697c1a581e27",
+        "id": "a66554fb-be70-4b92-85c4-d4303179dd10",
         "assertions": [
           {
             "assertion": "Status code is 400",
@@ -11419,15 +11419,15 @@
       },
       {
         "cursor": {
-          "ref": "5b454e68-6d94-42da-983d-59661f0d178d",
+          "ref": "71e30684-81ee-4d02-9b06-e2fd22544417",
           "length": 8,
           "cycles": 1,
           "position": 6,
           "iteration": 0,
-          "httpRequestId": "ce7bad44-544b-4169-9028-11f881e4ab92"
+          "httpRequestId": "53739d3b-81c0-4127-b682-f058411227fe"
         },
         "item": {
-          "id": "9994ca9c-9c13-4a10-9b09-f2286a411874",
+          "id": "c3ab9da9-296c-4c02-ac8e-9c232f1aeced",
           "name": "Generate Plan - Empty Body",
           "request": {
             "url": {
@@ -11458,13 +11458,13 @@
             {
               "listen": "test",
               "script": {
-                "id": "72f4a6a6-ba44-4889-9152-fc26e4184dd0",
+                "id": "89c3945a-5531-4e09-a955-47fce9428604",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
                   "pm.test('Response has missing fields list', () => { const data = pm.response.json(); pm.expect(data.missing).to.include.members(['age', 'height', 'weight', 'goal', 'experience', 'daysPerWeek', 'equipment']); });"
                 ],
-                "_lastExecutionId": "5ec5aab7-7aaa-45de-83eb-04ebd0e3c522"
+                "_lastExecutionId": "6e8359f2-077a-4f91-a9e4-d19d347368d1"
               }
             }
           ]
@@ -11505,7 +11505,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "b994d4e9-bc20-4d18-8a26-2bfa13004cf2",
+              "value": "dad95f01-f312-4e97-ae0f-705ca45b0a3d",
               "system": true
             },
             {
@@ -11536,7 +11536,7 @@
           }
         },
         "response": {
-          "id": "9448b561-1f48-4bf5-993e-cf867182ddbc",
+          "id": "2b4401a1-3ad0-4070-a76d-9573b9ad2eec",
           "status": "Bad Request",
           "code": 400,
           "header": [
@@ -11562,7 +11562,7 @@
             },
             {
               "key": "Date",
-              "value": "Tue, 11 Aug 2026 13:15:54 GMT"
+              "value": "Tue, 11 Aug 2026 13:36:15 GMT"
             },
             {
               "key": "Connection",
@@ -11701,7 +11701,7 @@
           "responseTime": 3,
           "responseSize": 119
         },
-        "id": "9994ca9c-9c13-4a10-9b09-f2286a411874",
+        "id": "c3ab9da9-296c-4c02-ac8e-9c232f1aeced",
         "assertions": [
           {
             "assertion": "Status code is 400",
@@ -11715,15 +11715,15 @@
       },
       {
         "cursor": {
-          "ref": "fdfa10fc-41c6-4951-b3f1-c65f19e590c4",
+          "ref": "c459e637-761d-4aa5-a03e-30146256322c",
           "length": 8,
           "cycles": 1,
           "position": 7,
           "iteration": 0,
-          "httpRequestId": "865fb5a1-c382-4281-ab1f-d83d8fed4f71"
+          "httpRequestId": "9d6801c0-e157-4e87-b413-e0f6508a8320"
         },
         "item": {
-          "id": "6faedde4-bf24-435b-b67a-b885845c1a7a",
+          "id": "754b293b-f3aa-471e-a2e8-d7c7545025ab",
           "name": "Generate Plan - Different Day Counts",
           "request": {
             "url": {
@@ -11754,14 +11754,14 @@
             {
               "listen": "test",
               "script": {
-                "id": "796ce5d0-c9c1-42cf-af50-cdc49c60cd3a",
+                "id": "db380aa7-368b-416f-8af9-eec9add870a5",
                 "type": "text/javascript",
                 "exec": [
                   "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
                   "pm.test('Plan has 2 days', () => { const data = pm.response.json(); pm.expect(data.weeklyPlan).to.have.length(2); });",
                   "pm.test('Split is full body for 2 days', () => { const data = pm.response.json(); pm.expect(data.weeklyPlan[0].focus).to.include('Full Body'); });"
                 ],
-                "_lastExecutionId": "84e702d3-1501-4646-bea2-4ea12c7ff8b0"
+                "_lastExecutionId": "f2b0b453-516e-420c-af38-46d10b5def0b"
               }
             }
           ]
@@ -11802,7 +11802,7 @@
             },
             {
               "key": "Postman-Token",
-              "value": "fc4eb644-f341-42d7-a026-c0b242df43cb",
+              "value": "16a4bd16-175f-4323-9b3f-58d2f9e55fa5",
               "system": true
             },
             {
@@ -11833,7 +11833,7 @@
           }
         },
         "response": {
-          "id": "e791ca85-f710-469d-b435-dacee37b1dd6",
+          "id": "fb010b8b-5084-4f1e-a28e-229b4e89bef7",
           "status": "OK",
           "code": 200,
           "header": [
@@ -11859,7 +11859,7 @@
             },
             {
               "key": "Date",
-              "value": "Tue, 11 Aug 2026 13:15:54 GMT"
+              "value": "Tue, 11 Aug 2026 13:36:16 GMT"
             },
             {
               "key": "Connection",
@@ -13551,7 +13551,7 @@
           "responseTime": 2,
           "responseSize": 1672
         },
-        "id": "6faedde4-bf24-435b-b67a-b885845c1a7a",
+        "id": "754b293b-f3aa-471e-a2e8-d7c7545025ab",
         "assertions": [
           {
             "assertion": "Status code is 200",
