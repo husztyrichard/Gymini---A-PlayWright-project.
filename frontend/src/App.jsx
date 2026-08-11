@@ -127,6 +127,32 @@ function buildRealPlan(allExercises, profile) {
   };
 }
 
+function countPlaywrightResults(suites) {
+  let total = 0;
+  let passed = 0;
+  let failed = 0;
+  let skipped = 0;
+
+  function walk(list) {
+    for (const suite of list || []) {
+      for (const spec of suite.specs || []) {
+        for (const test of spec.tests || []) {
+          total++;
+          const results = test.results || [];
+          const status = results.length ? results[results.length - 1].status : 'skipped';
+          if (status === 'passed' || status === 'flaky') passed++;
+          else if (status === 'failed' || status === 'timedOut' || status === 'interrupted') failed++;
+          else skipped++;
+        }
+      }
+      walk(suite.suites);
+    }
+  }
+  walk(suites);
+
+  return { total, passed, failed, skipped };
+}
+
 function App() {
   const [form, setForm] = useState(initialForm);
   const [plan, setPlan] = useState(null);
@@ -143,11 +169,24 @@ function App() {
   const [testLoading, setTestLoading] = useState(true);
   const [testError, setTestError] = useState('');
   const [runningTests, setRunningTests] = useState(false);
+  const [backendAvailable, setBackendAvailable] = useState(false);
+
+  useEffect(() => {
+    async function checkBackend() {
+      try {
+        const response = await fetch('/api/health');
+        setBackendAvailable(response.ok);
+      } catch {
+        setBackendAvailable(false);
+      }
+    }
+    checkBackend();
+  }, []);
 
   useEffect(() => {
     async function fetchTestResults() {
       try {
-        // Try backend endpoint first
+        // Prefer the live backend endpoint when available
         let response = await fetch('/api/test-results');
         if (response.ok) {
           const data = await response.json();
@@ -155,7 +194,10 @@ function App() {
           return;
         }
 
-        // Fallback: try static report JSON (useful when backend not deployed)
+        // Fallback: static report JSON files committed with the site
+        const results = {};
+        let found = false;
+
         response = await fetch('/reports/api-results.json');
         if (response.ok) {
           const raw = await response.json();
@@ -164,18 +206,30 @@ function App() {
           const stats = run.stats || {};
           const total = stats.assertions?.total || stats.assertions?.cursor || 0;
           const failed = stats.assertions?.failed || 0;
-          const passed = total - failed;
-          const results = { api: { total, passed, failed, assertions: [] } };
-          if (run.executions) {
-            results.api.assertions = run.executions.flatMap((ex) =>
+          results.api = {
+            total,
+            passed: total - failed,
+            failed,
+            assertions: (run.executions || []).flatMap((ex) =>
               (ex.assertions || []).map((a) => ({ name: a.assertion || '', passed: !a.error, error: a.error?.message || null }))
-            );
-          }
+            )
+          };
+          found = true;
+        }
+
+        response = await fetch('/reports/ui-results.json');
+        if (response.ok) {
+          const raw = await response.json();
+          results.ui = countPlaywrightResults(raw.suites);
+          found = true;
+        }
+
+        if (found) {
           setTestResults(results);
           return;
         }
 
-        throw new Error('No test results available');
+        throw new Error('No test reports found on this deployment.');
       } catch (err) {
         setTestError(`Unable to load test metrics. ${err.message || ''}`);
       } finally {
@@ -250,14 +304,17 @@ function App() {
   }
 
   async function runApiTests() {
+    if (!backendAvailable) {
+      setTestError('Backend is not deployed on this site. Run `npm test` locally or in CI to refresh results.');
+      return;
+    }
     setRunningTests(true);
     setTestError('');
 
     try {
       const response = await fetch('/api/run-api-tests', { method: 'POST' });
       if (!response.ok) {
-        const text = await response.text();
-        throw new Error(text || 'Failed to run tests');
+        throw new Error('The test runner could not be reached.');
       }
 
       const data = await response.json();
@@ -369,7 +426,7 @@ function App() {
         <div className="sectionHeader">
           <p className="eyebrow">Quality Assurance</p>
           <h2>Live test status and metrics</h2>
-          <p>Monitor automated coverage, report availability and run the API suite from the site.</p>
+          <p>Monitor automated coverage and report availability. The API suite runs locally (`npm test`) or in CI.</p>
         </div>
 
         <div className="testGrid">
@@ -421,18 +478,25 @@ function App() {
             </div>
             <div className="statusBlock">
               <span className="statusLabel">UI tests</span>
-              <strong>32 tests</strong>
+              <strong className={testResults?.ui ? (testResults.ui.failed ? 'statusFail' : 'statusPass') : ''}>
+                {testResults?.ui ? `${testResults.ui.total} tests` : '32 tests'}
+              </strong>
             </div>
             <div className="statusBlock">
               <span className="statusLabel">Reports page</span>
               <strong>Available</strong>
             </div>
             <div className="testActions">
-              <button className="primaryButton" type="button" onClick={runApiTests} disabled={runningTests || testLoading}>
-                {runningTests ? 'Running tests…' : 'Run tests'}
+              <button className="primaryButton" type="button" onClick={runApiTests} disabled={runningTests || testLoading || !backendAvailable}>
+                {runningTests ? 'Running tests…' : backendAvailable ? 'Run tests' : 'Run tests (backend offline)'}
               </button>
               <a href="/reports.html" className="secondaryButton">View reports page</a>
             </div>
+            {!backendAvailable && !testLoading && (
+              <p style={{ color: '#94a3b8', fontSize: 12, margin: '4px 0 0' }}>
+                This site is hosted statically, so live test runs aren&apos;t possible here. Start the backend locally (`npm run dev`) or run the GitHub Actions pipeline to generate fresh results.
+              </p>
+            )}
           </div>
         </div>
       </section>
