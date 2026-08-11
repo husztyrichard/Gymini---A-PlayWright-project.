@@ -346,6 +346,7 @@ function App() {
           <div className="navLinks">
             <a href="#exercises" className="navCta">Exercises</a>
             <a href="#test-dashboard" className="navCta">Tests</a>
+            <a href="/reports.html" className="navCta">Reports</a>
             <a href="/test-cases.html" className="navCta">Test cases</a>
             <a href="/about.html" className="navCta">About me</a>
           </div>
@@ -460,9 +461,10 @@ function App() {
             </div>
             <div className="statusBlock">
               <span className="statusLabel">Reports page</span>
-              <strong>Available</strong>
+              <strong className="statusPass">Available</strong>
             </div>
             <div className="heroActions">
+              <a href="/reports.html" className="secondaryButton">View reports page</a>
               <a href="/reports/playwright-report/index.html" className="primaryButton" target="_blank" rel="noreferrer">Open UI Report</a>
             </div>
           </div>

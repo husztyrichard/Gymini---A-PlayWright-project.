@@ -3,9 +3,7 @@
     "argv": [
       "C:\\Program Files\\nodejs\\node.exe",
       "C:\\Users\\Felhasználó\\Desktop\\Gymini\\frontend\\node_modules\\@playwright\\test\\cli.js",
-      "test",
-      "--project=chromium",
-      "--list"
+      "test"
     ],
     "configFile": "C:\\Users\\Felhasználó\\Desktop\\Gymini\\frontend\\playwright.config.js",
     "rootDir": "C:/Users/Felhasználó/Desktop/Gymini/frontend/tests",
@@ -18,18 +16,21 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {},
+    "metadata": {
+      "actualWorkers": 6
+    },
     "preserveOutput": "always",
     "projects": [
       {
         "outputDir": "C:/Users/Felhasználó/Desktop/Gymini/frontend/test-results",
         "repeatEach": 1,
         "retries": 1,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 6
+        },
         "id": "chromium",
         "name": "chromium",
         "testDir": "C:/Users/Felhasználó/Desktop/Gymini/frontend/tests",
-        "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
@@ -39,11 +40,12 @@
         "outputDir": "C:/Users/Felhasználó/Desktop/Gymini/frontend/test-results",
         "repeatEach": 1,
         "retries": 1,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 6
+        },
         "id": "firefox",
         "name": "firefox",
         "testDir": "C:/Users/Felhasználó/Desktop/Gymini/frontend/tests",
-        "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
@@ -53,11 +55,12 @@
         "outputDir": "C:/Users/Felhasználó/Desktop/Gymini/frontend/test-results",
         "repeatEach": 1,
         "retries": 1,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 6
+        },
         "id": "mobile-chromium",
         "name": "mobile-chromium",
         "testDir": "C:/Users/Felhasználó/Desktop/Gymini/frontend/tests",
-        "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
@@ -89,7 +92,6 @@
       "threshold": 300000
     },
     "shard": null,
-    "tags": [],
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
     "version": "1.61.1",
@@ -105,8 +107,8 @@
     {
       "title": "accessibility.spec.js",
       "file": "accessibility.spec.js",
-      "column": 0,
       "line": 0,
+      "column": 0,
       "specs": [
         {
           "title": "has no unexpected accessibility violations - home",
@@ -114,13 +116,40 @@
           "tags": [],
           "tests": [
             {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
               "projectName": "chromium",
-              "results": [],
-              "status": "skipped"
+              "expectedStatus": "passed",
+              "status": "expected",
+              "results": [
+                {
+                  "status": "passed",
+                  "duration": 9661,
+                  "startTime": "2026-08-11T20:49:49.156Z"
+                }
+              ]
+            },
+            {
+              "projectName": "firefox",
+              "expectedStatus": "passed",
+              "status": "expected",
+              "results": [
+                {
+                  "status": "passed",
+                  "duration": 14021,
+                  "startTime": "2026-08-11T20:49:49.218Z"
+                }
+              ]
+            },
+            {
+              "projectName": "mobile-chromium",
+              "expectedStatus": "passed",
+              "status": "expected",
+              "results": [
+                {
+                  "status": "passed",
+                  "duration": 6954,
+                  "startTime": "2026-08-11T20:50:33.266Z"
+                }
+              ]
             }
           ],
           "id": "d316df4bad39fab891ed-372617f0bda8196dcdb3",
@@ -134,13 +163,40 @@
           "tags": [],
           "tests": [
             {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
               "projectName": "chromium",
-              "results": [],
-              "status": "skipped"
+              "expectedStatus": "passed",
+              "status": "expected",
+              "results": [
+                {
+                  "status": "passed",
+                  "duration": 3606,
+                  "startTime": "2026-08-11T20:49:59.982Z"
+                }
+              ]
+            },
+            {
+              "projectName": "firefox",
+              "expectedStatus": "passed",
+              "status": "expected",
+              "results": [
+                {
+                  "status": "passed",
+                  "duration": 3513,
+                  "startTime": "2026-08-11T20:50:03.800Z"
+                }
+              ]
+            },
+            {
+              "projectName": "mobile-chromium",
+              "expectedStatus": "passed",
+              "status": "expected",
+              "results": [
+                {
+                  "status": "passed",
+                  "duration": 3925,
+                  "startTime": "2026-08-11T20:50:40.941Z"
+                }
+              ]
             }
           ],
           "id": "d316df4bad39fab891ed-ded99b50b818c8f3557c",
@@ -154,13 +210,40 @@
           "tags": [],
           "tests": [
             {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
               "projectName": "chromium",
-              "results": [],
-              "status": "skipped"
+              "expectedStatus": "passed",
+              "status": "expected",
+              "results": [
+                {
+                  "status": "passed",
+                  "duration": 6729,
+                  "startTime": "2026-08-11T20:50:03.615Z"
+                }
+              ]
+            },
+            {
+              "projectName": "firefox",
+              "expectedStatus": "passed",
+              "status": "expected",
+              "results": [
+                {
+                  "status": "passed",
+                  "duration": 7850,
+                  "startTime": "2026-08-11T20:50:07.342Z"
+                }
+              ]
+            },
+            {
+              "projectName": "mobile-chromium",
+              "expectedStatus": "passed",
+              "status": "expected",
+              "results": [
+                {
+                  "status": "passed",
+                  "duration": 6261,
+                  "startTime": "2026-08-11T20:50:44.899Z"
+                }
+              ]
             }
           ],
           "id": "d316df4bad39fab891ed-1f2686487f8ac8f5dc23",
@@ -174,13 +257,40 @@
           "tags": [],
           "tests": [
             {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
               "projectName": "chromium",
-              "results": [],
-              "status": "skipped"
+              "expectedStatus": "passed",
+              "status": "expected",
+              "results": [
+                {
+                  "status": "passed",
+                  "duration": 2544,
+                  "startTime": "2026-08-11T20:50:10.370Z"
+                }
+              ]
+            },
+            {
+              "projectName": "firefox",
+              "expectedStatus": "passed",
+              "status": "expected",
+              "results": [
+                {
+                  "status": "passed",
+                  "duration": 4878,
+                  "startTime": "2026-08-11T20:50:15.221Z"
+                }
+              ]
+            },
+            {
+              "projectName": "mobile-chromium",
+              "expectedStatus": "passed",
+              "status": "expected",
+              "results": [
+                {
+                  "status": "passed",
+                  "duration": 6012,
+                  "startTime": "2026-08-11T20:50:51.189Z"
+                }
+              ]
             }
           ],
           "id": "d316df4bad39fab891ed-5648a8f8faf95ff867d5",
@@ -193,9 +303,8 @@
     {
       "title": "exercises.spec.js",
       "file": "exercises.spec.js",
-      "column": 0,
       "line": 0,
-      "specs": [],
+      "column": 0,
       "suites": [
         {
           "title": "Exercise Library",
@@ -209,13 +318,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3046,
+                      "startTime": "2026-08-11T20:49:49.112Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 5634,
+                      "startTime": "2026-08-11T20:50:09.664Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2517,
+                      "startTime": "2026-08-11T20:50:31.315Z"
+                    }
+                  ]
                 }
               ],
               "id": "cb7b3c440fc371678c0e-23aaffc11e81379f335c",
@@ -229,13 +365,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2532,
+                      "startTime": "2026-08-11T20:49:53.273Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2566,
+                      "startTime": "2026-08-11T20:50:16.479Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1949,
+                      "startTime": "2026-08-11T20:50:36.488Z"
+                    }
+                  ]
                 }
               ],
               "id": "cb7b3c440fc371678c0e-6821001f9494f2b280e1",
@@ -249,13 +412,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2278,
+                      "startTime": "2026-08-11T20:49:55.839Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3061,
+                      "startTime": "2026-08-11T20:50:19.078Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2134,
+                      "startTime": "2026-08-11T20:50:38.473Z"
+                    }
+                  ]
                 }
               ],
               "id": "cb7b3c440fc371678c0e-9ceb3ee0f4d7a8bc05bf",
@@ -269,13 +459,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1689,
+                      "startTime": "2026-08-11T20:49:58.148Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2454,
+                      "startTime": "2026-08-11T20:50:22.166Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2129,
+                      "startTime": "2026-08-11T20:50:40.636Z"
+                    }
+                  ]
                 }
               ],
               "id": "cb7b3c440fc371678c0e-e1b2b7acf982a2377edb",
@@ -291,13 +508,40 @@
               ],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2389,
+                      "startTime": "2026-08-11T20:49:59.862Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2797,
+                      "startTime": "2026-08-11T20:50:24.647Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2020,
+                      "startTime": "2026-08-11T20:50:42.791Z"
+                    }
+                  ]
                 }
               ],
               "id": "cb7b3c440fc371678c0e-d4317770844e3b053d72",
@@ -311,13 +555,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2070,
+                      "startTime": "2026-08-11T20:50:02.287Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3488,
+                      "startTime": "2026-08-11T20:50:27.468Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1986,
+                      "startTime": "2026-08-11T20:50:44.841Z"
+                    }
+                  ]
                 }
               ],
               "id": "cb7b3c440fc371678c0e-bc160a1041b662d96953",
@@ -333,13 +604,40 @@
               ],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3281,
+                      "startTime": "2026-08-11T20:50:04.385Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3265,
+                      "startTime": "2026-08-11T20:50:30.986Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3288,
+                      "startTime": "2026-08-11T20:50:46.852Z"
+                    }
+                  ]
                 }
               ],
               "id": "cb7b3c440fc371678c0e-31ae79f87051f579ed28",
@@ -353,13 +651,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2964,
+                      "startTime": "2026-08-11T20:50:07.694Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3199,
+                      "startTime": "2026-08-11T20:50:34.284Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3181,
+                      "startTime": "2026-08-11T20:50:50.172Z"
+                    }
+                  ]
                 }
               ],
               "id": "cb7b3c440fc371678c0e-2e675df7c7126fd4a692",
@@ -375,13 +700,40 @@
               ],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2881,
+                      "startTime": "2026-08-11T20:50:10.685Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3216,
+                      "startTime": "2026-08-11T20:50:37.510Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3762,
+                      "startTime": "2026-08-11T20:50:53.382Z"
+                    }
+                  ]
                 }
               ],
               "id": "cb7b3c440fc371678c0e-97a4fe957e23a4493080",
@@ -395,13 +747,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2763,
+                      "startTime": "2026-08-11T20:50:13.595Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 8994,
+                      "startTime": "2026-08-11T20:50:40.760Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3169,
+                      "startTime": "2026-08-11T20:50:57.171Z"
+                    }
+                  ]
                 }
               ],
               "id": "cb7b3c440fc371678c0e-7d9c955b8c06f018c904",
@@ -415,13 +794,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1806,
+                      "startTime": "2026-08-11T20:50:16.383Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3697,
+                      "startTime": "2026-08-11T20:50:49.787Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1130,
+                      "startTime": "2026-08-11T20:51:00.365Z"
+                    }
+                  ]
                 }
               ],
               "id": "cb7b3c440fc371678c0e-18d904408da9c3128b0e",
@@ -435,13 +841,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2679,
+                      "startTime": "2026-08-11T20:50:18.217Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 4352,
+                      "startTime": "2026-08-11T20:50:53.509Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1088,
+                      "startTime": "2026-08-11T20:51:01.515Z"
+                    }
+                  ]
                 }
               ],
               "id": "cb7b3c440fc371678c0e-e7031a34cd3927458c7e",
@@ -456,9 +889,8 @@
     {
       "title": "form.spec.js",
       "file": "form.spec.js",
-      "column": 0,
       "line": 0,
-      "specs": [],
+      "column": 0,
       "suites": [
         {
           "title": "Create Your Plan Form",
@@ -474,13 +906,40 @@
               ],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2813,
+                      "startTime": "2026-08-11T20:49:49.076Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 7307,
+                      "startTime": "2026-08-11T20:50:11.713Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2479,
+                      "startTime": "2026-08-11T20:50:43.766Z"
+                    }
+                  ]
                 }
               ],
               "id": "2f379e0ccf955432678f-bc4ab6e8f66a0ce081d7",
@@ -494,13 +953,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2615,
+                      "startTime": "2026-08-11T20:49:52.728Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2879,
+                      "startTime": "2026-08-11T20:50:20.238Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1861,
+                      "startTime": "2026-08-11T20:50:47.114Z"
+                    }
+                  ]
                 }
               ],
               "id": "2f379e0ccf955432678f-40be6aef164f04001b46",
@@ -514,13 +1000,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1684,
+                      "startTime": "2026-08-11T20:49:55.391Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3792,
+                      "startTime": "2026-08-11T20:50:23.151Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1623,
+                      "startTime": "2026-08-11T20:50:49.011Z"
+                    }
+                  ]
                 }
               ],
               "id": "2f379e0ccf955432678f-f5f2575b322b8f7502b7",
@@ -536,13 +1049,40 @@
               ],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1947,
+                      "startTime": "2026-08-11T20:49:57.102Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2521,
+                      "startTime": "2026-08-11T20:50:26.971Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1805,
+                      "startTime": "2026-08-11T20:50:50.667Z"
+                    }
+                  ]
                 }
               ],
               "id": "2f379e0ccf955432678f-2f04b07b0a1b9961fc82",
@@ -556,13 +1096,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1651,
+                      "startTime": "2026-08-11T20:49:59.078Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2006,
+                      "startTime": "2026-08-11T20:50:29.520Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2016,
+                      "startTime": "2026-08-11T20:50:52.500Z"
+                    }
+                  ]
                 }
               ],
               "id": "2f379e0ccf955432678f-9b829951e8d495751c44",
@@ -576,13 +1143,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2262,
+                      "startTime": "2026-08-11T20:50:00.758Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3865,
+                      "startTime": "2026-08-11T20:50:31.550Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2806,
+                      "startTime": "2026-08-11T20:50:54.543Z"
+                    }
+                  ]
                 }
               ],
               "id": "2f379e0ccf955432678f-50f1cacb20a19e895db7",
@@ -597,9 +1191,8 @@
     {
       "title": "landing.spec.js",
       "file": "landing.spec.js",
-      "column": 0,
       "line": 0,
-      "specs": [],
+      "column": 0,
       "suites": [
         {
           "title": "Landing Page",
@@ -615,13 +1208,40 @@
               ],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 5315,
+                      "startTime": "2026-08-11T20:49:49.049Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 6795,
+                      "startTime": "2026-08-11T20:50:11.784Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2630,
+                      "startTime": "2026-08-11T20:50:43.411Z"
+                    }
+                  ]
                 }
               ],
               "id": "3370f39aa0d6cc6ba3dc-100d7e3a74822b45cfc6",
@@ -637,13 +1257,40 @@
               ],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2205,
+                      "startTime": "2026-08-11T20:49:55.272Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1717,
+                      "startTime": "2026-08-11T20:50:20.880Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1444,
+                      "startTime": "2026-08-11T20:50:46.771Z"
+                    }
+                  ]
                 }
               ],
               "id": "3370f39aa0d6cc6ba3dc-ac1ffd6000baacbc6381",
@@ -657,13 +1304,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1927,
+                      "startTime": "2026-08-11T20:49:57.520Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1693,
+                      "startTime": "2026-08-11T20:50:22.629Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1357,
+                      "startTime": "2026-08-11T20:50:48.243Z"
+                    }
+                  ]
                 }
               ],
               "id": "3370f39aa0d6cc6ba3dc-6241fb26ad1aad45c768",
@@ -677,13 +1351,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2815,
+                      "startTime": "2026-08-11T20:49:59.486Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2542,
+                      "startTime": "2026-08-11T20:50:24.351Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1539,
+                      "startTime": "2026-08-11T20:50:49.627Z"
+                    }
+                  ]
                 }
               ],
               "id": "3370f39aa0d6cc6ba3dc-4d4f1459382c79cc1e6e",
@@ -697,13 +1398,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1808,
+                      "startTime": "2026-08-11T20:50:02.341Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1810,
+                      "startTime": "2026-08-11T20:50:26.917Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2341,
+                      "startTime": "2026-08-11T20:50:51.191Z"
+                    }
+                  ]
                 }
               ],
               "id": "3370f39aa0d6cc6ba3dc-1c292f0c47530a357479",
@@ -717,13 +1445,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1668,
+                      "startTime": "2026-08-11T20:50:04.181Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2393,
+                      "startTime": "2026-08-11T20:50:28.755Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1715,
+                      "startTime": "2026-08-11T20:50:53.557Z"
+                    }
+                  ]
                 }
               ],
               "id": "3370f39aa0d6cc6ba3dc-6bd8e0dc7846726cce28",
@@ -737,13 +1492,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1706,
+                      "startTime": "2026-08-11T20:50:05.874Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2353,
+                      "startTime": "2026-08-11T20:50:31.172Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2237,
+                      "startTime": "2026-08-11T20:50:55.302Z"
+                    }
+                  ]
                 }
               ],
               "id": "3370f39aa0d6cc6ba3dc-5c9023ab892bef089fc2",
@@ -758,9 +1540,8 @@
     {
       "title": "plan.spec.js",
       "file": "plan.spec.js",
-      "column": 0,
       "line": 0,
-      "specs": [],
+      "column": 0,
       "suites": [
         {
           "title": "Plan Generation",
@@ -776,13 +1557,40 @@
               ],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3457,
+                      "startTime": "2026-08-11T20:49:49.047Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 7141,
+                      "startTime": "2026-08-11T20:50:16.695Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 5678,
+                      "startTime": "2026-08-11T20:50:51.736Z"
+                    }
+                  ]
                 }
               ],
               "id": "3be062588c41a0402820-ba71417403f8c7b29b5e",
@@ -798,13 +1606,40 @@
               ],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2451,
+                      "startTime": "2026-08-11T20:49:53.350Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2641,
+                      "startTime": "2026-08-11T20:50:27.271Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 4542,
+                      "startTime": "2026-08-11T20:50:58.810Z"
+                    }
+                  ]
                 }
               ],
               "id": "3be062588c41a0402820-6118c01df2b4de7fbb34",
@@ -818,13 +1653,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3434,
+                      "startTime": "2026-08-11T20:49:55.838Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3512,
+                      "startTime": "2026-08-11T20:50:29.947Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 4973,
+                      "startTime": "2026-08-11T20:51:03.375Z"
+                    }
+                  ]
                 }
               ],
               "id": "3be062588c41a0402820-b4233bdbdbc268566e0b",
@@ -838,13 +1700,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3067,
+                      "startTime": "2026-08-11T20:49:59.303Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3075,
+                      "startTime": "2026-08-11T20:50:33.489Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 4416,
+                      "startTime": "2026-08-11T20:51:08.363Z"
+                    }
+                  ]
                 }
               ],
               "id": "3be062588c41a0402820-c686ea24c515d74c9083",
@@ -858,13 +1747,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2344,
+                      "startTime": "2026-08-11T20:50:02.398Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3987,
+                      "startTime": "2026-08-11T20:50:36.588Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 4768,
+                      "startTime": "2026-08-11T20:51:12.793Z"
+                    }
+                  ]
                 }
               ],
               "id": "3be062588c41a0402820-ad36ee5c99bf85d55726",
@@ -878,13 +1794,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2092,
+                      "startTime": "2026-08-11T20:50:04.771Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2807,
+                      "startTime": "2026-08-11T20:50:40.601Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 4615,
+                      "startTime": "2026-08-11T20:51:17.578Z"
+                    }
+                  ]
                 }
               ],
               "id": "3be062588c41a0402820-b857b688753d9cfca5d9",
@@ -898,13 +1841,40 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
                   "projectName": "chromium",
-                  "results": [],
-                  "status": "skipped"
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2397,
+                      "startTime": "2026-08-11T20:50:06.893Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3739,
+                      "startTime": "2026-08-11T20:50:43.432Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 4445,
+                      "startTime": "2026-08-11T20:51:22.210Z"
+                    }
+                  ]
                 }
               ],
               "id": "3be062588c41a0402820-b003364a2c6aae45642e",
@@ -919,10 +1889,10 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-11T15:14:07.492Z",
-    "duration": 135.586,
-    "expected": 0,
-    "skipped": 36,
+    "startTime": "2026-08-11T20:49:47.024Z",
+    "duration": 99934.103,
+    "expected": 108,
+    "skipped": 0,
     "unexpected": 0,
     "flaky": 0
   }
