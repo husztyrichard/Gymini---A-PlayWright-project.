@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Landing Page', () => {
-  test('loads and displays branding', async ({ page }) => {
+  test('loads and displays branding', { tag: ['@smoke'] }, async ({ page }) => {
     await page.goto('/');
     await expect(page.locator('.brand span')).toHaveText('Gymini');
     await expect(page.locator('.brand small')).toHaveText('QA Portfolio');
   });
 
-  test('displays hero section with headline', async ({ page }) => {
+  test('displays hero section with headline', { tag: ['@smoke'] }, async ({ page }) => {
     await page.goto('/');
     await expect(page.locator('h1')).toContainText('Example test automation project built to demonstrate QA skills');
   });

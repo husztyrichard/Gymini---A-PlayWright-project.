@@ -34,6 +34,44 @@ jobs:
           path: reports/api-report.html
           if-no-files-found: warn
 
+  smoke-tests:
+    name: Smoke Tests (Playwright, fast)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install frontend dependencies
+        run: npm install
+        working-directory: frontend
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+        working-directory: frontend
+      - name: Run smoke tests
+        run: npm run test:smoke -- --project=chromium
+        working-directory: frontend
+
+  lighthouse:
+    name: Lighthouse (perf/a11y/best-practices/seo budgets)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install frontend dependencies
+        run: npm install
+        working-directory: frontend
+      - name: Build frontend
+        run: npm run build
+        working-directory: frontend
+      - name: Run Lighthouse CI
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+        run: npm run lighthouse
+        working-directory: frontend
+
   ui-tests:
     name: UI Tests (Playwright)
     runs-on: ubuntu-latest

@@ -5,3 +5,4 @@ reports/
 !frontend/public/reports/
 frontend/test-results/
 frontend/playwright-report/
+frontend/.lighthouseci/

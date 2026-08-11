@@ -7,14 +7,14 @@ test.describe('Plan Generation', () => {
     await page.waitForSelector('.exerciseCard', { timeout: 15000 });
   });
 
-  test('generates a plan with default data', async ({ page }) => {
+  test('generates a plan with default data', { tag: ['@smoke'] }, async ({ page }) => {
     await page.click('button:has-text("Generate my workout plan")');
     await page.waitForSelector('.dayCard', { timeout: 15000 });
     const days = page.locator('.dayCard');
     expect(await days.count()).toBe(4);
   });
 
-  test('plan shows correct split name', async ({ page }) => {
+  test('plan shows correct split name', { tag: ['@smoke'] }, async ({ page }) => {
     await page.click('button:has-text("Generate my workout plan")');
     await page.waitForSelector('.dayCard', { timeout: 15000 });
     await expect(page.locator('.dayCard').first()).toContainText('Day 1');

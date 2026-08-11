@@ -6,7 +6,7 @@ test.describe('Create Your Plan Form', () => {
     await page.click('text=Start planning');
   });
 
-  test('displays all form fields', async ({ page }) => {
+  test('displays all form fields', { tag: ['@smoke'] }, async ({ page }) => {
     await expect(page.locator('input[name="age"]')).toBeVisible();
     await expect(page.locator('select[name="gender"]')).toBeVisible();
     await expect(page.locator('input[name="height"]')).toBeVisible();
@@ -31,7 +31,7 @@ test.describe('Create Your Plan Form', () => {
     await expect(page.locator('select[name="daysPerWeek"]')).toHaveValue('4');
   });
 
-  test('generate button exists and is clickable', async ({ page }) => {
+  test('generate button exists and is clickable', { tag: ['@smoke'] }, async ({ page }) => {
     const btn = page.locator('button', { hasText: 'Generate my workout plan' });
     await expect(btn).toBeVisible();
     await expect(btn).toBeEnabled();

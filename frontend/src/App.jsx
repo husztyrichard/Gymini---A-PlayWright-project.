@@ -505,11 +505,11 @@ function App() {
             value={exerciseSearch}
             onChange={(e) => setExerciseSearch(e.target.value)}
           />
-          <select className="exerciseFilter" value={muscleFilter} onChange={(e) => setMuscleFilter(e.target.value)}>
+          <select className="exerciseFilter" aria-label="Filter by muscle group" value={muscleFilter} onChange={(e) => setMuscleFilter(e.target.value)}>
             <option value="all">All muscles</option>
             {allMuscles.map((m) => <option key={m} value={m}>{m}</option>)}
           </select>
-          <select className="exerciseFilter" value={equipmentFilter} onChange={(e) => setEquipmentFilter(e.target.value)}>
+          <select className="exerciseFilter" aria-label="Filter by equipment" value={equipmentFilter} onChange={(e) => setEquipmentFilter(e.target.value)}>
             <option value="all">All equipment</option>
             {allEquipment.map((e) => <option key={e} value={e}>{e}</option>)}
           </select>

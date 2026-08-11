@@ -33,7 +33,7 @@ test.describe('Exercise Library', () => {
     expect(options).toContain('All equipment');
   });
 
-  test('exercise cards are loaded', async ({ page }) => {
+  test('exercise cards are loaded', { tag: ['@smoke'] }, async ({ page }) => {
     await page.waitForSelector('.exerciseCard', { timeout: 15000 });
     const cards = page.locator('.exerciseCard');
     const count = await cards.count();
@@ -46,7 +46,7 @@ test.describe('Exercise Library', () => {
     await expect(page.locator('.exerciseCount')).toContainText('exercises');
   });
 
-  test('clicking exercise card opens modal', async ({ page }) => {
+  test('clicking exercise card opens modal', { tag: ['@smoke'] }, async ({ page }) => {
     await page.waitForSelector('.exerciseCard', { timeout: 15000 });
     await page.locator('.exerciseCard').first().click();
     await expect(page.locator('.exerciseModal')).toBeVisible();
@@ -60,7 +60,7 @@ test.describe('Exercise Library', () => {
     await expect(page.locator('.modalInstructions ol li').first()).toBeVisible();
   });
 
-  test('modal can be closed with X button', async ({ page }) => {
+  test('modal can be closed with X button', { tag: ['@smoke'] }, async ({ page }) => {
     await page.waitForSelector('.exerciseCard', { timeout: 15000 });
     await page.locator('.exerciseCard').first().click();
     await expect(page.locator('.exerciseModal')).toBeVisible();
