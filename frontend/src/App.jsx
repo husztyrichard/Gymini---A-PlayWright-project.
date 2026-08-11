@@ -437,7 +437,7 @@ function App() {
                   {testResults?.api ? (testResults.api.failed ? 'Fail' : 'Available') : (testError ? 'Unavailable' : 'Unknown')}
                 </strong>
                 {testError && <div style={{color: '#fca5a5', fontSize: 12}}>{testError}</div>}
-              </div>g
+              </div>
             </div>
             <div className="statusBlock">
               <span className="statusLabel">UI tests</span>
