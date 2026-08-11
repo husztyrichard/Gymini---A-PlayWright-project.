@@ -11,7 +11,9 @@ export default defineConfig({
     baseURL: 'http://127.0.0.1:5173',
     headless: true,
     screenshot: 'only-on-failure',
-    trace: 'retain-on-failure'
+    trace: 'retain-on-failure',
+    video: 'retain-on-failure'
+
   },
   projects: [
     { name: 'chromium', use: { browserName: 'chromium' } }
