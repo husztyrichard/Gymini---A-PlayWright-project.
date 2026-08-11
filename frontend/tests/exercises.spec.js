@@ -64,8 +64,9 @@ test.describe('Exercise Library', () => {
     await page.waitForSelector('.exerciseCard', { timeout: 15000 });
     await page.locator('.exerciseCard').first().click();
     await expect(page.locator('.exerciseModal')).toBeVisible();
+    await expect(page.locator('.modalClose')).toBeVisible();
     await page.click('.modalClose');
-    await expect(page.locator('.exerciseModal')).not.toBeVisible();
+    await expect(page.locator('.exerciseModal')).toBeHidden();
   });
 
   test('modal closes on backdrop click', async ({ page }) => {
@@ -73,7 +74,7 @@ test.describe('Exercise Library', () => {
     await page.locator('.exerciseCard').first().click();
     await expect(page.locator('.exerciseModal')).toBeVisible();
     await page.locator('.exerciseModal').click({ position: { x: 10, y: 10 } });
-    await expect(page.locator('.exerciseModal')).not.toBeVisible();
+    await expect(page.locator('.exerciseModal')).toBeHidden();
   });
 
   test('search filters exercises by name', async ({ page }) => {

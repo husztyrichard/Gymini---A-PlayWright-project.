@@ -343,12 +343,11 @@ function App() {
       <section className="hero">
         <nav className="nav">
           <div className="brand"><span>Gymini</span><small>QA Portfolio</small></div>
-          <div className="navLinks">
-            <a href="#exercises" className="navCta">Exercises</a>
-            <a href="#test-dashboard" className="navCta">Tests</a>
-            <a href="/test-cases.html" className="navCta">Test cases</a>
-            <a href="/about.html" className="navCta">About me</a>
-          </div>
+<div className="navLinks">
+              <a href="#exercises" className="navCta">Exercises</a>
+              <a href="/test-cases.html" className="navCta">Test cases</a>
+              <a href="/about.html" className="navCta">About me</a>
+            </div>
         </nav>
 
         <div className="heroGrid">
@@ -360,8 +359,8 @@ function App() {
             </p>
             <div className="heroActions">
               <a href="#test-dashboard" className="primaryButton">View test dashboard</a>
-              <a href="#planner" className="secondaryButton">Start planning</a>
-              <button type="button" className="secondaryButton" onClick={() => setShowExample(true)}>See example</button>
+              <a href="#planner" className="primaryButton">Start planning</a>
+              <button type="button" className="primaryButton" onClick={() => setShowExample((v) => !v)}>{showExample ? 'Hide example' : 'See example'}</button>
             </div>
             <div className="proofRow">
               <span>800+ exercises</span>

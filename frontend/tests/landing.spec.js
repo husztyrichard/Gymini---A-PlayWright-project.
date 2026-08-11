@@ -21,6 +21,8 @@ test.describe('Landing Page', () => {
     await page.goto('/');
     await page.click('text=See example');
     await expect(page.locator('.phoneCard')).toBeVisible();
+    await page.click('text=Hide example');
+    await expect(page.locator('.phoneCard')).not.toBeVisible();
   });
 
   test('nav exercises button links to exercises section', async ({ page }) => {
@@ -32,7 +34,7 @@ test.describe('Landing Page', () => {
 
   test('start planning button links to planner', async ({ page }) => {
     await page.goto('/');
-    const btn = page.locator('.secondaryButton', { hasText: 'Start planning' });
+    const btn = page.locator('.primaryButton', { hasText: 'Start planning' });
     await expect(btn).toHaveAttribute('href', '#planner');
   });
 
