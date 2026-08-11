@@ -18,6 +18,8 @@ const PORT = process.env.PORT || 4000;
 app.use(cors({ origin: true }));
 app.use(express.json());
 app.use('/reports', express.static(REPORTS_DIR));
+// Serve uploaded resumes from the repository `resumes/` folder
+app.use('/resumes', express.static(join(__dirname, '..', 'resumes')));
 
 const splitByDays = {
   2: ['Full Body Strength', 'Full Body Conditioning'],

@@ -391,9 +391,12 @@ function App() {
             <p>UI test coverage and automated result reports for core user flows.</p>
             <div className="statusBlock">
               <span className="statusLabel">API status</span>
-              <strong className={testResults?.api?.failed ? 'statusFail' : 'statusPass'}>
-                {testResults?.api ? (testResults.api.failed ? 'Fail' : 'Pass') : 'Unknown'}
-              </strong>
+              <div style={{textAlign: 'right'}}>
+                <strong className={testResults?.api?.failed ? 'statusFail' : 'statusPass'}>
+                  {testResults?.api ? (testResults.api.failed ? 'Fail' : 'Pass') : (testError ? 'Unavailable' : 'Unknown')}
+                </strong>
+                {testError && <div style={{color: '#fca5a5', fontSize: 12}}>{testError}</div>}
+              </div>
             </div>
             <div className="statusBlock">
               <span className="statusLabel">UI tests</span>
