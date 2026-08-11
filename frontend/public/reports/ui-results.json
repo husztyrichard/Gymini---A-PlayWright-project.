@@ -122,8 +122,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 13608,
-                  "startTime": "2026-08-11T21:56:25.447Z"
+                  "duration": 13006,
+                  "startTime": "2026-08-11T22:13:57.586Z"
                 }
               ]
             },
@@ -134,8 +134,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 14114,
-                  "startTime": "2026-08-11T21:56:25.450Z"
+                  "duration": 18398,
+                  "startTime": "2026-08-11T22:13:57.505Z"
                 }
               ]
             },
@@ -146,8 +146,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 10602,
-                  "startTime": "2026-08-11T21:57:04.649Z"
+                  "duration": 8077,
+                  "startTime": "2026-08-11T22:14:43.602Z"
                 }
               ]
             }
@@ -169,8 +169,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 5402,
-                  "startTime": "2026-08-11T21:56:40.273Z"
+                  "duration": 4252,
+                  "startTime": "2026-08-11T22:14:12.345Z"
                 }
               ]
             },
@@ -181,8 +181,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 4413,
-                  "startTime": "2026-08-11T21:56:40.259Z"
+                  "duration": 4798,
+                  "startTime": "2026-08-11T22:14:16.590Z"
                 }
               ]
             },
@@ -193,8 +193,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 4145,
-                  "startTime": "2026-08-11T21:57:17.739Z"
+                  "duration": 3341,
+                  "startTime": "2026-08-11T22:14:54.262Z"
                 }
               ]
             }
@@ -216,8 +216,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 6792,
-                  "startTime": "2026-08-11T21:56:45.720Z"
+                  "duration": 7762,
+                  "startTime": "2026-08-11T22:14:16.655Z"
                 }
               ]
             },
@@ -228,8 +228,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 8945,
-                  "startTime": "2026-08-11T21:56:44.704Z"
+                  "duration": 11154,
+                  "startTime": "2026-08-11T22:14:21.429Z"
                 }
               ]
             },
@@ -240,8 +240,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 9854,
-                  "startTime": "2026-08-11T21:57:21.918Z"
+                  "duration": 6461,
+                  "startTime": "2026-08-11T22:14:57.637Z"
                 }
               ]
             }
@@ -263,8 +263,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 5343,
-                  "startTime": "2026-08-11T21:56:52.542Z"
+                  "duration": 2972,
+                  "startTime": "2026-08-11T22:14:24.447Z"
                 }
               ]
             },
@@ -275,8 +275,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 5292,
-                  "startTime": "2026-08-11T21:56:53.682Z"
+                  "duration": 5340,
+                  "startTime": "2026-08-11T22:14:32.605Z"
                 }
               ]
             },
@@ -287,8 +287,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 4655,
-                  "startTime": "2026-08-11T21:57:31.800Z"
+                  "duration": 4406,
+                  "startTime": "2026-08-11T22:15:04.123Z"
                 }
               ]
             }
@@ -324,8 +324,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4188,
-                      "startTime": "2026-08-11T21:56:25.343Z"
+                      "duration": 4962,
+                      "startTime": "2026-08-11T22:13:57.354Z"
                     }
                   ]
                 },
@@ -336,8 +336,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 5693,
-                      "startTime": "2026-08-11T21:56:48.684Z"
+                      "duration": 5077,
+                      "startTime": "2026-08-11T22:14:22.822Z"
                     }
                   ]
                 },
@@ -348,8 +348,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3344,
-                      "startTime": "2026-08-11T21:57:05.670Z"
+                      "duration": 3239,
+                      "startTime": "2026-08-11T22:14:45.363Z"
                     }
                   ]
                 }
@@ -371,8 +371,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2723,
-                      "startTime": "2026-08-11T21:56:30.624Z"
+                      "duration": 3772,
+                      "startTime": "2026-08-11T22:14:03.699Z"
                     }
                   ]
                 },
@@ -383,8 +383,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3335,
-                      "startTime": "2026-08-11T21:56:56.438Z"
+                      "duration": 3697,
+                      "startTime": "2026-08-11T22:14:29.790Z"
                     }
                   ]
                 },
@@ -395,8 +395,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2869,
-                      "startTime": "2026-08-11T21:57:12.099Z"
+                      "duration": 2659,
+                      "startTime": "2026-08-11T22:14:53.667Z"
                     }
                   ]
                 }
@@ -418,8 +418,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 1890,
-                      "startTime": "2026-08-11T21:56:33.391Z"
+                      "duration": 2873,
+                      "startTime": "2026-08-11T22:14:07.518Z"
                     }
                   ]
                 },
@@ -430,8 +430,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2152,
-                      "startTime": "2026-08-11T21:56:59.803Z"
+                      "duration": 2644,
+                      "startTime": "2026-08-11T22:14:33.548Z"
                     }
                   ]
                 },
@@ -442,8 +442,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2356,
-                      "startTime": "2026-08-11T21:57:15.001Z"
+                      "duration": 2316,
+                      "startTime": "2026-08-11T22:14:56.362Z"
                     }
                   ]
                 }
@@ -465,8 +465,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2197,
-                      "startTime": "2026-08-11T21:56:35.318Z"
+                      "duration": 2506,
+                      "startTime": "2026-08-11T22:14:10.419Z"
                     }
                   ]
                 },
@@ -477,8 +477,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2768,
-                      "startTime": "2026-08-11T21:57:01.994Z"
+                      "duration": 3158,
+                      "startTime": "2026-08-11T22:14:36.235Z"
                     }
                   ]
                 },
@@ -489,8 +489,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2390,
-                      "startTime": "2026-08-11T21:57:17.385Z"
+                      "duration": 2295,
+                      "startTime": "2026-08-11T22:14:58.715Z"
                     }
                   ]
                 }
@@ -514,8 +514,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2231,
-                      "startTime": "2026-08-11T21:56:37.553Z"
+                      "duration": 2161,
+                      "startTime": "2026-08-11T22:14:12.953Z"
                     }
                   ]
                 },
@@ -526,8 +526,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2255,
-                      "startTime": "2026-08-11T21:57:04.793Z"
+                      "duration": 2964,
+                      "startTime": "2026-08-11T22:14:39.418Z"
                     }
                   ]
                 },
@@ -538,8 +538,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2510,
-                      "startTime": "2026-08-11T21:57:19.808Z"
+                      "duration": 2659,
+                      "startTime": "2026-08-11T22:15:01.039Z"
                     }
                   ]
                 }
@@ -561,8 +561,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2205,
-                      "startTime": "2026-08-11T21:56:39.832Z"
+                      "duration": 2167,
+                      "startTime": "2026-08-11T22:14:15.146Z"
                     }
                   ]
                 },
@@ -573,8 +573,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3908,
-                      "startTime": "2026-08-11T21:57:07.074Z"
+                      "duration": 2464,
+                      "startTime": "2026-08-11T22:14:42.411Z"
                     }
                   ]
                 },
@@ -585,8 +585,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2362,
-                      "startTime": "2026-08-11T21:57:22.347Z"
+                      "duration": 2124,
+                      "startTime": "2026-08-11T22:15:03.730Z"
                     }
                   ]
                 }
@@ -610,8 +610,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3200,
-                      "startTime": "2026-08-11T21:56:42.132Z"
+                      "duration": 2829,
+                      "startTime": "2026-08-11T22:14:17.346Z"
                     }
                   ]
                 },
@@ -622,8 +622,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4451,
-                      "startTime": "2026-08-11T21:57:11.013Z"
+                      "duration": 4083,
+                      "startTime": "2026-08-11T22:14:44.916Z"
                     }
                   ]
                 },
@@ -634,8 +634,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4376,
-                      "startTime": "2026-08-11T21:57:24.742Z"
+                      "duration": 5159,
+                      "startTime": "2026-08-11T22:15:05.884Z"
                     }
                   ]
                 }
@@ -657,8 +657,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2798,
-                      "startTime": "2026-08-11T21:56:45.388Z"
+                      "duration": 2914,
+                      "startTime": "2026-08-11T22:14:20.207Z"
                     }
                   ]
                 },
@@ -669,8 +669,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4310,
-                      "startTime": "2026-08-11T21:57:15.500Z"
+                      "duration": 5199,
+                      "startTime": "2026-08-11T22:14:49.028Z"
                     }
                   ]
                 },
@@ -681,8 +681,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4136,
-                      "startTime": "2026-08-11T21:57:29.147Z"
+                      "duration": 5805,
+                      "startTime": "2026-08-11T22:15:11.073Z"
                     }
                   ]
                 }
@@ -706,8 +706,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2761,
-                      "startTime": "2026-08-11T21:56:48.223Z"
+                      "duration": 2957,
+                      "startTime": "2026-08-11T22:14:23.153Z"
                     }
                   ]
                 },
@@ -718,8 +718,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 5879,
-                      "startTime": "2026-08-11T21:57:19.842Z"
+                      "duration": 5458,
+                      "startTime": "2026-08-11T22:14:54.261Z"
                     }
                   ]
                 },
@@ -730,8 +730,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3480,
-                      "startTime": "2026-08-11T21:57:33.316Z"
+                      "duration": 4066,
+                      "startTime": "2026-08-11T22:15:16.913Z"
                     }
                   ]
                 }
@@ -753,8 +753,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2730,
-                      "startTime": "2026-08-11T21:56:51.015Z"
+                      "duration": 2892,
+                      "startTime": "2026-08-11T22:14:26.139Z"
                     }
                   ]
                 },
@@ -765,8 +765,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 10707,
-                      "startTime": "2026-08-11T21:57:25.757Z"
+                      "duration": 9985,
+                      "startTime": "2026-08-11T22:14:59.752Z"
                     }
                   ]
                 },
@@ -777,8 +777,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3201,
-                      "startTime": "2026-08-11T21:57:36.828Z"
+                      "duration": 3368,
+                      "startTime": "2026-08-11T22:15:21.009Z"
                     }
                   ]
                 }
@@ -800,8 +800,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2287,
-                      "startTime": "2026-08-11T21:56:53.773Z"
+                      "duration": 2302,
+                      "startTime": "2026-08-11T22:14:29.056Z"
                     }
                   ]
                 },
@@ -812,8 +812,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3878,
-                      "startTime": "2026-08-11T21:57:36.504Z"
+                      "duration": 7169,
+                      "startTime": "2026-08-11T22:15:09.763Z"
                     }
                   ]
                 },
@@ -824,8 +824,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2046,
-                      "startTime": "2026-08-11T21:57:40.056Z"
+                      "duration": 1578,
+                      "startTime": "2026-08-11T22:15:24.404Z"
                     }
                   ]
                 }
@@ -847,8 +847,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3404,
-                      "startTime": "2026-08-11T21:56:56.092Z"
+                      "duration": 2937,
+                      "startTime": "2026-08-11T22:14:31.386Z"
                     }
                   ]
                 },
@@ -859,8 +859,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2729,
-                      "startTime": "2026-08-11T21:57:40.421Z"
+                      "duration": 3545,
+                      "startTime": "2026-08-11T22:15:16.959Z"
                     }
                   ]
                 },
@@ -871,8 +871,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 1480,
-                      "startTime": "2026-08-11T21:57:42.130Z"
+                      "duration": 1259,
+                      "startTime": "2026-08-11T22:15:26.004Z"
                     }
                   ]
                 }
@@ -912,8 +912,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4482,
-                      "startTime": "2026-08-11T21:56:25.353Z"
+                      "duration": 5861,
+                      "startTime": "2026-08-11T22:13:57.341Z"
                     }
                   ]
                 },
@@ -924,8 +924,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 7801,
-                      "startTime": "2026-08-11T21:56:49.896Z"
+                      "duration": 9657,
+                      "startTime": "2026-08-11T22:14:23.139Z"
                     }
                   ]
                 },
@@ -936,8 +936,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2534,
-                      "startTime": "2026-08-11T21:57:19.353Z"
+                      "duration": 4286,
+                      "startTime": "2026-08-11T22:15:02.976Z"
                     }
                   ]
                 }
@@ -959,8 +959,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2802,
-                      "startTime": "2026-08-11T21:56:30.953Z"
+                      "duration": 2813,
+                      "startTime": "2026-08-11T22:14:04.349Z"
                     }
                   ]
                 },
@@ -971,8 +971,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2260,
-                      "startTime": "2026-08-11T21:56:59.589Z"
+                      "duration": 2605,
+                      "startTime": "2026-08-11T22:14:35.549Z"
                     }
                   ]
                 },
@@ -983,8 +983,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2190,
-                      "startTime": "2026-08-11T21:57:22.386Z"
+                      "duration": 1803,
+                      "startTime": "2026-08-11T22:15:07.950Z"
                     }
                   ]
                 }
@@ -1006,8 +1006,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2228,
-                      "startTime": "2026-08-11T21:56:33.802Z"
+                      "duration": 3186,
+                      "startTime": "2026-08-11T22:14:07.212Z"
                     }
                   ]
                 },
@@ -1018,8 +1018,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2411,
-                      "startTime": "2026-08-11T21:57:01.888Z"
+                      "duration": 4605,
+                      "startTime": "2026-08-11T22:14:38.209Z"
                     }
                   ]
                 },
@@ -1030,8 +1030,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2225,
-                      "startTime": "2026-08-11T21:57:24.616Z"
+                      "duration": 3874,
+                      "startTime": "2026-08-11T22:15:09.783Z"
                     }
                   ]
                 }
@@ -1055,8 +1055,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2353,
-                      "startTime": "2026-08-11T21:56:36.101Z"
+                      "duration": 3054,
+                      "startTime": "2026-08-11T22:14:10.438Z"
                     }
                   ]
                 },
@@ -1067,8 +1067,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2139,
-                      "startTime": "2026-08-11T21:57:04.329Z"
+                      "duration": 3148,
+                      "startTime": "2026-08-11T22:14:42.857Z"
                     }
                   ]
                 },
@@ -1079,8 +1079,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2193,
-                      "startTime": "2026-08-11T21:57:26.871Z"
+                      "duration": 3537,
+                      "startTime": "2026-08-11T22:15:13.691Z"
                     }
                   ]
                 }
@@ -1102,8 +1102,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2533,
-                      "startTime": "2026-08-11T21:56:38.492Z"
+                      "duration": 2369,
+                      "startTime": "2026-08-11T22:14:13.521Z"
                     }
                   ]
                 },
@@ -1114,8 +1114,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2443,
-                      "startTime": "2026-08-11T21:57:06.496Z"
+                      "duration": 3090,
+                      "startTime": "2026-08-11T22:14:46.036Z"
                     }
                   ]
                 },
@@ -1126,8 +1126,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2270,
-                      "startTime": "2026-08-11T21:57:29.098Z"
+                      "duration": 2240,
+                      "startTime": "2026-08-11T22:15:17.271Z"
                     }
                   ]
                 }
@@ -1149,8 +1149,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2335,
-                      "startTime": "2026-08-11T21:56:41.064Z"
+                      "duration": 2847,
+                      "startTime": "2026-08-11T22:14:15.928Z"
                     }
                   ]
                 },
@@ -1161,8 +1161,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4170,
-                      "startTime": "2026-08-11T21:57:08.978Z"
+                      "duration": 5187,
+                      "startTime": "2026-08-11T22:14:49.154Z"
                     }
                   ]
                 },
@@ -1173,8 +1173,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2078,
-                      "startTime": "2026-08-11T21:57:31.414Z"
+                      "duration": 2450,
+                      "startTime": "2026-08-11T22:15:19.544Z"
                     }
                   ]
                 }
@@ -1214,8 +1214,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3462,
-                      "startTime": "2026-08-11T21:56:25.385Z"
+                      "duration": 4187,
+                      "startTime": "2026-08-11T22:13:57.374Z"
                     }
                   ]
                 },
@@ -1226,8 +1226,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 6510,
-                      "startTime": "2026-08-11T21:56:52.980Z"
+                      "duration": 6374,
+                      "startTime": "2026-08-11T22:14:29.313Z"
                     }
                   ]
                 },
@@ -1238,8 +1238,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2388,
-                      "startTime": "2026-08-11T21:57:25.029Z"
+                      "duration": 3022,
+                      "startTime": "2026-08-11T22:15:03.360Z"
                     }
                   ]
                 }
@@ -1263,8 +1263,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2081,
-                      "startTime": "2026-08-11T21:56:30.404Z"
+                      "duration": 1915,
+                      "startTime": "2026-08-11T22:14:02.712Z"
                     }
                   ]
                 },
@@ -1275,8 +1275,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3311,
-                      "startTime": "2026-08-11T21:57:01.268Z"
+                      "duration": 1961,
+                      "startTime": "2026-08-11T22:14:38.967Z"
                     }
                   ]
                 },
@@ -1287,8 +1287,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 1860,
-                      "startTime": "2026-08-11T21:57:29.036Z"
+                      "duration": 2645,
+                      "startTime": "2026-08-11T22:15:07.077Z"
                     }
                   ]
                 }
@@ -1310,8 +1310,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2695,
-                      "startTime": "2026-08-11T21:56:32.521Z"
+                      "duration": 3180,
+                      "startTime": "2026-08-11T22:14:04.657Z"
                     }
                   ]
                 },
@@ -1322,8 +1322,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2098,
-                      "startTime": "2026-08-11T21:57:04.682Z"
+                      "duration": 2577,
+                      "startTime": "2026-08-11T22:14:40.963Z"
                     }
                   ]
                 },
@@ -1334,8 +1334,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 1918,
-                      "startTime": "2026-08-11T21:57:30.935Z"
+                      "duration": 3064,
+                      "startTime": "2026-08-11T22:15:09.753Z"
                     }
                   ]
                 }
@@ -1357,8 +1357,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3008,
-                      "startTime": "2026-08-11T21:56:35.250Z"
+                      "duration": 2960,
+                      "startTime": "2026-08-11T22:14:07.870Z"
                     }
                   ]
                 },
@@ -1369,8 +1369,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2577,
-                      "startTime": "2026-08-11T21:57:06.812Z"
+                      "duration": 2960,
+                      "startTime": "2026-08-11T22:14:43.570Z"
                     }
                   ]
                 },
@@ -1381,8 +1381,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 1882,
-                      "startTime": "2026-08-11T21:57:32.887Z"
+                      "duration": 3996,
+                      "startTime": "2026-08-11T22:15:12.849Z"
                     }
                   ]
                 }
@@ -1404,8 +1404,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2959,
-                      "startTime": "2026-08-11T21:56:38.294Z"
+                      "duration": 2195,
+                      "startTime": "2026-08-11T22:14:10.897Z"
                     }
                   ]
                 },
@@ -1416,8 +1416,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3563,
-                      "startTime": "2026-08-11T21:57:09.419Z"
+                      "duration": 3205,
+                      "startTime": "2026-08-11T22:14:46.558Z"
                     }
                   ]
                 },
@@ -1428,8 +1428,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 1653,
-                      "startTime": "2026-08-11T21:57:34.800Z"
+                      "duration": 2535,
+                      "startTime": "2026-08-11T22:15:16.928Z"
                     }
                   ]
                 }
@@ -1451,8 +1451,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2754,
-                      "startTime": "2026-08-11T21:56:41.290Z"
+                      "duration": 1922,
+                      "startTime": "2026-08-11T22:14:13.120Z"
                     }
                   ]
                 },
@@ -1463,8 +1463,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2490,
-                      "startTime": "2026-08-11T21:57:13.008Z"
+                      "duration": 3765,
+                      "startTime": "2026-08-11T22:14:49.798Z"
                     }
                   ]
                 },
@@ -1475,8 +1475,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 1358,
-                      "startTime": "2026-08-11T21:57:36.483Z"
+                      "duration": 2088,
+                      "startTime": "2026-08-11T22:15:19.494Z"
                     }
                   ]
                 }
@@ -1498,8 +1498,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 1627,
-                      "startTime": "2026-08-11T21:56:44.075Z"
+                      "duration": 3181,
+                      "startTime": "2026-08-11T22:14:15.073Z"
                     }
                   ]
                 },
@@ -1510,8 +1510,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2611,
-                      "startTime": "2026-08-11T21:57:15.529Z"
+                      "duration": 2706,
+                      "startTime": "2026-08-11T22:14:53.594Z"
                     }
                   ]
                 },
@@ -1522,8 +1522,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 1957,
-                      "startTime": "2026-08-11T21:57:37.871Z"
+                      "duration": 1582,
+                      "startTime": "2026-08-11T22:15:21.608Z"
                     }
                   ]
                 }
@@ -1563,8 +1563,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 7775,
-                      "startTime": "2026-08-11T21:56:25.433Z"
+                      "duration": 4647,
+                      "startTime": "2026-08-11T22:13:57.417Z"
                     }
                   ]
                 },
@@ -1575,8 +1575,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 8039,
-                      "startTime": "2026-08-11T21:57:04.624Z"
+                      "duration": 7940,
+                      "startTime": "2026-08-11T22:14:34.918Z"
                     }
                   ]
                 },
@@ -1587,8 +1587,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3515,
-                      "startTime": "2026-08-11T21:57:33.546Z"
+                      "duration": 4468,
+                      "startTime": "2026-08-11T22:15:08.571Z"
                     }
                   ]
                 }
@@ -1612,8 +1612,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3171,
-                      "startTime": "2026-08-11T21:56:34.380Z"
+                      "duration": 4501,
+                      "startTime": "2026-08-11T22:14:03.204Z"
                     }
                   ]
                 },
@@ -1624,8 +1624,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4241,
-                      "startTime": "2026-08-11T21:57:15.019Z"
+                      "duration": 4462,
+                      "startTime": "2026-08-11T22:14:45.771Z"
                     }
                   ]
                 },
@@ -1636,8 +1636,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3732,
-                      "startTime": "2026-08-11T21:57:37.097Z"
+                      "duration": 5084,
+                      "startTime": "2026-08-11T22:15:13.069Z"
                     }
                   ]
                 }
@@ -1659,8 +1659,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2763,
-                      "startTime": "2026-08-11T21:56:37.591Z"
+                      "duration": 3500,
+                      "startTime": "2026-08-11T22:14:07.738Z"
                     }
                   ]
                 },
@@ -1671,8 +1671,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3298,
-                      "startTime": "2026-08-11T21:57:19.308Z"
+                      "duration": 5457,
+                      "startTime": "2026-08-11T22:14:50.264Z"
                     }
                   ]
                 },
@@ -1683,8 +1683,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3778,
-                      "startTime": "2026-08-11T21:57:40.854Z"
+                      "duration": 5296,
+                      "startTime": "2026-08-11T22:15:18.192Z"
                     }
                   ]
                 }
@@ -1706,8 +1706,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2625,
-                      "startTime": "2026-08-11T21:56:40.392Z"
+                      "duration": 3320,
+                      "startTime": "2026-08-11T22:14:11.294Z"
                     }
                   ]
                 },
@@ -1718,8 +1718,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3465,
-                      "startTime": "2026-08-11T21:57:22.653Z"
+                      "duration": 3689,
+                      "startTime": "2026-08-11T22:14:55.766Z"
                     }
                   ]
                 },
@@ -1730,8 +1730,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2555,
-                      "startTime": "2026-08-11T21:57:44.663Z"
+                      "duration": 2632,
+                      "startTime": "2026-08-11T22:15:23.515Z"
                     }
                   ]
                 }
@@ -1753,8 +1753,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2455,
-                      "startTime": "2026-08-11T21:56:43.049Z"
+                      "duration": 2844,
+                      "startTime": "2026-08-11T22:14:14.645Z"
                     }
                   ]
                 },
@@ -1765,8 +1765,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3326,
-                      "startTime": "2026-08-11T21:57:26.152Z"
+                      "duration": 4293,
+                      "startTime": "2026-08-11T22:14:59.486Z"
                     }
                   ]
                 },
@@ -1777,8 +1777,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2354,
-                      "startTime": "2026-08-11T21:57:47.238Z"
+                      "duration": 2665,
+                      "startTime": "2026-08-11T22:15:26.164Z"
                     }
                   ]
                 }
@@ -1800,8 +1800,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2298,
-                      "startTime": "2026-08-11T21:56:45.547Z"
+                      "duration": 3556,
+                      "startTime": "2026-08-11T22:14:17.531Z"
                     }
                   ]
                 },
@@ -1812,8 +1812,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3780,
-                      "startTime": "2026-08-11T21:57:29.517Z"
+                      "duration": 4045,
+                      "startTime": "2026-08-11T22:15:03.812Z"
                     }
                   ]
                 },
@@ -1824,8 +1824,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2399,
-                      "startTime": "2026-08-11T21:57:49.608Z"
+                      "duration": 2211,
+                      "startTime": "2026-08-11T22:15:28.844Z"
                     }
                   ]
                 }
@@ -1847,36 +1847,20 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2234,
-                      "startTime": "2026-08-11T21:56:47.879Z"
+                      "duration": 2867,
+                      "startTime": "2026-08-11T22:14:21.116Z"
                     }
                   ]
                 },
                 {
                   "projectName": "firefox",
                   "expectedStatus": "passed",
-                  "status": "flaky",
+                  "status": "expected",
                   "results": [
                     {
-                      "status": "failed",
-                      "duration": 20521,
-                      "startTime": "2026-08-11T21:57:33.326Z",
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\Users\\Felhasználó\\Desktop\\Gymini\\frontend\\tests\\plan.spec.js",
-                            "column": 16,
-                            "line": 56
-                          },
-                          "message": "TimeoutError: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.dayCard') to be visible\u001b[22m\n\n\n  54 |   test('each day card shows warmup and finisher', async ({ page }) => {\n  55 |     await page.click('button:has-text(\"Generate my workout plan\")');\n> 56 |     await page.waitForSelector('.dayCard', { timeout: 15000 });\n     |                ^\n  57 |     await expect(page.locator('.dayCard').first()).toContainText('light cardio');\n  58 |     await expect(page.locator('.dayCard').first()).toContainText('core work');\n  59 |   });\n    at C:\\Users\\Felhasználó\\Desktop\\Gymini\\frontend\\tests\\plan.spec.js:56:16"
-                        }
-                      ]
-                    },
-                    {
                       "status": "passed",
-                      "duration": 2188,
-                      "startTime": "2026-08-11T21:57:55.680Z",
-                      "retry": 1
+                      "duration": 5562,
+                      "startTime": "2026-08-11T22:15:07.886Z"
                     }
                   ]
                 },
@@ -1887,8 +1871,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2579,
-                      "startTime": "2026-08-11T21:57:52.023Z"
+                      "duration": 2231,
+                      "startTime": "2026-08-11T22:15:31.068Z"
                     }
                   ]
                 }
@@ -1905,8 +1889,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-11T21:56:22.982Z",
-    "duration": 95956.342,
+    "startTime": "2026-08-11T22:13:54.918Z",
+    "duration": 98664.81,
     "expected": 108,
     "skipped": 0,
     "unexpected": 0,

@@ -166,6 +166,21 @@ function countPlaywrightResults(suites) {
   return { total, passed, failed, skipped };
 }
 
+function lighthouseWithinBudget(lighthouse) {
+  if (!lighthouse || !lighthouse.budgets) return false;
+  const pairs = [
+    ['performance', lighthouse.budgets.performance],
+    ['accessibility', lighthouse.budgets.accessibility],
+    ['bestPractices', lighthouse.budgets.bestPractices],
+    ['seo', lighthouse.budgets.seo]
+  ];
+  return pairs.every(([key, budget]) => {
+    if (typeof budget !== 'number') return true;
+    const score = lighthouse[key];
+    return typeof score === 'number' && score >= budget;
+  });
+}
+
 function App() {
   const [form, setForm] = useState(initialForm);
   const [plan, setPlan] = useState(null);
@@ -219,6 +234,13 @@ function App() {
         if (response.ok) {
           const raw = await response.json();
           results.ui = countPlaywrightResults(raw.suites);
+          found = true;
+        }
+
+        response = await fetch('/reports/lighthouse.json');
+        if (response.ok) {
+          const raw = await response.json();
+          results.lighthouse = raw;
           found = true;
         }
 
@@ -464,6 +486,43 @@ function App() {
             <div className="heroActions">
               <a href="/reports/playwright-report/index.html" className="primaryButton" target="_blank" rel="noreferrer">Open UI Report</a>
             </div>
+          </div>
+
+          <div className="testCard">
+            <div className="testCardHeader">
+              <h3>Lighthouse scores</h3>
+              <span className="tag">LHCI</span>
+            </div>
+            <p>Core web vitals and quality budgets from Lighthouse CI.</p>
+            {testLoading ? (
+              <p>Loading Lighthouse scores…</p>
+            ) : testError ? (
+              <p className="error">{testError}</p>
+            ) : testResults?.lighthouse ? (
+              <>
+                <div className="metricList">
+                  {[
+                    ['Performance', testResults.lighthouse.performance],
+                    ['Accessibility', testResults.lighthouse.accessibility],
+                    ['Best practices', testResults.lighthouse.bestPractices],
+                    ['SEO', testResults.lighthouse.seo]
+                  ].map(([label, score]) => (
+                    <div className="metricItem" key={label}>
+                      <span>{label}</span>
+                      <strong>{typeof score === 'number' ? score : '—'}</strong>
+                    </div>
+                  ))}
+                </div>
+                <div className="statusBlock">
+                  <span className="statusLabel">Budgets</span>
+                  <strong className={lighthouseWithinBudget(testResults.lighthouse) ? 'statusPass' : 'statusFail'}>
+                    {lighthouseWithinBudget(testResults.lighthouse) ? 'Pass' : 'Fail'}
+                  </strong>
+                </div>
+              </>
+            ) : (
+              <p className="error">Lighthouse report not available.</p>
+            )}
           </div>
         </div>
       </section>
