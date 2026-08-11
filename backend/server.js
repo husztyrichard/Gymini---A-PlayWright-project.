@@ -21,6 +21,18 @@ app.use('/reports', express.static(REPORTS_DIR));
 // Serve uploaded resumes from the repository `resumes/` folder
 app.use('/resumes', express.static(join(__dirname, '..', 'resumes')));
 
+// Short, safe resume URLs (avoid special-character filenames in links)
+app.get('/resumes/en', (req, res) => {
+  const p = join(__dirname, '..', 'resumes', 'Richard_Husztycv_en.pdf');
+  if (existsSync(p)) return res.sendFile(p);
+  res.status(404).send('Resume not found');
+});
+
+app.get('/resumes/hu', (req, res) => {
+  const p = join(__dirname, '..', 'resumes', 'Huszty_Richárdcv_hu.pdf');
+  if (existsSync(p)) return res.sendFile(p);
+  res.status(404).send('Resume not found');
+});
 const splitByDays = {
   2: ['Full Body Strength', 'Full Body Conditioning'],
   3: ['Upper Body', 'Lower Body', 'Full Body Conditioning'],
