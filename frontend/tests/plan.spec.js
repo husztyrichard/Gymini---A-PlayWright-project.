@@ -4,6 +4,7 @@ test.describe('Plan Generation', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
     await page.click('text=Start planning');
+    await page.waitForSelector('.exerciseCard', { timeout: 15000 });
   });
 
   test('generates a plan with default data', async ({ page }) => {

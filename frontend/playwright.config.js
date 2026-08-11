@@ -1,4 +1,4 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
@@ -16,7 +16,9 @@ export default defineConfig({
 
   },
   projects: [
-    { name: 'chromium', use: { browserName: 'chromium' } }
+    { name: 'chromium', use: { browserName: 'chromium' } },
+    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
+    { name: 'mobile-chromium', use: { ...devices['Pixel 5'] } }
   ],
   webServer: {
     command: 'npm run dev',

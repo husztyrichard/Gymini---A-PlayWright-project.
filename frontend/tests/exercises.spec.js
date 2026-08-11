@@ -4,7 +4,7 @@ test.describe('Exercise Library', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
     await page.click('.navCta:has-text("Exercises")');
-    await page.waitForTimeout(2000);
+    await expect(page.locator('.exercisesSection')).toBeVisible();
   });
 
   test('exercises section is visible', async ({ page }) => {
@@ -80,9 +80,10 @@ test.describe('Exercise Library', () => {
     await page.waitForSelector('.exerciseCard', { timeout: 15000 });
     const allCount = await page.locator('.exerciseCard').count();
     await page.locator('.exerciseSearch').fill('ankle');
-    await page.waitForTimeout(500);
+    await expect
+      .poll(async () => page.locator('.exerciseCard').count(), { timeout: 10000 })
+      .toBeLessThan(allCount);
     const filteredCount = await page.locator('.exerciseCard').count();
-    expect(filteredCount).toBeLessThan(allCount);
     expect(filteredCount).toBeGreaterThan(0);
   });
 
@@ -90,9 +91,10 @@ test.describe('Exercise Library', () => {
     await page.waitForSelector('.exerciseCard', { timeout: 15000 });
     const allCount = await page.locator('.exerciseCard').count();
     await page.locator('.exerciseFilter').first().selectOption('biceps');
-    await page.waitForTimeout(500);
+    await expect
+      .poll(async () => page.locator('.exerciseCard').count(), { timeout: 10000 })
+      .toBeLessThan(allCount);
     const filteredCount = await page.locator('.exerciseCard').count();
-    expect(filteredCount).toBeLessThan(allCount);
     expect(filteredCount).toBeGreaterThan(0);
   });
 });
