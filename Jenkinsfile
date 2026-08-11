@@ -4,19 +4,25 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-                bat 'npm ci'
+                dir('frontend') {
+                    bat 'npm ci'
+                }
             }
         }
 
         stage('Install Playwright') {
             steps {
-                bat 'npx playwright install'
+                dir('frontend') {
+                    bat 'npx playwright install'
+                }
             }
         }
 
         stage('Run Playwright tests') {
             steps {
-                bat 'npx playwright test'
+                dir('frontend') {
+                    bat 'npx playwright test'
+                }
             }
         }
     }
