@@ -397,24 +397,29 @@ function App() {
             ) : testError ? (
               <p className="error">{testError}</p>
             ) : (
-              <div className="metricList">
-                <div className="metricItem">
-                  <span>Total assertions</span>
-                  <strong>{testResults?.api?.total ?? '—'}</strong>
+              <>
+                <div className="metricList">
+                  <div className="metricItem">
+                    <span>Total assertions</span>
+                    <strong>{testResults?.api?.total ?? '—'}</strong>
+                  </div>
+                  <div className="metricItem">
+                    <span>Passed</span>
+                    <strong>{testResults?.api?.passed ?? '—'}</strong>
+                  </div>
+                  <div className="metricItem">
+                    <span>Failed</span>
+                    <strong>{testResults?.api?.failed ?? '—'}</strong>
+                  </div>
+                  <div className="metricItem">
+                    <span>Pass rate</span>
+                    <strong>{testResults?.api?.total ? `${Math.round((testResults.api.passed / testResults.api.total) * 100)}%` : '—'}</strong>
+                  </div>
                 </div>
-                <div className="metricItem">
-                  <span>Passed</span>
-                  <strong>{testResults?.api?.passed ?? '—'}</strong>
+                <div className="heroActions">
+                  <a href="/reports/api-report.html" className="primaryButton" target="_blank" rel="noreferrer">Open API Report</a>
                 </div>
-                <div className="metricItem">
-                  <span>Failed</span>
-                  <strong>{testResults?.api?.failed ?? '—'}</strong>
-                </div>
-                <div className="metricItem">
-                  <span>Pass rate</span>
-                  <strong>{testResults?.api?.total ? `${Math.round((testResults.api.passed / testResults.api.total) * 100)}%` : '—'}</strong>
-                </div>
-              </div>
+              </>
             )}
           </div>
 
@@ -444,7 +449,6 @@ function App() {
               <strong>Available</strong>
             </div>
             <div className="heroActions">
-              <a href="/reports/api-report.html" className="primaryButton" target="_blank" rel="noreferrer">Open API Report</a>
               <a href="/reports/playwright-report/index.html" className="primaryButton" target="_blank" rel="noreferrer">Open UI Report</a>
             </div>
           </div>
