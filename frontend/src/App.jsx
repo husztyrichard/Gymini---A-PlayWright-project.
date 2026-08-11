@@ -147,12 +147,37 @@ function App() {
   useEffect(() => {
     async function fetchTestResults() {
       try {
-        const response = await fetch('/api/test-results');
-        if (!response.ok) throw new Error('Failed to load test status');
-        const data = await response.json();
-        setTestResults(data);
+        // Try backend endpoint first
+        let response = await fetch('/api/test-results');
+        if (response.ok) {
+          const data = await response.json();
+          setTestResults(data);
+          return;
+        }
+
+        // Fallback: try static report JSON (useful when backend not deployed)
+        response = await fetch('/reports/api-results.json');
+        if (response.ok) {
+          const raw = await response.json();
+          // Newman JSON contains run.stats and run.executions
+          const run = raw.run || raw;
+          const stats = run.stats || {};
+          const total = stats.assertions?.total || stats.assertions?.cursor || 0;
+          const failed = stats.assertions?.failed || 0;
+          const passed = total - failed;
+          const results = { api: { total, passed, failed, assertions: [] } };
+          if (run.executions) {
+            results.api.assertions = run.executions.flatMap((ex) =>
+              (ex.assertions || []).map((a) => ({ name: a.assertion || '', passed: !a.error, error: a.error?.message || null }))
+            );
+          }
+          setTestResults(results);
+          return;
+        }
+
+        throw new Error('No test results available');
       } catch (err) {
-        setTestError('Unable to load test metrics.');
+        setTestError(`Unable to load test metrics. ${err.message || ''}`);
       } finally {
         setTestLoading(false);
       }

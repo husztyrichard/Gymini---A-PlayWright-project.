@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me | Gymini QA Portfolio</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main class="hero" style="padding-top: 40px; min-height: auto;">
+      <div class="nav" style="justify-content: space-between;">
+        <div class="brand"><span>Gymini</span><small>QA Portfolio</small></div>
+        <div class="navLinks">
+          <a href="/" class="navCta">Home</a>
+          <a href="/reports.html" class="navCta">Reports</a>
+        </div>
+      </div>
+      <div class="heroGrid" style="grid-template-columns: 1fr; gap: 24px; padding-top: 40px;">
+        <div class="heroCopy">
+          <p class="eyebrow">About this QA project</p>
+          <h1>About me</h1>
+          <p class="subtext">
+            This page highlights the QA-focused work behind Gymini and provides direct links to my resume, GitHub, and selected test artifacts.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px;">
+            <a class="primaryButton" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="secondaryButton" href="https://linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="secondaryButton" href="/Gymini-resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+          </div>
+        </div>
+        <section class="planner" style="padding: 0;">
+          <div class="sectionHeader">
+            <h2>QA highlights</h2>
+            <p>Designed to demonstrate my testing process from automated scripts to report delivery.</p>
+          </div>
+          <div class="accessibilityGrid">
+            <article class="accessibilityCard">
+              <h3>Test automation</h3>
+              <p>Playwright UI tests plus Newman API tests validate user flows and backend contract behavior.</p>
+            </article>
+            <article class="accessibilityCard">
+              <h3>Quality reporting</h3>
+              <p>HTML reports are generated and served from the app for visible QA proof points.</p>
+            </article>
+            <article class="accessibilityCard">
+              <h3>Accessible design</h3>
+              <p>Clear labels, keyboard-friendly controls, and semantic markup support inclusive testing.</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
