@@ -205,15 +205,6 @@ input:focus, select:focus, textarea:focus { border-color: #a3ff12; box-shadow: 0
 .statusPass { color: #a3ff12; }
 .statusFail { color: #fb7185; }
 .testCard p { color: #cbd5e1; font-size: 14px; line-height: 1.6; margin: 0 0 16px; }
-.testActions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
-.testActions .primaryButton, .testActions .secondaryButton { font-size: 13px; padding: 12px 18px; }
-
-.accessibilitySection { padding: 80px 0 110px; }
-.accessibilityGrid { display: grid; grid-template-columns: repeat(3, minmax(220px, 1fr)); gap: 18px; margin-top: 28px; }
-.accessibilityCard { border: 1px solid rgba(148,163,184,.16); border-radius: 24px; background: rgba(15,23,42,.72); padding: 22px; box-shadow: 0 20px 60px rgba(0,0,0,.2); }
-.accessibilityCard h3 { margin-top: 0; color: #f8fafc; }
-.accessibilityCard p { color: #cbd5e1; margin: 10px 0 0; line-height: 1.7; }
-
 @media (max-width: 900px) {
   .heroGrid, .plannerGrid, .testGrid { grid-template-columns: 1fr; }
   .heroGrid { padding-top: 38px; }

@@ -168,21 +168,6 @@ function App() {
   const [testResults, setTestResults] = useState(null);
   const [testLoading, setTestLoading] = useState(true);
   const [testError, setTestError] = useState('');
-  const [runningTests, setRunningTests] = useState(false);
-  const [backendAvailable, setBackendAvailable] = useState(false);
-
-  useEffect(() => {
-    async function checkBackend() {
-      try {
-        const response = await fetch('/api/health');
-        setBackendAvailable(response.ok);
-      } catch {
-        setBackendAvailable(false);
-      }
-    }
-    checkBackend();
-  }, []);
-
   useEffect(() => {
     async function fetchTestResults() {
       try {
@@ -301,33 +286,6 @@ function App() {
 
     if (planResult) setPlan(planResult);
     setLoading(false);
-  }
-
-  async function runApiTests() {
-    if (!backendAvailable) {
-      setTestError('Backend is not deployed on this site. Run `npm test` locally or in CI to refresh results.');
-      return;
-    }
-    setRunningTests(true);
-    setTestError('');
-
-    try {
-      const response = await fetch('/api/run-api-tests', { method: 'POST' });
-      if (!response.ok) {
-        throw new Error('The test runner could not be reached.');
-      }
-
-      const data = await response.json();
-      if (data.success && data.results) {
-        setTestResults({ api: data.results });
-      } else {
-        setTestError(data.message || 'Test run completed with issues.');
-      }
-    } catch (err) {
-      setTestError(err.message || 'Unable to run tests.');
-    } finally {
-      setRunningTests(false);
-    }
   }
 
   function findExerciseByName(name) {
@@ -486,40 +444,7 @@ function App() {
               <span className="statusLabel">Reports page</span>
               <strong>Available</strong>
             </div>
-            <div className="testActions">
-              <button className="primaryButton" type="button" onClick={runApiTests} disabled={runningTests || testLoading || !backendAvailable}>
-                {runningTests ? 'Running tests…' : backendAvailable ? 'Run tests' : 'Run tests (backend offline)'}
-              </button>
-              <a href="/reports.html" className="secondaryButton">View reports page</a>
-            </div>
-            {!backendAvailable && !testLoading && (
-              <p style={{ color: '#94a3b8', fontSize: 12, margin: '4px 0 0' }}>
-                This site is hosted statically, so live test runs aren&apos;t possible here. Start the backend locally (`npm run dev`) or run the GitHub Actions pipeline to generate fresh results.
-              </p>
-            )}
           </div>
-        </div>
-      </section>
-
-      <section className="accessibilitySection" id="accessibility">
-        <div className="sectionHeader">
-          <p className="eyebrow">Accessibility</p>
-          <h2>Built with inclusive QA in mind</h2>
-          <p>Keyboard navigation, semantic markup, focus states and accessible content make this app easier to test and use.</p>
-        </div>
-        <div className="accessibilityGrid">
-          <article className="accessibilityCard">
-            <h3>Keyboard support</h3>
-            <p>All interactive actions are designed to work with the keyboard and visible focus styles.</p>
-          </article>
-          <article className="accessibilityCard">
-            <h3>Meaningful content</h3>
-            <p>Clear labels, button text and headings support screen readers and usability testing.</p>
-          </article>
-          <article className="accessibilityCard">
-            <h3>Testable feedback</h3>
-            <p>Error messages, loading states and test reports are visible and easy to verify.</p>
-          </article>
         </div>
       </section>
 
