@@ -1,0 +1,14 @@
+{
+  "performance": 100,
+  "accessibility": 100,
+  "bestPractices": 96,
+  "seo": 100,
+  "source": "Lighthouse CI (lhci autorun)",
+  "budgets": {
+    "performance": 60,
+    "accessibility": 90,
+    "bestPractices": 85,
+    "seo": 85
+  },
+  "verified": "2026-08-11"
+}

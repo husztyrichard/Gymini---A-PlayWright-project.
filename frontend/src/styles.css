@@ -133,8 +133,7 @@ input:focus, select:focus, textarea:focus { border-color: #a3ff12; box-shadow: 0
   position: fixed;
   inset: 0;
   z-index: 100;
-  display: grid;
-  place-content: center;
+  display: flex;
   background: rgba(6,7,11,.85);
   backdrop-filter: blur(8px);
   padding: 24px;
@@ -144,6 +143,7 @@ input:focus, select:focus, textarea:focus { border-color: #a3ff12; box-shadow: 0
   position: relative;
   max-width: 700px;
   width: 100%;
+  margin: auto;
   border: 1px solid rgba(148,163,184,.2);
   border-radius: 28px;
   background: rgba(15,23,42,.95);

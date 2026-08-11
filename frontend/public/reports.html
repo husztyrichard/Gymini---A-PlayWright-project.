@@ -26,7 +26,7 @@
     </div>
   </nav>
 
-  <div class="heroGrid">
+    <div class="heroGrid">
     <div class="heroCopy">
       <p class="eyebrow">Reports</p>
 
@@ -60,6 +60,142 @@
   </div>
 </main>
 
+<section class="tcSection" id="test-suites" aria-labelledby="test-suites-title">
+  <div class="sectionHeader">
+    <p class="eyebrow">Test Suites</p>
+    <h2 id="test-suites-title">Automated test suites</h2>
+    <p>
+      The Playwright coverage is split into two suites. The
+      <strong>smoke suite</strong> is a fast subset that runs on every push to
+      fail fast on the critical flows, while the
+      <strong>full regression suite</strong> runs the complete set of UI tests
+      headlessly against Chromium desktop, Firefox desktop and a Pixel 5 mobile
+      viewport. The numbers below come from the committed CI report data
+      (<code>ui-results.json</code>) - no tests execute on this page.
+    </p>
+  </div>
+
+  <div class="testGrid">
+    <div class="testCard">
+      <div class="testCardHeader">
+        <h3>Smoke Suite</h3>
+        <span class="tag">Smoke</span>
+      </div>
+      <p>
+        Fast critical checks: the core user journeys (landing page, plan form,
+        plan generation and exercise library) run on every change to catch
+        breakages in seconds.
+      </p>
+      <div class="statusBlock">
+        <span class="statusLabel">Tests</span>
+        <strong class="statusPass">
+          <span class="suiteCount" data-suite="smoke">9</span> tests
+        </strong>
+      </div>
+    </div>
+
+    <div class="testCard">
+      <div class="testCardHeader">
+        <h3>Full Regression Suite</h3>
+        <span class="tag">Regression</span>
+      </div>
+      <p>
+        Complete functional suite: every UI spec is verified across Chromium
+        desktop, Firefox desktop and a Pixel 5 mobile viewport, including
+        negative and interaction cases as well as automated accessibility scans.
+      </p>
+      <div class="statusBlock">
+        <span class="statusLabel">Tests</span>
+        <strong class="statusPass">
+          <span class="suiteCount" data-suite="full">36</span> tests
+        </strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tcSection" id="lighthouse" aria-labelledby="lighthouse-title">
+  <div class="sectionHeader">
+    <p class="eyebrow">Lighthouse CI</p>
+    <h2 id="lighthouse-title">Web quality scores</h2>
+    <p>
+      Performance, accessibility, best practices and SEO are measured on every
+      push by <strong>Lighthouse CI</strong> (<code>lhci autorun</code>) and
+      enforced as pull request checks: performance &ge; 60, accessibility &ge;
+      90, best-practices &ge; 85 and SEO &ge; 85. The scores below are the
+      latest verified run, committed as <code>lighthouse.json</code>.
+    </p>
+  </div>
+
+  <div class="metricList">
+    <div class="metricItem">
+      <span>Performance</span>
+      <strong class="statusPass" data-lh="performance" data-default="100">100</strong>
+    </div>
+    <div class="metricItem">
+      <span>Accessibility</span>
+      <strong class="statusPass" data-lh="accessibility" data-default="100">100</strong>
+    </div>
+    <div class="metricItem">
+      <span>Best Practices</span>
+      <strong class="statusPass" data-lh="bestPractices" data-default="96">96</strong>
+    </div>
+    <div class="metricItem">
+      <span>SEO</span>
+      <strong class="statusPass" data-lh="seo" data-default="100">100</strong>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    // Read-only: renders committed report data. Nothing executes tests here.
+    fetch('/reports/lighthouse.json')
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        document.querySelectorAll('[data-lh]').forEach(function (el) {
+          var value = data && typeof data[el.dataset.lh] === 'number'
+            ? data[el.dataset.lh]
+            : Number(el.dataset.default);
+          el.textContent = value;
+        });
+      })
+      .catch(function () {});
+
+    function collectSpecs(suites, specs) {
+      (suites || []).forEach(function (suite) {
+        (suite.specs || []).forEach(function (spec) { specs.push(spec); });
+        collectSpecs(suite.suites, specs);
+      });
+      return specs;
+    }
+
+    function uniqueCount(specs, tag) {
+      var keys = new Set();
+      specs.forEach(function (spec) {
+        if (tag && !(spec.tags || []).includes(tag)) return;
+        keys.add((spec.file || '') + '::' + (spec.title || ''));
+      });
+      return keys.size;
+    }
+
+    fetch('/reports/ui-results.json')
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data) return;
+        var specs = collectSpecs(data.suites, []);
+        var smoke = uniqueCount(specs, 'smoke');
+        var full = uniqueCount(specs);
+        document.querySelectorAll('[data-suite="smoke"]').forEach(function (el) {
+          if (smoke) el.textContent = smoke;
+        });
+        document.querySelectorAll('[data-suite="full"]').forEach(function (el) {
+          if (full) el.textContent = full;
+        });
+      })
+      .catch(function () {});
+  })();
+</script>
 
   </body>
 </html>

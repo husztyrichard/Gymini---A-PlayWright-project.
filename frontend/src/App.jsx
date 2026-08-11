@@ -128,27 +128,40 @@ function buildRealPlan(allExercises, profile) {
 }
 
 function countPlaywrightResults(suites) {
-  let total = 0;
-  let passed = 0;
-  let failed = 0;
-  let skipped = 0;
+  const seen = new Map();
 
   function walk(list) {
     for (const suite of list || []) {
       for (const spec of suite.specs || []) {
+        // The JSON reporter emits one spec entry per project, so a unique test
+        // case is identified by its file + title across all projects.
+        const key = `${spec.file || ''}::${spec.title || ''}`;
+        let statuses = seen.get(key);
+        if (!statuses) {
+          statuses = new Set();
+          seen.set(key, statuses);
+        }
         for (const test of spec.tests || []) {
-          total++;
           const results = test.results || [];
           const status = results.length ? results[results.length - 1].status : 'skipped';
-          if (status === 'passed' || status === 'flaky') passed++;
-          else if (status === 'failed' || status === 'timedOut' || status === 'interrupted') failed++;
-          else skipped++;
+          statuses.add(status);
         }
       }
       walk(suite.suites);
     }
   }
   walk(suites);
+
+  let total = 0;
+  let passed = 0;
+  let failed = 0;
+  let skipped = 0;
+  for (const statuses of seen.values()) {
+    total++;
+    if (statuses.has('failed') || statuses.has('timedOut') || statuses.has('interrupted')) failed++;
+    else if (statuses.has('passed') || statuses.has('flaky')) passed++;
+    else skipped++;
+  }
 
   return { total, passed, failed, skipped };
 }
@@ -442,7 +455,7 @@ function App() {
             <div className="statusBlock">
               <span className="statusLabel">UI tests</span>
               <strong className={testResults?.ui ? (testResults.ui.failed ? 'statusFail' : 'statusPass') : ''}>
-                {testResults?.ui ? `${testResults.ui.total} tests` : '32 tests'}
+                {testResults?.ui ? `${testResults.ui.total} tests` : '36 tests'}
               </strong>
             </div>
             <div className="statusBlock">
