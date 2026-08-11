@@ -333,7 +333,6 @@ function App() {
           <div className="navLinks">
             <a href="#exercises" className="navCta">Exercises</a>
             <a href="#test-dashboard" className="navCta">Tests</a>
-            <a href="/reports.html" className="navCta">Reports</a>
             <a href="/about.html" className="navCta">About me</a>
           </div>
         </nav>
@@ -443,6 +442,10 @@ function App() {
             <div className="statusBlock">
               <span className="statusLabel">Reports page</span>
               <strong>Available</strong>
+            </div>
+            <div className="heroActions">
+              <a href="/reports/api-report.html" className="primaryButton" target="_blank" rel="noreferrer">Open API Report</a>
+              <a href="/reports/playwright-report/index.html" className="primaryButton" target="_blank" rel="noreferrer">Open UI Report</a>
             </div>
           </div>
         </div>
