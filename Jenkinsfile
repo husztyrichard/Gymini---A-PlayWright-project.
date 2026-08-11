@@ -34,6 +34,15 @@ pipeline {
 
             archiveArtifacts artifacts: 'frontend/test-results/**',
                 allowEmptyArchive: true
+
+            publishHTML([
+                allowMissing: true,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'reports/playwright-report',
+                reportFiles: 'index.html',
+                reportName: 'Playwright Report'
+            ])
         }
     }
 }
