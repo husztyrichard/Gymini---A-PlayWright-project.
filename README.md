@@ -2,7 +2,7 @@ Gymini 💪
 
 An AI-powered workout planner built with React and Node.js. Users enter their fitness profile, goals and available equipment, then receive a personalized weekly workout plan.
 
-Features
+Features:
 
 - Personalized workout plan generation
 - Goal and experience-based training plans
