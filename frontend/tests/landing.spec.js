@@ -4,7 +4,7 @@ test.describe('Landing Page', () => {
   test('loads and displays branding', async ({ page }) => {
     await page.goto('/');
     await expect(page.locator('.brand span')).toHaveText('Gymini');
-    await expect(page.locator('.brand small')).toHaveText('AI Workout Planner');
+    await expect(page.locator('.brand small')).toHaveText('QA Portfolio');
   });
 
   test('displays hero section with headline', async ({ page }) => {

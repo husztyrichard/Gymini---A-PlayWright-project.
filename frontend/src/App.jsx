@@ -139,6 +139,27 @@ function App() {
   const [selectedExercise, setSelectedExercise] = useState(null);
   const [exercisesLoading, setExercisesLoading] = useState(true);
   const [showExample, setShowExample] = useState(false);
+  const [testResults, setTestResults] = useState(null);
+  const [testLoading, setTestLoading] = useState(true);
+  const [testError, setTestError] = useState('');
+  const [runningTests, setRunningTests] = useState(false);
+
+  useEffect(() => {
+    async function fetchTestResults() {
+      try {
+        const response = await fetch('/api/test-results');
+        if (!response.ok) throw new Error('Failed to load test status');
+        const data = await response.json();
+        setTestResults(data);
+      } catch (err) {
+        setTestError('Unable to load test metrics.');
+      } finally {
+        setTestLoading(false);
+      }
+    }
+
+    fetchTestResults();
+  }, []);
 
   useEffect(() => {
     fetch(EXERCISES_API)
@@ -189,6 +210,30 @@ function App() {
     }, 300);
   }
 
+  async function runApiTests() {
+    setRunningTests(true);
+    setTestError('');
+
+    try {
+      const response = await fetch('/api/run-api-tests', { method: 'POST' });
+      if (!response.ok) {
+        const text = await response.text();
+        throw new Error(text || 'Failed to run tests');
+      }
+
+      const data = await response.json();
+      if (data.success && data.results) {
+        setTestResults({ api: data.results });
+      } else {
+        setTestError(data.message || 'Test run completed with issues.');
+      }
+    } catch (err) {
+      setTestError(err.message || 'Unable to run tests.');
+    } finally {
+      setRunningTests(false);
+    }
+  }
+
   function findExerciseByName(name) {
     return exercises.find((e) => e.name === name) || null;
   }
@@ -230,23 +275,25 @@ function App() {
 
       <section className="hero">
         <nav className="nav">
-          <div className="brand"><span>Gymini</span><small>AI Workout Planner</small></div>
+          <div className="brand"><span>Gymini</span><small>QA Portfolio</small></div>
           <div className="navLinks">
             <a href="#exercises" className="navCta">Exercises</a>
             <a href="#test-dashboard" className="navCta">Tests</a>
+            <a href="/reports.html" className="navCta">Reports</a>
+            <a href="/about.html" className="navCta">About me</a>
           </div>
         </nav>
 
         <div className="heroGrid">
           <div className="heroCopy">
-            <p className="eyebrow">Gym discipline meets AI intelligence</p>
-            <h1>Build your AI workout plan in seconds.</h1>
+            <p className="eyebrow">Example test automation project built to demonstrate QA skills</p>
+            <h1>Example test automation project built to demonstrate QA skills</h1>
             <p className="subtext">
-              Tell Gymini your goal, body data, experience and equipment. Get a clean weekly workout plan with exercises, sets, reps and progression advice.
+              This project is a working demo app with QA automation, test metrics, and accessibility validation to showcase my testing skills.
             </p>
             <div className="heroActions">
-              <a href="#planner" className="primaryButton">Start planning</a>
-              <button type="button" className="secondaryButton" onClick={() => setShowExample(!showExample)}>See example</button>
+              <a href="#test-dashboard" className="primaryButton">View test dashboard</a>
+              <a href="#planner" className="secondaryButton">Start planning</a>
             </div>
             <div className="proofRow">
               <span>800+ exercises</span>
@@ -269,6 +316,97 @@ function App() {
               </ul>
             </div>
           )}
+        </div>
+      </section>
+
+      <section className="testDashboard" id="test-dashboard">
+        <div className="sectionHeader">
+          <p className="eyebrow">Quality Assurance</p>
+          <h2>Live test status and metrics</h2>
+          <p>Monitor automated coverage, report availability and run the API suite from the site.</p>
+        </div>
+
+        <div className="testGrid">
+          <div className="testCard">
+            <div className="testCardHeader">
+              <h3>API Test Metrics</h3>
+              <span className="tag">Newman</span>
+            </div>
+            {testLoading ? (
+              <p>Loading test metrics…</p>
+            ) : testError ? (
+              <p className="error">{testError}</p>
+            ) : (
+              <div className="metricList">
+                <div className="metricItem">
+                  <span>Total assertions</span>
+                  <strong>{testResults?.api?.total ?? '—'}</strong>
+                </div>
+                <div className="metricItem">
+                  <span>Passed</span>
+                  <strong>{testResults?.api?.passed ?? '—'}</strong>
+                </div>
+                <div className="metricItem">
+                  <span>Failed</span>
+                  <strong>{testResults?.api?.failed ?? '—'}</strong>
+                </div>
+                <div className="metricItem">
+                  <span>Pass rate</span>
+                  <strong>{testResults?.api?.total ? `${Math.round((testResults.api.passed / testResults.api.total) * 100)}%` : '—'}</strong>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="testCard">
+            <div className="testCardHeader">
+              <h3>Test status</h3>
+              <span className="tag">Playwright</span>
+            </div>
+            <p>UI test coverage and automated result reports for core user flows.</p>
+            <div className="statusBlock">
+              <span className="statusLabel">API status</span>
+              <strong className={testResults?.api?.failed ? 'statusFail' : 'statusPass'}>
+                {testResults?.api ? (testResults.api.failed ? 'Fail' : 'Pass') : 'Unknown'}
+              </strong>
+            </div>
+            <div className="statusBlock">
+              <span className="statusLabel">UI tests</span>
+              <strong>32 tests</strong>
+            </div>
+            <div className="statusBlock">
+              <span className="statusLabel">Reports page</span>
+              <strong>Available</strong>
+            </div>
+            <div className="testActions">
+              <button className="primaryButton" type="button" onClick={runApiTests} disabled={runningTests || testLoading}>
+                {runningTests ? 'Running tests…' : 'Run tests'}
+              </button>
+              <a href="/reports.html" className="secondaryButton">View reports page</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="accessibilitySection" id="accessibility">
+        <div className="sectionHeader">
+          <p className="eyebrow">Accessibility</p>
+          <h2>Built with inclusive QA in mind</h2>
+          <p>Keyboard navigation, semantic markup, focus states and accessible content make this app easier to test and use.</p>
+        </div>
+        <div className="accessibilityGrid">
+          <article className="accessibilityCard">
+            <h3>Keyboard support</h3>
+            <p>All interactive actions are designed to work with the keyboard and visible focus styles.</p>
+          </article>
+          <article className="accessibilityCard">
+            <h3>Meaningful content</h3>
+            <p>Clear labels, button text and headings support screen readers and usability testing.</p>
+          </article>
+          <article className="accessibilityCard">
+            <h3>Testable feedback</h3>
+            <p>Error messages, loading states and test reports are visible and easy to verify.</p>
+          </article>
         </div>
       </section>
 
@@ -361,37 +499,6 @@ function App() {
         )}
       </section>
 
-      <section className="testDashboard" id="test-dashboard">
-        <div className="sectionHeader">
-          <p className="eyebrow">Quality Assurance</p>
-          <h2>Test Dashboard</h2>
-          <p>View reports of the automated tests directly from the site.</p>
-        </div>
-
-        <div className="testGrid">
-          <div className="testCard">
-            <div className="testCardHeader">
-              <h3>API Tests</h3>
-              <span className="tag">Newman</span>
-            </div>
-            <p>8 requests, 32 assertions covering health check, plan generation, validation and edge cases.</p>
-            <div className="testActions">
-              <a href="/reports/api-report.html" target="_blank" rel="noreferrer" className="secondaryButton">View HTML Report</a>
-            </div>
-          </div>
-
-          <div className="testCard">
-            <div className="testCardHeader">
-              <h3>UI Tests</h3>
-              <span className="tag">Playwright</span>
-            </div>
-            <p>32 tests covering landing page, form, exercise library, search, filters, modals and plan generation.</p>
-            <div className="testActions">
-              <a href="/reports/playwright-report/index.html" target="_blank" rel="noreferrer" className="secondaryButton">View HTML Report</a>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
