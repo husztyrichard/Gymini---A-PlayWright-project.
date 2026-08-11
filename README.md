@@ -1,7 +1,5 @@
 Gymini 💪
 
-[![Tests](https://github.com/husztyrichard/Gymini---A-PlayWright-project/actions/workflows/test.yml/badge.svg)](https://github.com/husztyrichard/Gymini---A-PlayWright-project/actions/workflows/test.yml)
-
 An AI-powered workout planner built with React and Node.js. Users enter their fitness profile, goals and available equipment, then receive a personalized weekly workout plan.
 
 Features:
