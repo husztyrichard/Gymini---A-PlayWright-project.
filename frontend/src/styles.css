@@ -170,27 +170,30 @@ input:focus, select:focus, textarea:focus { border-color: #a3ff12; box-shadow: 0
 .modalInstructions ol { color: #cbd5e1; padding-left: 20px; }
 .modalInstructions li { margin-bottom: 10px; line-height: 1.6; font-size: 14px; }
 
-.testDashboard { padding: 80px 0 110px; }
+.testDashboard { padding: 76px 0 100px; }
 .testGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .testCard {
   border: 1px solid rgba(148,163,184,.16);
   border-radius: 28px;
   background: rgba(15,23,42,.72);
   backdrop-filter: blur(18px);
-  padding: 28px;
+  padding: 24px;
   box-shadow: 0 24px 80px rgba(0,0,0,.25);
+  display: flex;
+  flex-direction: column;
 }
 .testCardHeader { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
 .testCardHeader h3 { margin: 0; color: #f8fafc; }
-.metricList { display: grid; gap: 14px; margin-top: 18px; }
-.metricItem { display: flex; justify-content: space-between; align-items: center; padding: 16px; border: 1px solid rgba(148,163,184,.12); border-radius: 18px; background: rgba(2,6,23,.64); }
+.testCard .heroActions { margin-top: auto; padding-top: 28px; }
+.metricList { display: grid; gap: 12px; margin-top: 16px; }
+.metricItem { display: flex; justify-content: space-between; align-items: center; padding: 14px; border: 1px solid rgba(148,163,184,.12); border-radius: 18px; background: rgba(2,6,23,.64); }
 .metricItem span { color: #94a3b8; }
 .metricItem strong { color: #f8fafc; }
-.statusBlock { margin-top: 14px; padding: 16px; border-radius: 18px; background: rgba(2,6,23,.64); display: flex; justify-content: space-between; align-items: center; }
+.statusBlock { margin-top: 12px; padding: 14px; border-radius: 18px; background: rgba(2,6,23,.64); display: flex; justify-content: space-between; align-items: center; }
 .statusLabel { color: #94a3b8; }
 .statusPass { color: #a3ff12; }
 .statusFail { color: #fb7185; }
-.testCard p { color: #cbd5e1; font-size: 14px; line-height: 1.6; margin: 0 0 16px; }
+.testCard p { color: #cbd5e1; font-size: 14px; line-height: 1.6; margin: 0 0 12px; }
 @media (max-width: 900px) {
   .heroGrid, .plannerGrid, .testGrid { grid-template-columns: 1fr; }
   .heroGrid { padding-top: 38px; }
