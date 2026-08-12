@@ -40,7 +40,7 @@ Every test case on the [test cases page](https://gymini-playwright.vercel.app/te
 ### CI/CD
 
 - **GitHub Actions** ([test.yml](.github/workflows/test.yml)) runs 5 jobs on every push/PR: API tests (Newman), smoke tests (Playwright), Lighthouse CI, dependency security (npm audit), and the full UI regression suite.
-- **Jenkinsfile** included for Jenkins-based pipelines.
+- **Jenkins** pipeline is defined in Jenkinsfile and runs only the full Playwright UI regression suite on a Windows agent
 
 ## Tech stack
 
@@ -82,14 +82,67 @@ npm test
 ## Project structure
 
 ```
-.
-├── backend/          # Express API + Postman collection + Newman runner
+
+Gymini---A-PlayWright-project/
+├── .github/
+│   └── workflows/
+│       └── test.yml
+│
+├── backend/
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── postman_collection.json
+│   ├── run-tests.js
+│   └── server.js
+│
 ├── frontend/
-│   ├── src/          # React app
-│   ├── tests/        # Playwright specs (landing, form, plan, exercises, negative, dashboard, a11y)
-│   ├── public/       # Test cases / about / reports pages, report JSON
-│   └── lighthouserc.cjs
-├── reports/          # Generated report output (api + ui + lighthouse)
-├── .github/workflows/test.yml
-└── Jenkinsfile
+│   ├── public/
+│   │   ├── reports/
+│   │   │   ├── playwright-report/
+│   │   │   ├── api-report.html
+│   │   │   ├── api-results.json
+│   │   │   ├── lighthouse.json
+│   │   │   └── ui-results.json
+│   │   ├── resumes/
+│   │   │   ├── Huszty_Richard_cv_hu.pdf
+│   │   │   └── Richard_Huszty_cv_en.pdf
+│   │   ├── about.html
+│   │   ├── favicon.svg
+│   │   ├── reports.html
+│   │   ├── styles.css
+│   │   └── test-cases.html
+│   │
+│   ├── scripts/
+│   │   ├── compact-api-results.mjs
+│   │   └── compact-ui-results.mjs
+│   │
+│   ├── src/
+│   │   ├── App.jsx
+│   │   └── styles.css
+│   │
+│   ├── tests/
+│   │   ├── accessibility.spec.js
+│   │   ├── dashboard.spec.js
+│   │   ├── exercises.spec.js
+│   │   ├── form.spec.js
+│   │   ├── landing.spec.js
+│   │   ├── negative.spec.js
+│   │   └── plan.spec.js
+│   │
+│   ├── index.html
+│   ├── lighthouserc.cjs
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── playwright.config.js
+│   └── vite.config.js
+│
+├── Jenkinsfile
+├── README.md
+├── package.json
+├── package-lock.json
+├── run-all-tests.js
+├── validate.py
+├── vercel.json
+└── .gitignore
 ```
+
