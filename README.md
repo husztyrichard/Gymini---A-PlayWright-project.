@@ -82,15 +82,14 @@ npm test
 ## Project structure
 
 ```
-
 Gymini---A-PlayWright-project/
 ├── .github/
 │   └── workflows/
 │       └── test.yml
 │
 ├── backend/
-│   ├── package.json
 │   ├── package-lock.json
+│   ├── package.json
 │   ├── postman_collection.json
 │   ├── run-tests.js
 │   └── server.js
@@ -104,8 +103,8 @@ Gymini---A-PlayWright-project/
 │   │   │   ├── lighthouse.json
 │   │   │   └── ui-results.json
 │   │   ├── resumes/
-│   │   │   ├── Huszty_Richard_cv_hu.pdf
-│   │   │   └── Richard_Huszty_cv_en.pdf
+│   │   │   ├── Huszty_Richárdcv_hu.pdf
+│   │   │   └── Richard_Husztycv_en.pdf
 │   │   ├── about.html
 │   │   ├── favicon.svg
 │   │   ├── reports.html
@@ -131,18 +130,23 @@ Gymini---A-PlayWright-project/
 │   │
 │   ├── index.html
 │   ├── lighthouserc.cjs
-│   ├── package.json
 │   ├── package-lock.json
+│   ├── package.json
 │   ├── playwright.config.js
 │   └── vite.config.js
 │
+├── resumes/
+│   ├── Huszty_Richárdcv_hu.pdf
+│   └── Richard_Husztycv_en.pdf
+│
+├── .gitignore
 ├── Jenkinsfile
 ├── README.md
-├── package.json
 ├── package-lock.json
+├── package.json
 ├── run-all-tests.js
 ├── validate.py
-├── vercel.json
-└── .gitignore
+└── vercel.json
 ```
+
 
