@@ -33,8 +33,8 @@
 
           <p class="subtext">
             Every case below maps 1:1 to an automated test that actually runs:
-            the Newman API collection (8 requests, 32 assertions) and the
-            Playwright UI suite (36 tests). For each case you can see
+            the Newman API collection (32 requests, 92 assertions) and the
+            Playwright UI suite (51 tests). For each case you can see
             <strong>what</strong> is verified, <strong>why</strong> it matters,
             and <strong>how</strong> it is tested.
           </p>
@@ -58,9 +58,10 @@
         <p class="eyebrow">API - Newman</p>
         <h2>Backend API test cases</h2>
         <p>
-          8 requests executed against <code>/api/health</code> and
-          <code>/api/generate-plan</code>, covering happy paths, goal-specific
-          logic, and negative input validation. 32 assertions in total.
+          32 requests executed against <code>/api/health</code>,
+          <code>/api/generate-plan</code> and the resume endpoints, covering
+          happy paths, goal-specific logic, boundary value analysis (valid
+          and invalid edges), and input validation. 92 assertions in total.
         </p>
       </div>
 
@@ -142,6 +143,222 @@
               <td><ol><li>POST /api/generate-plan with daysPerWeek=2, general-fitness, beginner.</li><li>Assert day count and first-day split name.</li></ol></td>
               <td>200; weeklyPlan has 2 days; first day focus includes "Full Body".</td>
             </tr>
+            <tr>
+              <td class="tcId">API-09</td>
+              <td class="tcTitle">Age lower boundary (14) is valid<span class="src">Source: backend/postman_collection.json - Generate Plan - Age Min Boundary Valid (14)</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Verify age exactly at the minimum allowed value is accepted.</td>
+              <td>BVA - the boundary value itself must be valid, not just values inside the range.</td>
+              <td><ol><li>POST /api/generate-plan with age=14, otherwise valid.</li><li>Assert status and response shape.</li></ol></td>
+              <td>200; a valid plan object is returned.</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-10</td>
+              <td class="tcTitle">Age upper boundary (90) is valid<span class="src">Source: backend/postman_collection.json - Generate Plan - Age Max Boundary Valid (90)</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Verify age exactly at the maximum allowed value is accepted.</td>
+              <td>BVA - the upper boundary value must not be rejected.</td>
+              <td><ol><li>POST /api/generate-plan with age=90, otherwise valid.</li><li>Assert status and response shape.</li></ol></td>
+              <td>200; a valid plan object is returned.</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-11</td>
+              <td class="tcTitle">Height lower boundary (120) is valid<span class="src">Source: backend/postman_collection.json - Generate Plan - Height Min Boundary Valid (120)</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Verify height exactly at the minimum allowed value is accepted.</td>
+              <td>BVA - the lower boundary value must be accepted.</td>
+              <td><ol><li>POST /api/generate-plan with height=120, otherwise valid.</li><li>Assert status and response shape.</li></ol></td>
+              <td>200; a valid plan object is returned.</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-12</td>
+              <td class="tcTitle">Height upper boundary (230) is valid<span class="src">Source: backend/postman_collection.json - Generate Plan - Height Max Boundary Valid (230)</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Verify height exactly at the maximum allowed value is accepted.</td>
+              <td>BVA - the upper boundary value must be accepted.</td>
+              <td><ol><li>POST /api/generate-plan with height=230, otherwise valid.</li><li>Assert status and response shape.</li></ol></td>
+              <td>200; a valid plan object is returned.</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-13</td>
+              <td class="tcTitle">Weight lower boundary (35) is valid<span class="src">Source: backend/postman_collection.json - Generate Plan - Weight Min Boundary Valid (35)</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Verify weight exactly at the minimum allowed value is accepted.</td>
+              <td>BVA - the lower boundary value must be accepted.</td>
+              <td><ol><li>POST /api/generate-plan with weight=35, otherwise valid.</li><li>Assert status and response shape.</li></ol></td>
+              <td>200; a valid plan object is returned.</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-14</td>
+              <td class="tcTitle">Weight upper boundary (250) is valid<span class="src">Source: backend/postman_collection.json - Generate Plan - Weight Max Boundary Valid (250)</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Verify weight exactly at the maximum allowed value is accepted.</td>
+              <td>BVA - the upper boundary value must be accepted.</td>
+              <td><ol><li>POST /api/generate-plan with weight=250, otherwise valid.</li><li>Assert status and response shape.</li></ol></td>
+              <td>200; a valid plan object is returned.</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-15</td>
+              <td class="tcTitle">DaysPerWeek lower boundary (2) is valid<span class="src">Source: backend/postman_collection.json - Generate Plan - DaysPerWeek Min Boundary Valid (2)</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Verify daysPerWeek=2 is accepted and yields a 2-day plan.</td>
+              <td>BVA - the lower boundary of the training frequency must be valid.</td>
+              <td><ol><li>POST /api/generate-plan with daysPerWeek=2, otherwise valid.</li><li>Assert status and day count.</li></ol></td>
+              <td>200; weeklyPlan has 2 days.</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-16</td>
+              <td class="tcTitle">DaysPerWeek upper boundary (6) is valid<span class="src">Source: backend/postman_collection.json - Generate Plan - DaysPerWeek Max Boundary Valid (6)</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Verify daysPerWeek=6 is accepted and yields a 6-day plan.</td>
+              <td>BVA - the upper boundary of the training frequency must be valid.</td>
+              <td><ol><li>POST /api/generate-plan with daysPerWeek=6, otherwise valid.</li><li>Assert status and day count.</li></ol></td>
+              <td>200; weeklyPlan has 6 days.</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-17</td>
+              <td class="tcTitle">Age below minimum (13) is rejected<span class="src">Source: backend/postman_collection.json - Generate Plan - Age Below Min Invalid (13)</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify age one below the minimum is rejected.</td>
+              <td>BVA - the value just outside the boundary must be rejected.</td>
+              <td><ol><li>POST /api/generate-plan with age=13.</li><li>Assert status and that the age field is listed in errors.</li></ol></td>
+              <td>400; message mentions invalid values; errors list includes "age".</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-18</td>
+              <td class="tcTitle">Age above maximum (91) is rejected<span class="src">Source: backend/postman_collection.json - Generate Plan - Age Above Max Invalid (91)</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify age one above the maximum is rejected.</td>
+              <td>BVA - the value just outside the boundary must be rejected.</td>
+              <td><ol><li>POST /api/generate-plan with age=91.</li><li>Assert status and that the age field is listed in errors.</li></ol></td>
+              <td>400; message mentions invalid values; errors list includes "age".</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-19</td>
+              <td class="tcTitle">Height below minimum (119) is rejected<span class="src">Source: backend/postman_collection.json - Generate Plan - Height Below Min Invalid (119)</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify height one below the minimum is rejected.</td>
+              <td>BVA - the value just outside the boundary must be rejected.</td>
+              <td><ol><li>POST /api/generate-plan with height=119.</li><li>Assert status and that the height field is listed in errors.</li></ol></td>
+              <td>400; message mentions invalid values; errors list includes "height".</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-20</td>
+              <td class="tcTitle">Height above maximum (231) is rejected<span class="src">Source: backend/postman_collection.json - Generate Plan - Height Above Max Invalid (231)</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify height one above the maximum is rejected.</td>
+              <td>BVA - the value just outside the boundary must be rejected.</td>
+              <td><ol><li>POST /api/generate-plan with height=231.</li><li>Assert status and that the height field is listed in errors.</li></ol></td>
+              <td>400; message mentions invalid values; errors list includes "height".</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-21</td>
+              <td class="tcTitle">Weight below minimum (34) is rejected<span class="src">Source: backend/postman_collection.json - Generate Plan - Weight Below Min Invalid (34)</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify weight one below the minimum is rejected.</td>
+              <td>BVA - the value just outside the boundary must be rejected.</td>
+              <td><ol><li>POST /api/generate-plan with weight=34.</li><li>Assert status and that the weight field is listed in errors.</li></ol></td>
+              <td>400; message mentions invalid values; errors list includes "weight".</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-22</td>
+              <td class="tcTitle">Weight above maximum (251) is rejected<span class="src">Source: backend/postman_collection.json - Generate Plan - Weight Above Max Invalid (251)</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify weight one above the maximum is rejected.</td>
+              <td>BVA - the value just outside the boundary must be rejected.</td>
+              <td><ol><li>POST /api/generate-plan with weight=251.</li><li>Assert status and that the weight field is listed in errors.</li></ol></td>
+              <td>400; message mentions invalid values; errors list includes "weight".</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-23</td>
+              <td class="tcTitle">DaysPerWeek below minimum (1) is rejected<span class="src">Source: backend/postman_collection.json - Generate Plan - DaysPerWeek Below Min Invalid (1)</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify daysPerWeek=1 is rejected.</td>
+              <td>BVA - the value just outside the lower boundary must be rejected.</td>
+              <td><ol><li>POST /api/generate-plan with daysPerWeek=1.</li><li>Assert status and that daysPerWeek is listed in errors.</li></ol></td>
+              <td>400; message mentions invalid values; errors list includes "daysPerWeek".</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-24</td>
+              <td class="tcTitle">DaysPerWeek above maximum (7) is rejected<span class="src">Source: backend/postman_collection.json - Generate Plan - DaysPerWeek Above Max Invalid (7)</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify daysPerWeek=7 is rejected.</td>
+              <td>BVA - the value just outside the upper boundary must be rejected.</td>
+              <td><ol><li>POST /api/generate-plan with daysPerWeek=7.</li><li>Assert status and that daysPerWeek is listed in errors.</li></ol></td>
+              <td>400; message mentions invalid values; errors list includes "daysPerWeek".</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-25</td>
+              <td class="tcTitle">Non-numeric age is rejected<span class="src">Source: backend/postman_collection.json - Generate Plan - Age Non-Numeric Invalid (abc)</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify a non-numeric age string is rejected.</td>
+              <td>Type validation - garbage input must not crash or be silently coerced.</td>
+              <td><ol><li>POST /api/generate-plan with age="abc".</li><li>Assert status and that the age field is listed in errors.</li></ol></td>
+              <td>400; message mentions invalid values; errors list includes "age".</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-26</td>
+              <td class="tcTitle">Non-numeric weight is rejected<span class="src">Source: backend/postman_collection.json - Generate Plan - Weight Non-Numeric Invalid (x)</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify a non-numeric weight string is rejected.</td>
+              <td>Type validation - garbage input must not be silently coerced.</td>
+              <td><ol><li>POST /api/generate-plan with weight="x".</li><li>Assert status and that the weight field is listed in errors.</li></ol></td>
+              <td>400; message mentions invalid values; errors list includes "weight".</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-27</td>
+              <td class="tcTitle">Invalid goal enum is rejected<span class="src">Source: backend/postman_collection.json - Generate Plan - Invalid Goal (bogus)</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify an unsupported goal value is rejected.</td>
+              <td>Enum validation - unknown goals must not fall through to a default.</td>
+              <td><ol><li>POST /api/generate-plan with goal="bogus".</li><li>Assert status and that the goal field is listed in errors.</li></ol></td>
+              <td>400; message mentions invalid values; errors list includes "goal".</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-28</td>
+              <td class="tcTitle">Invalid experience enum is rejected<span class="src">Source: backend/postman_collection.json - Generate Plan - Invalid Experience (expert)</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify an unsupported experience value is rejected.</td>
+              <td>Enum validation - unknown levels must not be accepted.</td>
+              <td><ol><li>POST /api/generate-plan with experience="expert".</li><li>Assert status and that the experience field is listed in errors.</li></ol></td>
+              <td>400; message mentions invalid values; errors list includes "experience".</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-29</td>
+              <td class="tcTitle">Invalid equipment enum is rejected<span class="src">Source: backend/postman_collection.json - Generate Plan - Invalid Equipment (none)</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify an unsupported equipment value is rejected.</td>
+              <td>Enum validation - unknown equipment must not be accepted.</td>
+              <td><ol><li>POST /api/generate-plan with equipment="none".</li><li>Assert status and that the equipment field is listed in errors.</li></ol></td>
+              <td>400; message mentions invalid values; errors list includes "equipment".</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-30</td>
+              <td class="tcTitle">English resume is downloadable<span class="src">Source: backend/postman_collection.json - Resume - English PDF</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Verify GET /resumes/en serves the English PDF resume.</td>
+              <td>The resume download link must work for the portfolio to function.</td>
+              <td><ol><li>GET /resumes/en.</li><li>Assert status code and Content-Type header.</li></ol></td>
+              <td>200; Content-Type includes application/pdf.</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-31</td>
+              <td class="tcTitle">Hungarian resume is downloadable<span class="src">Source: backend/postman_collection.json - Resume - Hungarian PDF</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Verify GET /resumes/hu serves the Hungarian PDF resume.</td>
+              <td>The Hungarian resume download link must work.</td>
+              <td><ol><li>GET /resumes/hu.</li><li>Assert status code and Content-Type header.</li></ol></td>
+              <td>200; Content-Type includes application/pdf.</td>
+            </tr>
+            <tr>
+              <td class="tcId">API-32</td>
+              <td class="tcTitle">Unknown resume slug returns 404<span class="src">Source: backend/postman_collection.json - Resume - Unknown Slug Returns 404</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Verify an unknown resume slug is not silently served.</td>
+              <td>Broken-link guard - a bad URL must fail clearly, not return a wrong file.</td>
+              <td><ol><li>GET /resumes/does-not-exist.</li><li>Assert status code.</li></ol></td>
+              <td>404.</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -152,8 +369,10 @@
         <p class="eyebrow">UI - Playwright</p>
         <h2>Frontend UI test cases</h2>
         <p>
-          36 tests split across five areas: landing page, plan form, plan
-          generation, exercise library, and automated accessibility scans.
+          51 tests split across seven areas: landing page, plan form, plan
+          generation, exercise library, the test dashboard / reports,
+          negative paths and boundary values, and automated accessibility
+          scans.
           Every test runs headless against Chromium desktop, Firefox desktop,
           and a Pixel 5 mobile viewport. Includes negative and interaction
           cases, not just happy paths.
@@ -492,6 +711,163 @@
         </table>
       </div>
 
+      <h3 class="tcGroup">Test dashboard &amp; reports</h3>
+      <div class="tcTableWrap">
+        <table class="tcTable">
+          <thead>
+            <tr><th>ID</th><th>Test Case</th><th>Priority</th><th>What</th><th>Why</th><th>How</th><th>Expected</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tcId">UI-D-01</td>
+              <td class="tcTitle">Dashboard shows the three status cards<span class="src">Source: frontend/tests/dashboard.spec.js - dashboard shows the three status cards</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify the test dashboard renders API, UI and Lighthouse status cards.</td>
+              <td>The dashboard is the portfolio home page - if the cards are missing, the metric story breaks.</td>
+              <td><ol><li>Open "/", click "View test dashboard".</li><li>Count the status cards and read each heading.</li></ol></td>
+              <td>Exactly 3 cards with headings "API Test Metrics", "Test status" and "Lighthouse scores".</td>
+            </tr>
+            <tr>
+              <td class="tcId">UI-D-02</td>
+              <td class="tcTitle">Lighthouse card shows the four score categories<span class="src">Source: frontend/tests/dashboard.spec.js - lighthouse card shows the four score categories</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify the Lighthouse card lists all four measured categories.</td>
+              <td>Performance, accessibility, best-practices and SEO are the quality gates the project advertises.</td>
+              <td><ol><li>Open the dashboard.</li><li>Read the metric labels and values inside the Lighthouse card.</li></ol></td>
+              <td>4 metrics labelled Performance, Accessibility, Best practices and SEO, each with a numeric score.</td>
+            </tr>
+            <tr>
+              <td class="tcId">UI-D-03</td>
+              <td class="tcTitle">Lighthouse budgets show a pass status<span class="src">Source: frontend/tests/dashboard.spec.js - lighthouse budgets show a pass status</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Verify all scores meet the committed Lighthouse budgets.</td>
+              <td>The pass/fail budget tells a recruiter whether quality gates actually hold.</td>
+              <td><ol><li>Open the dashboard.</li><li>Compare the Budgets status block and its CSS class.</li></ol></td>
+              <td>Budgets status shows "Pass" with the statusPass class.</td>
+            </tr>
+            <tr>
+              <td class="tcId">UI-D-04</td>
+              <td class="tcTitle">UI tests count is displayed<span class="src">Source: frontend/tests/dashboard.spec.js - UI tests count is displayed</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Verify the Test status card shows a UI test count.</td>
+              <td>Confirms the committed report data is wired into the dashboard UI.</td>
+              <td><ol><li>Open the dashboard.</li><li>Read the UI tests block in the Test status card.</li></ol></td>
+              <td>The block shows "&lt;N> tests" with N a positive number.</td>
+            </tr>
+            <tr>
+              <td class="tcId">UI-D-05</td>
+              <td class="tcTitle">UI Playwright report page opens<span class="src">Source: frontend/tests/dashboard.spec.js - UI Playwright report page opens</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify the hosted Playwright HTML report is reachable and not a broken link.</td>
+              <td>A published report that 404s would undermine the whole demo.</td>
+              <td><ol><li>Open "/reports/playwright-report/index.html".</li><li>Assert the HTTP status and page title.</li></ol></td>
+              <td>Page loads (200) with title "Playwright Test Report".</td>
+            </tr>
+            <tr>
+              <td class="tcId">UI-D-06</td>
+              <td class="tcTitle">API Newman report page opens<span class="src">Source: frontend/tests/dashboard.spec.js - API Newman report page opens</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify the hosted Newman HTML report is reachable.</td>
+              <td>Same broken-link guard for the API side of the report story.</td>
+              <td><ol><li>Open "/reports/api-report.html".</li><li>Assert the HTTP status and page title.</li></ol></td>
+              <td>Page loads (200) with title "Newman Summary Report".</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="tcGroup">Negative paths &amp; boundary values</h3>
+      <div class="tcTableWrap">
+        <table class="tcTable">
+          <thead>
+            <tr><th>ID</th><th>Test Case</th><th>Priority</th><th>What</th><th>Why</th><th>How</th><th>Expected</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tcId">UI-N-01</td>
+              <td class="tcTitle">Empty required age blocks submission<span class="src">Source: frontend/tests/negative.spec.js - empty required age blocks submission</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify clearing a required field prevents plan generation.</td>
+              <td>A blank form must not reach the plan generator - native HTML5 validation is the only guard here.</td>
+              <td><ol><li>Open the planner, clear the age field.</li><li>Click Generate.</li><li>Assert the button stays enabled, no day cards appear and a validation message exists.</li></ol></td>
+              <td>No plan generated; age input has a non-empty validation message.</td>
+            </tr>
+            <tr>
+              <td class="tcId">UI-N-02</td>
+              <td class="tcTitle">Age above max (150) blocks submission<span class="src">Source: frontend/tests/negative.spec.js - age above max (150) blocks submission</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify an age over the 90 limit is rejected client-side.</td>
+              <td>Out-of-range data must never produce an invalid plan.</td>
+              <td><ol><li>Enter age 150.</li><li>Click Generate.</li><li>Assert no plan and a validation message.</li></ol></td>
+              <td>No plan generated; age input has a non-empty validation message.</td>
+            </tr>
+            <tr>
+              <td class="tcId">UI-N-03</td>
+              <td class="tcTitle">Age below min (1) blocks submission<span class="src">Source: frontend/tests/negative.spec.js - age below min (1) blocks submission</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify an age under the 14 limit is rejected client-side.</td>
+              <td>BVA - the value just below the boundary must be rejected in the UI too.</td>
+              <td><ol><li>Enter age 1.</li><li>Click Generate.</li><li>Assert no plan and a validation message.</li></ol></td>
+              <td>No plan generated; age input has a non-empty validation message.</td>
+            </tr>
+            <tr>
+              <td class="tcId">UI-N-04</td>
+              <td class="tcTitle">Height below min (10) blocks submission<span class="src">Source: frontend/tests/negative.spec.js - height below min (10) blocks submission</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify a height under the 120 limit is rejected client-side.</td>
+              <td>Out-of-range height must be caught before plan generation.</td>
+              <td><ol><li>Enter height 10.</li><li>Click Generate.</li><li>Assert no plan and a validation message.</li></ol></td>
+              <td>No plan generated; height input has a non-empty validation message.</td>
+            </tr>
+            <tr>
+              <td class="tcId">UI-N-05</td>
+              <td class="tcTitle">Weight above max (999) blocks submission<span class="src">Source: frontend/tests/negative.spec.js - weight above max (999) blocks submission</span></td>
+              <td><span class="prio high">High</span></td>
+              <td>Verify a weight over the 250 limit is rejected client-side.</td>
+              <td>Out-of-range weight must be caught before plan generation.</td>
+              <td><ol><li>Enter weight 999.</li><li>Click Generate.</li><li>Assert no plan and a validation message.</li></ol></td>
+              <td>No plan generated; weight input has a non-empty validation message.</td>
+            </tr>
+            <tr>
+              <td class="tcId">UI-N-06</td>
+              <td class="tcTitle">Minimum valid values generate a plan<span class="src">Source: frontend/tests/negative.spec.js - min valid values generate a plan</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Verify age 14, height 120, weight 35 are accepted and generate a plan.</td>
+              <td>BVA - the boundary values themselves must be accepted, not just interior values.</td>
+              <td><ol><li>Enter age 14, height 120, weight 35.</li><li>Click Generate.</li><li>Assert day cards appear.</li></ol></td>
+              <td>A plan is generated with at least one day card.</td>
+            </tr>
+            <tr>
+              <td class="tcId">UI-N-07</td>
+              <td class="tcTitle">Maximum valid values generate a plan<span class="src">Source: frontend/tests/negative.spec.js - max valid values generate a plan</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Verify age 90, height 230, weight 250 are accepted and generate a plan.</td>
+              <td>BVA - the upper boundary values themselves must be accepted.</td>
+              <td><ol><li>Enter age 90, height 230, weight 250.</li><li>Click Generate.</li><li>Assert day cards appear.</li></ol></td>
+              <td>A plan is generated with at least one day card.</td>
+            </tr>
+            <tr>
+              <td class="tcId">UI-N-08</td>
+              <td class="tcTitle">Gibberish search shows no-results state<span class="src">Source: frontend/tests/negative.spec.js - gibberish query shows no-results state</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Verify a nonsense query yields an empty, clearly-labelled result set.</td>
+              <td>Users need an explicit "nothing found" state rather than a silently empty grid.</td>
+              <td><ol><li>Open the exercise library.</li><li>Type "zzzzzzzzzz" in search.</li><li>Assert the no-results message and card count.</li></ol></td>
+              <td>"No exercises found." is shown; 0 exercise cards.</td>
+            </tr>
+            <tr>
+              <td class="tcId">UI-N-09</td>
+              <td class="tcTitle">Clearing the search restores all exercises<span class="src">Source: frontend/tests/negative.spec.js - clearing the search restores all exercises</span></td>
+              <td><span class="prio medium">Medium</span></td>
+              <td>Verify clearing a failed search restores the full exercise list.</td>
+              <td>Recovery from a no-result state must be trivial and lossless.</td>
+              <td><ol><li>Open the exercise library.</li><li>Search "zzzzzzzzzz" then clear it.</li><li>Assert the card count returns to the full count.</li></ol></td>
+              <td>Full exercise list is restored.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       <h3 class="tcGroup">Accessibility (axe-core)</h3>
       <div class="tcTableWrap">
         <table class="tcTable">
@@ -553,6 +929,11 @@
         <a href="/reports/api-report.html" class="primaryButton" target="_blank" rel="noreferrer">Open API Report</a>
         <a href="/reports/playwright-report/index.html" class="primaryButton" target="_blank" rel="noreferrer">Open UI Report</a>
       </div>
+      <p class="subtext">
+        Dependency security is checked separately: <code>npm audit --omit=dev</code>
+        runs in CI on every push/PR for both frontend and backend and must report
+        <strong>0 vulnerabilities</strong> in production dependencies.
+      </p>
     </section>
   </body>
 </html>

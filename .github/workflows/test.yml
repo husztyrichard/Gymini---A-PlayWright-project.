@@ -52,6 +52,27 @@ jobs:
         run: npm run test:smoke -- --project=chromium
         working-directory: frontend
 
+  security-audit:
+    name: Dependency Audit (npm audit)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: [frontend, backend]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install
+        working-directory: ${{ matrix.project }}
+      - name: Audit production dependencies
+        run: npm audit --omit=dev
+        working-directory: ${{ matrix.project }}
+      - name: Audit dev dependencies (no failures, informational)
+        run: npm audit || true
+        working-directory: ${{ matrix.project }}
+
   lighthouse:
     name: Lighthouse (perf/a11y/best-practices/seo budgets)
     runs-on: ubuntu-latest

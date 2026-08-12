@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+﻿import React, { useState, useEffect, useMemo } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
 
@@ -309,7 +309,7 @@ function App() {
         planResult = await response.json();
       }
     } catch {
-      // Backend unavailable (e.g. static hosting) — fall back to local generation.
+      // Backend unavailable (e.g. static hosting) â€” fall back to local generation.
     }
 
     if (!planResult) {
@@ -407,7 +407,7 @@ function App() {
                   </ul>
                 </>
               ) : (
-                <p style={{ color: '#94a3b8', fontSize: 16, fontWeight: 600 }}>Loading example…</p>
+                <p style={{ color: '#94a3b8', fontSize: 16, fontWeight: 600 }}>Loading exampleâ€¦</p>
               )}
             </div>
           )}
@@ -428,7 +428,7 @@ function App() {
               <span className="tag">Newman</span>
             </div>
             {testLoading ? (
-              <p>Loading test metrics…</p>
+              <p>Loading test metricsâ€¦</p>
             ) : testError ? (
               <p className="error">{testError}</p>
             ) : (
@@ -436,19 +436,19 @@ function App() {
                 <div className="metricList">
                   <div className="metricItem">
                     <span>Total assertions</span>
-                    <strong>{testResults?.api?.total ?? '—'}</strong>
+                    <strong>{testResults?.api?.total ?? 'â€”'}</strong>
                   </div>
                   <div className="metricItem">
                     <span>Passed</span>
-                    <strong>{testResults?.api?.passed ?? '—'}</strong>
+                    <strong>{testResults?.api?.passed ?? 'â€”'}</strong>
                   </div>
                   <div className="metricItem">
                     <span>Failed</span>
-                    <strong>{testResults?.api?.failed ?? '—'}</strong>
+                    <strong>{testResults?.api?.failed ?? 'â€”'}</strong>
                   </div>
                   <div className="metricItem">
                     <span>Pass rate</span>
-                    <strong>{testResults?.api?.total ? `${Math.round((testResults.api.passed / testResults.api.total) * 100)}%` : '—'}</strong>
+                    <strong>{testResults?.api?.total ? `${Math.round((testResults.api.passed / testResults.api.total) * 100)}%` : 'â€”'}</strong>
                   </div>
                 </div>
                 <div className="heroActions">
@@ -476,7 +476,7 @@ function App() {
             <div className="statusBlock">
               <span className="statusLabel">UI tests</span>
               <strong className={testResults?.ui ? (testResults.ui.failed ? 'statusFail' : 'statusPass') : ''}>
-                {testResults?.ui ? `${testResults.ui.total} tests` : '36 tests'}
+                {testResults?.ui ? `${testResults.ui.total} tests` : '51 tests'}
               </strong>
             </div>
             <div className="statusBlock">
@@ -495,7 +495,7 @@ function App() {
             </div>
             <p>Core web vitals and quality budgets from Lighthouse CI.</p>
             {testLoading ? (
-              <p>Loading Lighthouse scores…</p>
+              <p>Loading Lighthouse scoresâ€¦</p>
             ) : testError ? (
               <p className="error">{testError}</p>
             ) : testResults?.lighthouse ? (
@@ -509,7 +509,7 @@ function App() {
                   ].map(([label, score]) => (
                     <div className="metricItem" key={label}>
                       <span>{label}</span>
-                      <strong>{typeof score === 'number' ? score : '—'}</strong>
+                      <strong>{typeof score === 'number' ? score : 'â€”'}</strong>
                     </div>
                   ))}
                 </div>

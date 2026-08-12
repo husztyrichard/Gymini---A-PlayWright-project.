@@ -131,12 +131,66 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', service: 'Gymini API' });
 });
 
+const NUMERIC_FIELDS = {
+  age: { min: 14, max: 90 },
+  height: { min: 120, max: 230 },
+  weight: { min: 35, max: 250 },
+  bodyFat: { min: 3, max: 60 },
+  sessionLength: { min: 25, max: 120 }
+};
+
+const ENUM_FIELDS = {
+  gender: ['male', 'female', 'other'],
+  goal: ['build-muscle', 'fat-loss', 'strength', 'general-fitness'],
+  experience: ['beginner', 'intermediate', 'advanced'],
+  equipment: ['gym', 'dumbbells', 'bodyweight']
+};
+
+function validateProfile(body) {
+  const errors = [];
+
+  for (const [field, { min, max }] of Object.entries(NUMERIC_FIELDS)) {
+    const value = body[field];
+    if (value === undefined || value === null || value === '') continue;
+    const num = Number(value);
+    if (!Number.isFinite(num)) {
+      errors.push({ field, value, message: `must be a number` });
+    } else if (num < min || num > max) {
+      errors.push({ field, value, message: `must be between ${min} and ${max}` });
+    }
+  }
+
+  const days = Number(body.daysPerWeek);
+  if (body.daysPerWeek !== undefined && body.daysPerWeek !== null && body.daysPerWeek !== '') {
+    if (!Number.isInteger(days)) {
+      errors.push({ field: 'daysPerWeek', value: body.daysPerWeek, message: 'must be an integer' });
+    } else if (days < 2 || days > 6) {
+      errors.push({ field: 'daysPerWeek', value: body.daysPerWeek, message: 'must be between 2 and 6' });
+    }
+  }
+
+  for (const [field, allowed] of Object.entries(ENUM_FIELDS)) {
+    const value = body[field];
+    if (value === undefined || value === null || value === '') continue;
+    if (!allowed.includes(value)) {
+      errors.push({ field, value, message: `must be one of: ${allowed.join(', ')}` });
+    }
+  }
+
+  return errors;
+}
+
 app.post('/api/generate-plan', (req, res) => {
   const required = ['age', 'height', 'weight', 'goal', 'experience', 'daysPerWeek', 'equipment'];
-  const missing = required.filter((field) => !req.body[field]);
+  const missing = required.filter((field) => !req.body[field] && req.body[field] !== 0);
 
   if (missing.length) {
     return res.status(400).json({ message: 'Missing required fields', missing });
+  }
+
+  const errors = validateProfile(req.body);
+  if (errors.length) {
+    return res.status(400).json({ message: 'Invalid field values', errors });
   }
 
   res.json(buildWorkoutPlan(req.body));

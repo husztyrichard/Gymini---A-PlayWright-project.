@@ -122,8 +122,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 13006,
-                  "startTime": "2026-08-11T22:13:57.586Z"
+                  "duration": 9750,
+                  "startTime": "2026-08-12T08:08:00.275Z"
                 }
               ]
             },
@@ -134,8 +134,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 18398,
-                  "startTime": "2026-08-11T22:13:57.505Z"
+                  "duration": 10185,
+                  "startTime": "2026-08-12T08:08:33.716Z"
                 }
               ]
             },
@@ -146,8 +146,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 8077,
-                  "startTime": "2026-08-11T22:14:43.602Z"
+                  "duration": 7779,
+                  "startTime": "2026-08-12T08:09:25.244Z"
                 }
               ]
             }
@@ -169,8 +169,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 4252,
-                  "startTime": "2026-08-11T22:14:12.345Z"
+                  "duration": 5223,
+                  "startTime": "2026-08-12T08:08:11.426Z"
                 }
               ]
             },
@@ -181,8 +181,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 4798,
-                  "startTime": "2026-08-11T22:14:16.590Z"
+                  "duration": 4984,
+                  "startTime": "2026-08-12T08:08:46.660Z"
                 }
               ]
             },
@@ -193,8 +193,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 3341,
-                  "startTime": "2026-08-11T22:14:54.262Z"
+                  "duration": 3536,
+                  "startTime": "2026-08-12T08:09:34.597Z"
                 }
               ]
             }
@@ -216,8 +216,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 7762,
-                  "startTime": "2026-08-11T22:14:16.655Z"
+                  "duration": 15850,
+                  "startTime": "2026-08-12T08:08:16.678Z"
                 }
               ]
             },
@@ -228,8 +228,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 11154,
-                  "startTime": "2026-08-11T22:14:21.429Z"
+                  "duration": 17291,
+                  "startTime": "2026-08-12T08:08:51.667Z"
                 }
               ]
             },
@@ -240,8 +240,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 6461,
-                  "startTime": "2026-08-11T22:14:57.637Z"
+                  "duration": 8129,
+                  "startTime": "2026-08-12T08:09:38.176Z"
                 }
               ]
             }
@@ -263,8 +263,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 2972,
-                  "startTime": "2026-08-11T22:14:24.447Z"
+                  "duration": 5096,
+                  "startTime": "2026-08-12T08:08:32.561Z"
                 }
               ]
             },
@@ -275,8 +275,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 5340,
-                  "startTime": "2026-08-11T22:14:32.605Z"
+                  "duration": 5044,
+                  "startTime": "2026-08-12T08:09:08.977Z"
                 }
               ]
             },
@@ -287,8 +287,8 @@
               "results": [
                 {
                   "status": "passed",
-                  "duration": 4406,
-                  "startTime": "2026-08-11T22:15:04.123Z"
+                  "duration": 2867,
+                  "startTime": "2026-08-12T08:09:46.329Z"
                 }
               ]
             }
@@ -297,6 +297,310 @@
           "file": "accessibility.spec.js",
           "line": 42,
           "column": 3
+        }
+      ]
+    },
+    {
+      "title": "dashboard.spec.js",
+      "file": "dashboard.spec.js",
+      "line": 0,
+      "column": 0,
+      "suites": [
+        {
+          "title": "Test Dashboard & Reports",
+          "file": "dashboard.spec.js",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "dashboard shows the three status cards",
+              "ok": true,
+              "tags": [
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "projectName": "chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3772,
+                      "startTime": "2026-08-12T08:08:00.221Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 5820,
+                      "startTime": "2026-08-12T08:08:39.282Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2648,
+                      "startTime": "2026-08-12T08:09:25.254Z"
+                    }
+                  ]
+                }
+              ],
+              "id": "a1bb41a2bd6df77ed2f7-b909e96a60ccafd1e457",
+              "file": "dashboard.spec.js",
+              "line": 10,
+              "column": 3
+            },
+            {
+              "title": "lighthouse card shows the four score categories",
+              "ok": true,
+              "tags": [
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "projectName": "chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3665,
+                      "startTime": "2026-08-12T08:08:05.037Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 5449,
+                      "startTime": "2026-08-12T08:08:47.883Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2304,
+                      "startTime": "2026-08-12T08:09:29.496Z"
+                    }
+                  ]
+                }
+              ],
+              "id": "a1bb41a2bd6df77ed2f7-56b0138b23bf1a2480e8",
+              "file": "dashboard.spec.js",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "lighthouse budgets show a pass status",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "projectName": "chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 4200,
+                      "startTime": "2026-08-12T08:08:08.739Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 6015,
+                      "startTime": "2026-08-12T08:08:53.369Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2054,
+                      "startTime": "2026-08-12T08:09:31.825Z"
+                    }
+                  ]
+                }
+              ],
+              "id": "a1bb41a2bd6df77ed2f7-8f897d9e8aa56a0c0bd8",
+              "file": "dashboard.spec.js",
+              "line": 28,
+              "column": 3
+            },
+            {
+              "title": "UI tests count is displayed",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "projectName": "chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2718,
+                      "startTime": "2026-08-12T08:08:12.977Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2757,
+                      "startTime": "2026-08-12T08:08:59.416Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2654,
+                      "startTime": "2026-08-12T08:09:33.904Z"
+                    }
+                  ]
+                }
+              ],
+              "id": "a1bb41a2bd6df77ed2f7-2b913e40b95bdd91e586",
+              "file": "dashboard.spec.js",
+              "line": 35,
+              "column": 3
+            },
+            {
+              "title": "UI Playwright report page opens",
+              "ok": true,
+              "tags": [
+                "smoke"
+              ],
+              "tests": [
+                {
+                  "projectName": "chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 4627,
+                      "startTime": "2026-08-12T08:08:15.728Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3795,
+                      "startTime": "2026-08-12T08:09:02.205Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3216,
+                      "startTime": "2026-08-12T08:09:36.592Z"
+                    }
+                  ]
+                }
+              ],
+              "id": "a1bb41a2bd6df77ed2f7-96c2ef37ebaf7b9a420c",
+              "file": "dashboard.spec.js",
+              "line": 41,
+              "column": 3
+            },
+            {
+              "title": "API Newman report page opens",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "projectName": "chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 10664,
+                      "startTime": "2026-08-12T08:08:20.386Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 21335,
+                      "startTime": "2026-08-12T08:09:06.027Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 9588,
+                      "startTime": "2026-08-12T08:09:39.839Z"
+                    }
+                  ]
+                }
+              ],
+              "id": "a1bb41a2bd6df77ed2f7-d172a7a6a5aa1fc8c639",
+              "file": "dashboard.spec.js",
+              "line": 49,
+              "column": 3
+            }
+          ]
         }
       ]
     },
@@ -324,8 +628,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4962,
-                      "startTime": "2026-08-11T22:13:57.354Z"
+                      "duration": 3925,
+                      "startTime": "2026-08-12T08:08:00.191Z"
                     }
                   ]
                 },
@@ -336,8 +640,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 5077,
-                      "startTime": "2026-08-11T22:14:22.822Z"
+                      "duration": 4759,
+                      "startTime": "2026-08-12T08:08:39.280Z"
                     }
                   ]
                 },
@@ -348,8 +652,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3239,
-                      "startTime": "2026-08-11T22:14:45.363Z"
+                      "duration": 2558,
+                      "startTime": "2026-08-12T08:09:26.024Z"
                     }
                   ]
                 }
@@ -371,8 +675,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3772,
-                      "startTime": "2026-08-11T22:14:03.699Z"
+                      "duration": 2677,
+                      "startTime": "2026-08-12T08:08:05.037Z"
                     }
                   ]
                 },
@@ -383,8 +687,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3697,
-                      "startTime": "2026-08-11T22:14:29.790Z"
+                      "duration": 2449,
+                      "startTime": "2026-08-12T08:08:46.006Z"
                     }
                   ]
                 },
@@ -395,8 +699,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2659,
-                      "startTime": "2026-08-11T22:14:53.667Z"
+                      "duration": 2479,
+                      "startTime": "2026-08-12T08:09:30.529Z"
                     }
                   ]
                 }
@@ -418,8 +722,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2873,
-                      "startTime": "2026-08-11T22:14:07.518Z"
+                      "duration": 1518,
+                      "startTime": "2026-08-12T08:08:07.746Z"
                     }
                   ]
                 },
@@ -430,8 +734,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2644,
-                      "startTime": "2026-08-11T22:14:33.548Z"
+                      "duration": 4177,
+                      "startTime": "2026-08-12T08:08:48.494Z"
                     }
                   ]
                 },
@@ -442,8 +746,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2316,
-                      "startTime": "2026-08-11T22:14:56.362Z"
+                      "duration": 2209,
+                      "startTime": "2026-08-12T08:09:33.036Z"
                     }
                   ]
                 }
@@ -465,8 +769,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2506,
-                      "startTime": "2026-08-11T22:14:10.419Z"
+                      "duration": 2768,
+                      "startTime": "2026-08-12T08:08:09.288Z"
                     }
                   ]
                 },
@@ -477,8 +781,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3158,
-                      "startTime": "2026-08-11T22:14:36.235Z"
+                      "duration": 3822,
+                      "startTime": "2026-08-12T08:08:52.697Z"
                     }
                   ]
                 },
@@ -489,8 +793,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2295,
-                      "startTime": "2026-08-11T22:14:58.715Z"
+                      "duration": 2733,
+                      "startTime": "2026-08-12T08:09:35.271Z"
                     }
                   ]
                 }
@@ -514,8 +818,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2161,
-                      "startTime": "2026-08-11T22:14:12.953Z"
+                      "duration": 3517,
+                      "startTime": "2026-08-12T08:08:12.082Z"
                     }
                   ]
                 },
@@ -526,8 +830,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2964,
-                      "startTime": "2026-08-11T22:14:39.418Z"
+                      "duration": 3319,
+                      "startTime": "2026-08-12T08:08:56.552Z"
                     }
                   ]
                 },
@@ -538,8 +842,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2659,
-                      "startTime": "2026-08-11T22:15:01.039Z"
+                      "duration": 2311,
+                      "startTime": "2026-08-12T08:09:38.029Z"
                     }
                   ]
                 }
@@ -561,8 +865,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2167,
-                      "startTime": "2026-08-11T22:14:15.146Z"
+                      "duration": 2684,
+                      "startTime": "2026-08-12T08:08:15.633Z"
                     }
                   ]
                 },
@@ -573,8 +877,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2464,
-                      "startTime": "2026-08-11T22:14:42.411Z"
+                      "duration": 2302,
+                      "startTime": "2026-08-12T08:08:59.897Z"
                     }
                   ]
                 },
@@ -585,8 +889,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2124,
-                      "startTime": "2026-08-11T22:15:03.730Z"
+                      "duration": 2506,
+                      "startTime": "2026-08-12T08:09:40.377Z"
                     }
                   ]
                 }
@@ -610,8 +914,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2829,
-                      "startTime": "2026-08-11T22:14:17.346Z"
+                      "duration": 2691,
+                      "startTime": "2026-08-12T08:08:18.345Z"
                     }
                   ]
                 },
@@ -622,8 +926,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4083,
-                      "startTime": "2026-08-11T22:14:44.916Z"
+                      "duration": 3635,
+                      "startTime": "2026-08-12T08:09:02.225Z"
                     }
                   ]
                 },
@@ -634,8 +938,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 5159,
-                      "startTime": "2026-08-11T22:15:05.884Z"
+                      "duration": 4928,
+                      "startTime": "2026-08-12T08:09:42.910Z"
                     }
                   ]
                 }
@@ -657,8 +961,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2914,
-                      "startTime": "2026-08-11T22:14:20.207Z"
+                      "duration": 3661,
+                      "startTime": "2026-08-12T08:08:21.069Z"
                     }
                   ]
                 },
@@ -669,8 +973,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 5199,
-                      "startTime": "2026-08-11T22:14:49.028Z"
+                      "duration": 2976,
+                      "startTime": "2026-08-12T08:09:05.887Z"
                     }
                   ]
                 },
@@ -681,8 +985,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 5805,
-                      "startTime": "2026-08-11T22:15:11.073Z"
+                      "duration": 4443,
+                      "startTime": "2026-08-12T08:09:47.863Z"
                     }
                   ]
                 }
@@ -706,8 +1010,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2957,
-                      "startTime": "2026-08-11T22:14:23.153Z"
+                      "duration": 4196,
+                      "startTime": "2026-08-12T08:08:24.761Z"
                     }
                   ]
                 },
@@ -718,8 +1022,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 5458,
-                      "startTime": "2026-08-11T22:14:54.261Z"
+                      "duration": 4153,
+                      "startTime": "2026-08-12T08:09:08.886Z"
                     }
                   ]
                 },
@@ -730,8 +1034,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4066,
-                      "startTime": "2026-08-11T22:15:16.913Z"
+                      "duration": 3389,
+                      "startTime": "2026-08-12T08:09:52.334Z"
                     }
                   ]
                 }
@@ -753,8 +1057,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2892,
-                      "startTime": "2026-08-11T22:14:26.139Z"
+                      "duration": 2940,
+                      "startTime": "2026-08-12T08:08:28.988Z"
                     }
                   ]
                 },
@@ -765,8 +1069,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 9985,
-                      "startTime": "2026-08-11T22:14:59.752Z"
+                      "duration": 8957,
+                      "startTime": "2026-08-12T08:09:13.064Z"
                     }
                   ]
                 },
@@ -777,8 +1081,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3368,
-                      "startTime": "2026-08-11T22:15:21.009Z"
+                      "duration": 3488,
+                      "startTime": "2026-08-12T08:09:55.742Z"
                     }
                   ]
                 }
@@ -800,8 +1104,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2302,
-                      "startTime": "2026-08-11T22:14:29.056Z"
+                      "duration": 1971,
+                      "startTime": "2026-08-12T08:08:31.956Z"
                     }
                   ]
                 },
@@ -812,8 +1116,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 7169,
-                      "startTime": "2026-08-11T22:15:09.763Z"
+                      "duration": 3260,
+                      "startTime": "2026-08-12T08:09:22.046Z"
                     }
                   ]
                 },
@@ -824,8 +1128,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 1578,
-                      "startTime": "2026-08-11T22:15:24.404Z"
+                      "duration": 1918,
+                      "startTime": "2026-08-12T08:09:59.254Z"
                     }
                   ]
                 }
@@ -847,8 +1151,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2937,
-                      "startTime": "2026-08-11T22:14:31.386Z"
+                      "duration": 2237,
+                      "startTime": "2026-08-12T08:08:33.963Z"
                     }
                   ]
                 },
@@ -859,8 +1163,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3545,
-                      "startTime": "2026-08-11T22:15:16.959Z"
+                      "duration": 2217,
+                      "startTime": "2026-08-12T08:09:25.336Z"
                     }
                   ]
                 },
@@ -871,8 +1175,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 1259,
-                      "startTime": "2026-08-11T22:15:26.004Z"
+                      "duration": 1971,
+                      "startTime": "2026-08-12T08:10:01.201Z"
                     }
                   ]
                 }
@@ -912,8 +1216,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 5861,
-                      "startTime": "2026-08-11T22:13:57.341Z"
+                      "duration": 4800,
+                      "startTime": "2026-08-12T08:08:00.171Z"
                     }
                   ]
                 },
@@ -924,8 +1228,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 9657,
-                      "startTime": "2026-08-11T22:14:23.139Z"
+                      "duration": 8466,
+                      "startTime": "2026-08-12T08:08:40.101Z"
                     }
                   ]
                 },
@@ -936,8 +1240,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4286,
-                      "startTime": "2026-08-11T22:15:02.976Z"
+                      "duration": 2577,
+                      "startTime": "2026-08-12T08:09:33.437Z"
                     }
                   ]
                 }
@@ -959,8 +1263,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2813,
-                      "startTime": "2026-08-11T22:14:04.349Z"
+                      "duration": 2276,
+                      "startTime": "2026-08-12T08:08:05.889Z"
                     }
                   ]
                 },
@@ -971,8 +1275,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2605,
-                      "startTime": "2026-08-11T22:14:35.549Z"
+                      "duration": 2790,
+                      "startTime": "2026-08-12T08:08:52.988Z"
                     }
                   ]
                 },
@@ -983,8 +1287,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 1803,
-                      "startTime": "2026-08-11T22:15:07.950Z"
+                      "duration": 2592,
+                      "startTime": "2026-08-12T08:09:36.609Z"
                     }
                   ]
                 }
@@ -1006,8 +1310,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3186,
-                      "startTime": "2026-08-11T22:14:07.212Z"
+                      "duration": 3551,
+                      "startTime": "2026-08-12T08:08:08.192Z"
                     }
                   ]
                 },
@@ -1018,8 +1322,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4605,
-                      "startTime": "2026-08-11T22:14:38.209Z"
+                      "duration": 3249,
+                      "startTime": "2026-08-12T08:08:55.811Z"
                     }
                   ]
                 },
@@ -1030,8 +1334,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3874,
-                      "startTime": "2026-08-11T22:15:09.783Z"
+                      "duration": 2609,
+                      "startTime": "2026-08-12T08:09:39.247Z"
                     }
                   ]
                 }
@@ -1055,8 +1359,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3054,
-                      "startTime": "2026-08-11T22:14:10.438Z"
+                      "duration": 1630,
+                      "startTime": "2026-08-12T08:08:11.770Z"
                     }
                   ]
                 },
@@ -1067,8 +1371,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3148,
-                      "startTime": "2026-08-11T22:14:42.857Z"
+                      "duration": 6662,
+                      "startTime": "2026-08-12T08:08:59.091Z"
                     }
                   ]
                 },
@@ -1079,8 +1383,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3537,
-                      "startTime": "2026-08-11T22:15:13.691Z"
+                      "duration": 2292,
+                      "startTime": "2026-08-12T08:09:41.892Z"
                     }
                   ]
                 }
@@ -1102,8 +1406,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2369,
-                      "startTime": "2026-08-11T22:14:13.521Z"
+                      "duration": 2388,
+                      "startTime": "2026-08-12T08:08:13.431Z"
                     }
                   ]
                 },
@@ -1114,8 +1418,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3090,
-                      "startTime": "2026-08-11T22:14:46.036Z"
+                      "duration": 2178,
+                      "startTime": "2026-08-12T08:09:05.780Z"
                     }
                   ]
                 },
@@ -1126,8 +1430,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2240,
-                      "startTime": "2026-08-11T22:15:17.271Z"
+                      "duration": 2774,
+                      "startTime": "2026-08-12T08:09:44.212Z"
                     }
                   ]
                 }
@@ -1149,8 +1453,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2847,
-                      "startTime": "2026-08-11T22:14:15.928Z"
+                      "duration": 2620,
+                      "startTime": "2026-08-12T08:08:15.880Z"
                     }
                   ]
                 },
@@ -1161,8 +1465,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 5187,
-                      "startTime": "2026-08-11T22:14:49.154Z"
+                      "duration": 4283,
+                      "startTime": "2026-08-12T08:09:07.984Z"
                     }
                   ]
                 },
@@ -1173,8 +1477,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2450,
-                      "startTime": "2026-08-11T22:15:19.544Z"
+                      "duration": 2460,
+                      "startTime": "2026-08-12T08:09:47.012Z"
                     }
                   ]
                 }
@@ -1214,8 +1518,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4187,
-                      "startTime": "2026-08-11T22:13:57.374Z"
+                      "duration": 3023,
+                      "startTime": "2026-08-12T08:08:00.221Z"
                     }
                   ]
                 },
@@ -1226,8 +1530,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 6374,
-                      "startTime": "2026-08-11T22:14:29.313Z"
+                      "duration": 7539,
+                      "startTime": "2026-08-12T08:08:40.602Z"
                     }
                   ]
                 },
@@ -1238,8 +1542,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3022,
-                      "startTime": "2026-08-11T22:15:03.360Z"
+                      "duration": 3119,
+                      "startTime": "2026-08-12T08:09:34.493Z"
                     }
                   ]
                 }
@@ -1263,8 +1567,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 1915,
-                      "startTime": "2026-08-11T22:14:02.712Z"
+                      "duration": 1613,
+                      "startTime": "2026-08-12T08:08:04.339Z"
                     }
                   ]
                 },
@@ -1275,8 +1579,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 1961,
-                      "startTime": "2026-08-11T22:14:38.967Z"
+                      "duration": 1935,
+                      "startTime": "2026-08-12T08:08:53.772Z"
                     }
                   ]
                 },
@@ -1287,8 +1591,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2645,
-                      "startTime": "2026-08-11T22:15:07.077Z"
+                      "duration": 2018,
+                      "startTime": "2026-08-12T08:09:38.656Z"
                     }
                   ]
                 }
@@ -1310,8 +1614,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3180,
-                      "startTime": "2026-08-11T22:14:04.657Z"
+                      "duration": 1990,
+                      "startTime": "2026-08-12T08:08:05.983Z"
                     }
                   ]
                 },
@@ -1322,8 +1626,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2577,
-                      "startTime": "2026-08-11T22:14:40.963Z"
+                      "duration": 2551,
+                      "startTime": "2026-08-12T08:08:55.743Z"
                     }
                   ]
                 },
@@ -1334,8 +1638,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3064,
-                      "startTime": "2026-08-11T22:15:09.753Z"
+                      "duration": 2185,
+                      "startTime": "2026-08-12T08:09:40.701Z"
                     }
                   ]
                 }
@@ -1357,8 +1661,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2960,
-                      "startTime": "2026-08-11T22:14:07.870Z"
+                      "duration": 3715,
+                      "startTime": "2026-08-12T08:08:08.002Z"
                     }
                   ]
                 },
@@ -1369,8 +1673,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2960,
-                      "startTime": "2026-08-11T22:14:43.570Z"
+                      "duration": 3009,
+                      "startTime": "2026-08-12T08:08:58.321Z"
                     }
                   ]
                 },
@@ -1381,8 +1685,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3996,
-                      "startTime": "2026-08-11T22:15:12.849Z"
+                      "duration": 2727,
+                      "startTime": "2026-08-12T08:09:42.917Z"
                     }
                   ]
                 }
@@ -1404,8 +1708,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2195,
-                      "startTime": "2026-08-11T22:14:10.897Z"
+                      "duration": 1697,
+                      "startTime": "2026-08-12T08:08:11.739Z"
                     }
                   ]
                 },
@@ -1416,8 +1720,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3205,
-                      "startTime": "2026-08-11T22:14:46.558Z"
+                      "duration": 4383,
+                      "startTime": "2026-08-12T08:09:01.353Z"
                     }
                   ]
                 },
@@ -1428,8 +1732,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2535,
-                      "startTime": "2026-08-11T22:15:16.928Z"
+                      "duration": 1999,
+                      "startTime": "2026-08-12T08:09:45.673Z"
                     }
                   ]
                 }
@@ -1451,8 +1755,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 1922,
-                      "startTime": "2026-08-11T22:14:13.120Z"
+                      "duration": 2148,
+                      "startTime": "2026-08-12T08:08:13.479Z"
                     }
                   ]
                 },
@@ -1463,8 +1767,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3765,
-                      "startTime": "2026-08-11T22:14:49.798Z"
+                      "duration": 2330,
+                      "startTime": "2026-08-12T08:09:05.763Z"
                     }
                   ]
                 },
@@ -1475,8 +1779,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2088,
-                      "startTime": "2026-08-11T22:15:19.494Z"
+                      "duration": 1749,
+                      "startTime": "2026-08-12T08:09:47.693Z"
                     }
                   ]
                 }
@@ -1498,8 +1802,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3181,
-                      "startTime": "2026-08-11T22:14:15.073Z"
+                      "duration": 2047,
+                      "startTime": "2026-08-12T08:08:15.655Z"
                     }
                   ]
                 },
@@ -1510,8 +1814,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2706,
-                      "startTime": "2026-08-11T22:14:53.594Z"
+                      "duration": 2712,
+                      "startTime": "2026-08-12T08:09:08.122Z"
                     }
                   ]
                 },
@@ -1522,8 +1826,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 1582,
-                      "startTime": "2026-08-11T22:15:21.608Z"
+                      "duration": 1652,
+                      "startTime": "2026-08-12T08:09:49.463Z"
                     }
                   ]
                 }
@@ -1531,6 +1835,461 @@
               "id": "3370f39aa0d6cc6ba3dc-5c9023ab892bef089fc2",
               "file": "landing.spec.js",
               "line": 41,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "negative.spec.js",
+      "file": "negative.spec.js",
+      "line": 0,
+      "column": 0,
+      "suites": [
+        {
+          "title": "Form validation - negative paths",
+          "file": "negative.spec.js",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "empty required age blocks submission",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "projectName": "chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 5680,
+                      "startTime": "2026-08-12T08:08:00.190Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 7138,
+                      "startTime": "2026-08-12T08:08:41.132Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3664,
+                      "startTime": "2026-08-12T08:09:50.017Z"
+                    }
+                  ]
+                }
+              ],
+              "id": "fcc67c2c22f2f91675d5-56a7f42296788894774c",
+              "file": "negative.spec.js",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "age above max (150) blocks submission",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "projectName": "chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3639,
+                      "startTime": "2026-08-12T08:08:06.871Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 4573,
+                      "startTime": "2026-08-12T08:08:50.311Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3044,
+                      "startTime": "2026-08-12T08:09:54.012Z"
+                    }
+                  ]
+                }
+              ],
+              "id": "fcc67c2c22f2f91675d5-17034b5dd65f833ef176",
+              "file": "negative.spec.js",
+              "line": 25,
+              "column": 3
+            },
+            {
+              "title": "age below min (1) blocks submission",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "projectName": "chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 4644,
+                      "startTime": "2026-08-12T08:08:10.559Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 4157,
+                      "startTime": "2026-08-12T08:08:54.919Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3467,
+                      "startTime": "2026-08-12T08:09:57.081Z"
+                    }
+                  ]
+                }
+              ],
+              "id": "fcc67c2c22f2f91675d5-7830455f41f989e80138",
+              "file": "negative.spec.js",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "height below min (10) blocks submission",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "projectName": "chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 4996,
+                      "startTime": "2026-08-12T08:08:15.247Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 4256,
+                      "startTime": "2026-08-12T08:08:59.100Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3289,
+                      "startTime": "2026-08-12T08:10:00.571Z"
+                    }
+                  ]
+                }
+              ],
+              "id": "fcc67c2c22f2f91675d5-b46c02f4e21b60a8d62b",
+              "file": "negative.spec.js",
+              "line": 38,
+              "column": 3
+            },
+            {
+              "title": "weight above max (999) blocks submission",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "projectName": "chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3401,
+                      "startTime": "2026-08-12T08:08:20.286Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 4903,
+                      "startTime": "2026-08-12T08:09:03.384Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2881,
+                      "startTime": "2026-08-12T08:10:03.888Z"
+                    }
+                  ]
+                }
+              ],
+              "id": "fcc67c2c22f2f91675d5-84b968a97eaef3c4caaa",
+              "file": "negative.spec.js",
+              "line": 44,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Form validation - valid boundary values",
+          "file": "negative.spec.js",
+          "line": 51,
+          "column": 6,
+          "specs": [
+            {
+              "title": "min valid values generate a plan",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "projectName": "chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2850,
+                      "startTime": "2026-08-12T08:08:23.719Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 4351,
+                      "startTime": "2026-08-12T08:09:08.321Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2733,
+                      "startTime": "2026-08-12T08:10:06.793Z"
+                    }
+                  ]
+                }
+              ],
+              "id": "fcc67c2c22f2f91675d5-2dd66abd0f2df2da18ff",
+              "file": "negative.spec.js",
+              "line": 58,
+              "column": 3
+            },
+            {
+              "title": "max valid values generate a plan",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "projectName": "chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2831,
+                      "startTime": "2026-08-12T08:08:26.600Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3983,
+                      "startTime": "2026-08-12T08:09:12.710Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2508,
+                      "startTime": "2026-08-12T08:10:09.545Z"
+                    }
+                  ]
+                }
+              ],
+              "id": "fcc67c2c22f2f91675d5-4f27759ceffd86b18543",
+              "file": "negative.spec.js",
+              "line": 67,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Exercise search - edge cases",
+          "file": "negative.spec.js",
+          "line": 77,
+          "column": 6,
+          "specs": [
+            {
+              "title": "gibberish query shows no-results state",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "projectName": "chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2874,
+                      "startTime": "2026-08-12T08:08:29.461Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 3473,
+                      "startTime": "2026-08-12T08:09:16.724Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 1085,
+                      "startTime": "2026-08-12T08:10:12.068Z"
+                    }
+                  ]
+                }
+              ],
+              "id": "fcc67c2c22f2f91675d5-22aaca667dd082547a4f",
+              "file": "negative.spec.js",
+              "line": 84,
+              "column": 3
+            },
+            {
+              "title": "clearing the search restores all exercises",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "projectName": "chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2903,
+                      "startTime": "2026-08-12T08:08:32.380Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "firefox",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 2780,
+                      "startTime": "2026-08-12T08:09:20.234Z"
+                    }
+                  ]
+                },
+                {
+                  "projectName": "mobile-chromium",
+                  "expectedStatus": "passed",
+                  "status": "expected",
+                  "results": [
+                    {
+                      "status": "passed",
+                      "duration": 937,
+                      "startTime": "2026-08-12T08:10:13.164Z"
+                    }
+                  ]
+                }
+              ],
+              "id": "fcc67c2c22f2f91675d5-8fd12b46e80e3a9cfb5f",
+              "file": "negative.spec.js",
+              "line": 90,
               "column": 3
             }
           ]
@@ -1563,8 +2322,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4647,
-                      "startTime": "2026-08-11T22:13:57.417Z"
+                      "duration": 2799,
+                      "startTime": "2026-08-12T08:08:17.740Z"
                     }
                   ]
                 },
@@ -1575,8 +2334,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 7940,
-                      "startTime": "2026-08-11T22:14:34.918Z"
+                      "duration": 3969,
+                      "startTime": "2026-08-12T08:09:10.876Z"
                     }
                   ]
                 },
@@ -1587,8 +2346,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4468,
-                      "startTime": "2026-08-11T22:15:08.571Z"
+                      "duration": 3295,
+                      "startTime": "2026-08-12T08:09:49.250Z"
                     }
                   ]
                 }
@@ -1612,8 +2371,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4501,
-                      "startTime": "2026-08-11T22:14:03.204Z"
+                      "duration": 3136,
+                      "startTime": "2026-08-12T08:08:20.576Z"
                     }
                   ]
                 },
@@ -1624,8 +2383,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4462,
-                      "startTime": "2026-08-11T22:14:45.771Z"
+                      "duration": 4340,
+                      "startTime": "2026-08-12T08:09:14.882Z"
                     }
                   ]
                 },
@@ -1636,8 +2395,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 5084,
-                      "startTime": "2026-08-11T22:15:13.069Z"
+                      "duration": 3036,
+                      "startTime": "2026-08-12T08:09:52.574Z"
                     }
                   ]
                 }
@@ -1659,8 +2418,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3500,
-                      "startTime": "2026-08-11T22:14:07.738Z"
+                      "duration": 2964,
+                      "startTime": "2026-08-12T08:08:23.744Z"
                     }
                   ]
                 },
@@ -1671,8 +2430,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 5457,
-                      "startTime": "2026-08-11T22:14:50.264Z"
+                      "duration": 6723,
+                      "startTime": "2026-08-12T08:09:19.246Z"
                     }
                   ]
                 },
@@ -1683,8 +2442,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 5296,
-                      "startTime": "2026-08-11T22:15:18.192Z"
+                      "duration": 4286,
+                      "startTime": "2026-08-12T08:09:55.630Z"
                     }
                   ]
                 }
@@ -1706,8 +2465,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3320,
-                      "startTime": "2026-08-11T22:14:11.294Z"
+                      "duration": 2661,
+                      "startTime": "2026-08-12T08:08:26.749Z"
                     }
                   ]
                 },
@@ -1718,8 +2477,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3689,
-                      "startTime": "2026-08-11T22:14:55.766Z"
+                      "duration": 4497,
+                      "startTime": "2026-08-12T08:09:25.992Z"
                     }
                   ]
                 },
@@ -1730,8 +2489,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2632,
-                      "startTime": "2026-08-11T22:15:23.515Z"
+                      "duration": 3503,
+                      "startTime": "2026-08-12T08:09:59.939Z"
                     }
                   ]
                 }
@@ -1753,8 +2512,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2844,
-                      "startTime": "2026-08-11T22:14:14.645Z"
+                      "duration": 3274,
+                      "startTime": "2026-08-12T08:08:29.437Z"
                     }
                   ]
                 },
@@ -1765,8 +2524,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4293,
-                      "startTime": "2026-08-11T22:14:59.486Z"
+                      "duration": 4532,
+                      "startTime": "2026-08-12T08:09:30.513Z"
                     }
                   ]
                 },
@@ -1777,8 +2536,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2665,
-                      "startTime": "2026-08-11T22:15:26.164Z"
+                      "duration": 2984,
+                      "startTime": "2026-08-12T08:10:03.464Z"
                     }
                   ]
                 }
@@ -1800,8 +2559,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 3556,
-                      "startTime": "2026-08-11T22:14:17.531Z"
+                      "duration": 2822,
+                      "startTime": "2026-08-12T08:08:32.737Z"
                     }
                   ]
                 },
@@ -1812,8 +2571,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 4045,
-                      "startTime": "2026-08-11T22:15:03.812Z"
+                      "duration": 5493,
+                      "startTime": "2026-08-12T08:09:35.073Z"
                     }
                   ]
                 },
@@ -1824,8 +2583,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2211,
-                      "startTime": "2026-08-11T22:15:28.844Z"
+                      "duration": 2426,
+                      "startTime": "2026-08-12T08:10:06.464Z"
                     }
                   ]
                 }
@@ -1847,8 +2606,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2867,
-                      "startTime": "2026-08-11T22:14:21.116Z"
+                      "duration": 2338,
+                      "startTime": "2026-08-12T08:08:35.603Z"
                     }
                   ]
                 },
@@ -1859,8 +2618,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 5562,
-                      "startTime": "2026-08-11T22:15:07.886Z"
+                      "duration": 4626,
+                      "startTime": "2026-08-12T08:09:40.599Z"
                     }
                   ]
                 },
@@ -1871,8 +2630,8 @@
                   "results": [
                     {
                       "status": "passed",
-                      "duration": 2231,
-                      "startTime": "2026-08-11T22:15:31.068Z"
+                      "duration": 2502,
+                      "startTime": "2026-08-12T08:10:08.904Z"
                     }
                   ]
                 }
@@ -1889,9 +2648,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-11T22:13:54.918Z",
-    "duration": 98664.81,
-    "expected": 108,
+    "startTime": "2026-08-12T08:07:57.837Z",
+    "duration": 136454.092,
+    "expected": 153,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

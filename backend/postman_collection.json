@@ -28,7 +28,16 @@
       ],
       "request": {
         "method": "GET",
-        "url": { "raw": "{{baseUrl}}/api/health", "host": ["{{baseUrl}}"], "path": ["api", "health"] }
+        "url": {
+          "raw": "{{baseUrl}}/api/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "health"
+          ]
+        }
       }
     },
     {
@@ -54,8 +63,22 @@
       ],
       "request": {
         "method": "POST",
-        "url": { "raw": "{{baseUrl}}/api/generate-plan", "host": ["{{baseUrl}}"], "path": ["api", "generate-plan"] },
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
@@ -79,11 +102,25 @@
       ],
       "request": {
         "method": "POST",
-        "url": { "raw": "{{baseUrl}}/api/generate-plan", "host": ["{{baseUrl}}"], "path": ["api", "generate-plan"] },
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
         "body": {
           "mode": "raw",
-          "raw": "{\"age\":\"25\",\"gender\":\"male\",\"height\":\"180\",\"weight\":\"85\",\"goal\":\"strength\",\"experience\":\"advanced\",\"daysPerWeek\":\"4\",\"equipment\":\"gym\"}"
+          "raw": "{\"age\":\"25\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"85\",\"bodyFat\":\"18\",\"goal\":\"strength\",\"experience\":\"advanced\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
         }
       }
     },
@@ -104,11 +141,25 @@
       ],
       "request": {
         "method": "POST",
-        "url": { "raw": "{{baseUrl}}/api/generate-plan", "host": ["{{baseUrl}}"], "path": ["api", "generate-plan"] },
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
         "body": {
           "mode": "raw",
-          "raw": "{\"age\":\"35\",\"gender\":\"female\",\"height\":\"165\",\"weight\":\"70\",\"goal\":\"fat-loss\",\"experience\":\"beginner\",\"daysPerWeek\":\"3\",\"equipment\":\"gym\"}"
+          "raw": "{\"age\":\"35\",\"gender\":\"female\",\"height\":\"165\",\"weight\":\"70\",\"bodyFat\":\"18\",\"goal\":\"fat-loss\",\"experience\":\"beginner\",\"daysPerWeek\":\"3\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
         }
       }
     },
@@ -127,11 +178,25 @@
       ],
       "request": {
         "method": "POST",
-        "url": { "raw": "{{baseUrl}}/api/generate-plan", "host": ["{{baseUrl}}"], "path": ["api", "generate-plan"] },
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
         "body": {
           "mode": "raw",
-          "raw": "{\"age\":\"28\",\"gender\":\"male\",\"height\":\"175\",\"weight\":\"75\",\"goal\":\"build-muscle\",\"experience\":\"beginner\",\"daysPerWeek\":\"3\",\"equipment\":\"bodyweight\"}"
+          "raw": "{\"age\":\"28\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"75\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"beginner\",\"daysPerWeek\":\"3\",\"sessionLength\":\"60\",\"equipment\":\"bodyweight\"}"
         }
       }
     },
@@ -151,8 +216,22 @@
       ],
       "request": {
         "method": "POST",
-        "url": { "raw": "{{baseUrl}}/api/generate-plan", "host": ["{{baseUrl}}"], "path": ["api", "generate-plan"] },
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "{\"age\":\"30\"}"
@@ -174,8 +253,22 @@
       ],
       "request": {
         "method": "POST",
-        "url": { "raw": "{{baseUrl}}/api/generate-plan", "host": ["{{baseUrl}}"], "path": ["api", "generate-plan"] },
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "{}"
@@ -198,11 +291,895 @@
       ],
       "request": {
         "method": "POST",
-        "url": { "raw": "{{baseUrl}}/api/generate-plan", "host": ["{{baseUrl}}"], "path": ["api", "generate-plan"] },
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
         "body": {
           "mode": "raw",
-          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"82\",\"goal\":\"general-fitness\",\"experience\":\"beginner\",\"daysPerWeek\":\"2\",\"equipment\":\"gym\"}"
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"general-fitness\",\"experience\":\"beginner\",\"daysPerWeek\":\"2\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Age Min Boundary Valid (14)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
+              "pm.test('Returns a valid plan', () => { const d = pm.response.json(); pm.expect(d).to.have.property('mode'); pm.expect(d.mode).to.eql('mock-ai'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"14\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Age Max Boundary Valid (90)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
+              "pm.test('Returns a valid plan', () => { const d = pm.response.json(); pm.expect(d).to.have.property('mode'); pm.expect(d.mode).to.eql('mock-ai'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"90\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Height Min Boundary Valid (120)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
+              "pm.test('Returns a valid plan', () => { const d = pm.response.json(); pm.expect(d).to.have.property('mode'); pm.expect(d.mode).to.eql('mock-ai'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"120\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Height Max Boundary Valid (230)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
+              "pm.test('Returns a valid plan', () => { const d = pm.response.json(); pm.expect(d).to.have.property('mode'); pm.expect(d.mode).to.eql('mock-ai'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"230\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Weight Min Boundary Valid (35)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
+              "pm.test('Returns a valid plan', () => { const d = pm.response.json(); pm.expect(d).to.have.property('mode'); pm.expect(d.mode).to.eql('mock-ai'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"35\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Weight Max Boundary Valid (250)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
+              "pm.test('Returns a valid plan', () => { const d = pm.response.json(); pm.expect(d).to.have.property('mode'); pm.expect(d.mode).to.eql('mock-ai'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"250\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - DaysPerWeek Min Boundary Valid (2)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
+              "pm.test('Returns a valid plan', () => { const d = pm.response.json(); pm.expect(d).to.have.property('mode'); pm.expect(d.mode).to.eql('mock-ai'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"2\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - DaysPerWeek Max Boundary Valid (6)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
+              "pm.test('Returns a valid plan', () => { const d = pm.response.json(); pm.expect(d).to.have.property('mode'); pm.expect(d.mode).to.eql('mock-ai'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"6\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Age Below Min Invalid (13)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
+              "pm.test('Error message mentions invalid values', () => { const d = pm.response.json(); pm.expect(d.message).to.include('Invalid'); });",
+              "pm.test('Errors list includes age', () => { const d = pm.response.json(); pm.expect(d.errors).to.be.an('array'); pm.expect(d.errors.map(e => e.field)).to.include('age'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"13\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Age Above Max Invalid (91)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
+              "pm.test('Error message mentions invalid values', () => { const d = pm.response.json(); pm.expect(d.message).to.include('Invalid'); });",
+              "pm.test('Errors list includes age', () => { const d = pm.response.json(); pm.expect(d.errors).to.be.an('array'); pm.expect(d.errors.map(e => e.field)).to.include('age'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"91\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Height Below Min Invalid (119)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
+              "pm.test('Error message mentions invalid values', () => { const d = pm.response.json(); pm.expect(d.message).to.include('Invalid'); });",
+              "pm.test('Errors list includes height', () => { const d = pm.response.json(); pm.expect(d.errors).to.be.an('array'); pm.expect(d.errors.map(e => e.field)).to.include('height'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"119\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Height Above Max Invalid (231)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
+              "pm.test('Error message mentions invalid values', () => { const d = pm.response.json(); pm.expect(d.message).to.include('Invalid'); });",
+              "pm.test('Errors list includes height', () => { const d = pm.response.json(); pm.expect(d.errors).to.be.an('array'); pm.expect(d.errors.map(e => e.field)).to.include('height'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"231\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Weight Below Min Invalid (34)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
+              "pm.test('Error message mentions invalid values', () => { const d = pm.response.json(); pm.expect(d.message).to.include('Invalid'); });",
+              "pm.test('Errors list includes weight', () => { const d = pm.response.json(); pm.expect(d.errors).to.be.an('array'); pm.expect(d.errors.map(e => e.field)).to.include('weight'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"34\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Weight Above Max Invalid (251)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
+              "pm.test('Error message mentions invalid values', () => { const d = pm.response.json(); pm.expect(d.message).to.include('Invalid'); });",
+              "pm.test('Errors list includes weight', () => { const d = pm.response.json(); pm.expect(d.errors).to.be.an('array'); pm.expect(d.errors.map(e => e.field)).to.include('weight'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"251\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - DaysPerWeek Below Min Invalid (1)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
+              "pm.test('Error message mentions invalid values', () => { const d = pm.response.json(); pm.expect(d.message).to.include('Invalid'); });",
+              "pm.test('Errors list includes daysPerWeek', () => { const d = pm.response.json(); pm.expect(d.errors).to.be.an('array'); pm.expect(d.errors.map(e => e.field)).to.include('daysPerWeek'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"1\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - DaysPerWeek Above Max Invalid (7)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
+              "pm.test('Error message mentions invalid values', () => { const d = pm.response.json(); pm.expect(d.message).to.include('Invalid'); });",
+              "pm.test('Errors list includes daysPerWeek', () => { const d = pm.response.json(); pm.expect(d.errors).to.be.an('array'); pm.expect(d.errors.map(e => e.field)).to.include('daysPerWeek'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"7\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Age Non-Numeric Invalid (abc)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
+              "pm.test('Error message mentions invalid values', () => { const d = pm.response.json(); pm.expect(d.message).to.include('Invalid'); });",
+              "pm.test('Errors list includes age', () => { const d = pm.response.json(); pm.expect(d.errors).to.be.an('array'); pm.expect(d.errors.map(e => e.field)).to.include('age'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"abc\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Weight Non-Numeric Invalid (x)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
+              "pm.test('Error message mentions invalid values', () => { const d = pm.response.json(); pm.expect(d.message).to.include('Invalid'); });",
+              "pm.test('Errors list includes weight', () => { const d = pm.response.json(); pm.expect(d.errors).to.be.an('array'); pm.expect(d.errors.map(e => e.field)).to.include('weight'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"x\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Invalid Goal (bogus)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
+              "pm.test('Error message mentions invalid values', () => { const d = pm.response.json(); pm.expect(d.message).to.include('Invalid'); });",
+              "pm.test('Errors list includes goal', () => { const d = pm.response.json(); pm.expect(d.errors).to.be.an('array'); pm.expect(d.errors.map(e => e.field)).to.include('goal'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"bogus\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Invalid Experience (expert)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
+              "pm.test('Error message mentions invalid values', () => { const d = pm.response.json(); pm.expect(d.message).to.include('Invalid'); });",
+              "pm.test('Errors list includes experience', () => { const d = pm.response.json(); pm.expect(d.errors).to.be.an('array'); pm.expect(d.errors.map(e => e.field)).to.include('experience'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"expert\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"gym\"}"
+        }
+      }
+    },
+    {
+      "name": "Generate Plan - Invalid Equipment (none)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 400', () => { pm.response.to.have.status(400); });",
+              "pm.test('Error message mentions invalid values', () => { const d = pm.response.json(); pm.expect(d.message).to.include('Invalid'); });",
+              "pm.test('Errors list includes equipment', () => { const d = pm.response.json(); pm.expect(d.errors).to.be.an('array'); pm.expect(d.errors.map(e => e.field)).to.include('equipment'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{baseUrl}}/api/generate-plan",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "generate-plan"
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"age\":\"30\",\"gender\":\"male\",\"height\":\"178\",\"weight\":\"82\",\"bodyFat\":\"18\",\"goal\":\"build-muscle\",\"experience\":\"intermediate\",\"daysPerWeek\":\"4\",\"sessionLength\":\"60\",\"equipment\":\"none\"}"
+        }
+      }
+    },
+    {
+      "name": "Resume - English PDF",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
+              "pm.test('Content-Type is application/pdf', () => { pm.expect(pm.response.headers.get('Content-Type')).to.include('application/pdf'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/resumes/en",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "resumes",
+            "en"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Resume - Hungarian PDF",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 200', () => { pm.response.to.have.status(200); });",
+              "pm.test('Content-Type is application/pdf', () => { pm.expect(pm.response.headers.get('Content-Type')).to.include('application/pdf'); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/resumes/hu",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "resumes",
+            "hu"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Resume - Unknown Slug Returns 404",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status code is 404', () => { pm.response.to.have.status(404); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/resumes/does-not-exist",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "resumes",
+            "does-not-exist"
+          ]
         }
       }
     }
