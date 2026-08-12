@@ -203,8 +203,10 @@ function App() {
         let response = await fetch('/api/test-results');
         if (response.ok) {
           const data = await response.json();
-          setTestResults(data);
-          return;
+          if (data && (data.api || data.ui || data.lighthouse)) {
+            setTestResults(data);
+            return;
+          }
         }
 
         // Fallback: static report JSON files committed with the site
